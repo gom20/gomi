@@ -1,6 +1,17 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
+import AppLayout from '@/components/AppLayout';
+import HeaderLayout from '@/components/HeaderLayout';
+
+About.getLayout = function getLayout(page: ReactElement) {
+    return (
+        <AppLayout>
+            <HeaderLayout />
+            {page}
+        </AppLayout>
+    );
+};
 
 export default function About() {
     const router = useRouter();
@@ -42,12 +53,12 @@ export default function About() {
         <motion.div
             key="about"
             initial={{
-                opacity: 0,
-                top: '100vh',
+                opacity: 1,
+                // y: '100vh',
             }}
             animate={{
                 opacity: 1,
-                top: '0vh',
+                // y: '0vh',
                 scale: 1,
             }}
             exit={{

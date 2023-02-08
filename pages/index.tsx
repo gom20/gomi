@@ -1,11 +1,23 @@
+import AppLayout from '@/components/AppLayout';
+import HeaderLayout from '@/components/HeaderLayout';
+import Header from '@/components/HeaderLayout';
 import styles from '@/styles/Home.module.css';
 import { Inter } from '@next/font/google';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
+
+Home.getLayout = function getLayout(page: ReactElement) {
+    return (
+        <AppLayout>
+            <HeaderLayout />
+            {page}
+        </AppLayout>
+    );
+};
 
 export default function Home() {
     const router = useRouter();
@@ -46,9 +58,13 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
             <main className={styles.main}>
-                {/* <Intro /> */}
-                <Link href="/about">Intro</Link>
+                <div className={styles.title}>Hello!</div>
+                <div>
+                    <div className={styles.desc}>I'm Miyoung.</div>
+                    <div className={styles.desc}>I'm a Full Stack Web Developer!</div>
+                </div>
             </main>
         </>
     );
