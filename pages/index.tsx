@@ -1,15 +1,42 @@
-import Intro from '@/components/Intro';
 import styles from '@/styles/Home.module.css';
 import { Inter } from '@next/font/google';
-import { motion } from 'framer-motion';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
     const router = useRouter();
+
+    let timer: null | NodeJS.Timeout;
+    const handleWheel = (e: WheelEvent) => {
+        if (timer) return;
+        timer = setTimeout(function () {
+            timer = null;
+            let hasScroll = window.innerHeight == document.body.offsetHeight ? true : false;
+            if (!hasScroll) {
+                if (e.deltaY > 0) {
+                    router.push('/about');
+                }
+            } else {
+                if (
+                    window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+                    e.deltaY > 0
+                ) {
+                    router.push('/about');
+                }
+            }
+        }, 500);
+    };
+
+    useEffect(() => {
+        window.addEventListener('wheel', handleWheel);
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+        };
+    }, []);
 
     return (
         <>
@@ -20,7 +47,8 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
-                <Intro />
+                {/* <Intro /> */}
+                <Link href="/about">Intro</Link>
             </main>
         </>
     );
