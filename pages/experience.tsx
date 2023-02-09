@@ -2,6 +2,7 @@ import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
+import styles from '@/styles/Experience.module.css';
 
 Experience.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -40,32 +41,8 @@ export default function Experience() {
     }, []);
 
     return (
-        <motion.div
-            // key="experience"
-            // initial={{
-            //   opacity: 0,
-            //   top: '100vh',
-            // }}
-            // animate={{
-            //   opacity: 1,
-            //   top: '0vh',
-            //   scale: 1,
-            // }}
-            // exit={{
-            //   opacity: 0,
-            //   top: '100vh',
-            // }}
-            // transition={{
-            //   duration: 0.7,
-            // }}
-            style={{
-                flex: 1,
-                backgroundColor: 'orange',
-                width: '100vw',
-                height: '105vw',
-                alignItems: 'center',
-            }}>
-            <h1>안녕하세요. 경험 페이지예요.</h1>
-        </motion.div>
+        <div className={styles.container}>
+            <div className={styles.title}>Experience</div>
+        </div>
     );
 }

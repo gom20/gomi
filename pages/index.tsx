@@ -38,33 +38,54 @@ export default function Home() {
     }, []);
 
     return (
-        <AnimatePresence mode="wait">
+        <div className={styles.container}>
             <motion.div
-                key="index"
-                // className={styles.container}
-                // initial={{ y: 100, opacity: 0 }}
-                // animate={{ y: 0, opacity: 1 }}
-                // exit={{ x: 100, opacity: 0, transition: { duration: 1 } }}
-                // transition={{
-                //     duration: 1,
-                // }}
-                style={{
-                    flex: 1,
-                    overflow: 'hidden',
-
-                    // backgroundColor: 'pink',
-                }}>
-                <main className={styles.main}>
-                    <div className={styles.title}>Hello!</div>
-                    <div>
-                        <div className={styles.desc}>I'm Miyoung.</div>
-                        <div className={styles.desc}>I'm a Full Stack Web Developer!</div>
-                    </div>
-                    <div>
-                        <SouthIcon fontSize="large"></SouthIcon>
-                    </div>
-                </main>
+                key="title"
+                initial={{
+                    x: -100,
+                }}
+                animate={{
+                    x: 0,
+                }}
+                transition={{ duration: 2, type: 'spring', delay: 0.7 }}
+                className={styles.title}>
+                Hello!
             </motion.div>
-        </AnimatePresence>
+            <div>
+                <motion.div
+                    key="title"
+                    initial={{
+                        x: -50,
+                    }}
+                    animate={{
+                        x: 0,
+                    }}
+                    transition={{ duration: 2, type: 'spring', delay: 0.7 }}
+                    className={styles.desc}>
+                    I'm Miyoung.
+                </motion.div>
+                <motion.div
+                    key="title"
+                    initial={{
+                        y: 50,
+                    }}
+                    animate={{
+                        y: 0,
+                    }}
+                    transition={{ duration: 2, type: 'spring', delay: 0.7 }}
+                    className={styles.desc}>
+                    I'm a Full Stack Web Developer.
+                </motion.div>
+            </div>
+            <motion.div
+                whileHover={{ scale: 1.1, y: 10 }}
+                onClick={() => {
+                    router.push('/about');
+                }}>
+                {/* <motion.a whileHover={{ scale: 1.1 }} onHoverStart={(e) => {}} onHoverEnd={(e) => {}}> */}
+                <SouthIcon fontSize="large"></SouthIcon>
+                {/* </motion.a> */}
+            </motion.div>
+        </div>
     );
 }

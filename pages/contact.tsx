@@ -2,6 +2,7 @@ import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
+import styles from '@/styles/Contact.module.css';
 
 Contact.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -36,23 +37,8 @@ export default function Contact() {
     }, []);
 
     return (
-        <motion.div
-            key="contact"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-                duration: 1,
-            }}
-            style={{
-                flex: 1,
-                backgroundColor: 'green',
-                width: '100vw',
-                height: '100vh',
-                alignItems: 'center',
-            }}>
-            <motion.div>
-                <h1>안녕하세요.contact</h1>
-            </motion.div>
-        </motion.div>
+        <div className={styles.container}>
+            <h1>Contact Info입니다 </h1>
+        </div>
     );
 }
