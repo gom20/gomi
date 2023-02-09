@@ -1,6 +1,5 @@
 import styles from '@/styles/Layout.module.css';
-import GitHubIcon from '@mui/icons-material/GitHub';
 
-export default function Info() {
+export default function Logo() {
   return <div className={styles.info}>GO! Miyoung</div>;
 }
