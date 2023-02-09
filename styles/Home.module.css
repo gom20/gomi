@@ -3,12 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding: 6rem; */
     min-height: 100vh;
 }
 
 .title {
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
     font-size: 150px;
@@ -18,46 +16,10 @@
 }
 
 .desc {
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
     line-height: 39px;
     text-align: center;
     color: #000000;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-    .card:hover {
-        background: rgba(var(--card-rgb), 0.1);
-        border: 1px solid rgba(var(--card-border-rgb), 0.15);
-    }
-
-    .card:hover span {
-        transform: translateX(4px);
-    }
-}
-
-@media (prefers-reduced-motion) {
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-}
-
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-}
-
-@media (prefers-color-scheme: dark) {
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
 }
