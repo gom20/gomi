@@ -12,30 +12,30 @@ Home.getLayout = function getLayout(page: ReactElement) {
 export default function Home() {
     const router = useRouter();
 
-    let timer: null | NodeJS.Timeout;
-    const handleWheel = (e: WheelEvent) => {
-        if (timer) return;
-        timer = setTimeout(function () {
-            timer = null;
-            let hasScroll = window.innerHeight == document.body.offsetHeight ? true : false;
-            if (!hasScroll) {
-                if (e.deltaY > 0) {
-                    router.push('/about');
-                }
-            } else {
-                if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
-                    router.push('/about');
-                }
-            }
-        }, 500);
-    };
-
     useEffect(() => {
+        let timer: null | NodeJS.Timeout;
+        const handleWheel = (e: WheelEvent) => {
+            if (timer) return;
+            timer = setTimeout(function () {
+                timer = null;
+                let hasScroll = window.innerHeight == document.body.offsetHeight ? true : false;
+                if (!hasScroll) {
+                    if (e.deltaY > 0) {
+                        router.push('/about');
+                    }
+                } else {
+                    if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
+                        router.push('/about');
+                    }
+                }
+            }, 500);
+        };
+
         window.addEventListener('wheel', handleWheel);
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
-    }, []);
+    }, [router]);
 
     return (
         <div className={styles.container}>
