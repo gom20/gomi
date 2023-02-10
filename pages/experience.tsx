@@ -64,11 +64,6 @@ export default function Experience() {
                 Sublime Text, SVN, Redmine ∙ 개발 언어 및 라이브러리: JavaScript, jQuery, HTML, CSS, BackboneJS ∙ 담당 업무: Smart TV Facebook, Twitter, 대우증권 WebApp 유지보수 및 리팩토링 ∙ 상세
                 내용: - 양산 테스트 Defect, VOC, 로직 변경 요청 대응 - Facebook, Twitter App 대상 BackboneJS F/W적용하여 MVC 패턴으로 재개발 - 대우증권 App GUI 리뉴얼
             </div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false, amount: 0.8 }} style={{ fontSize: '30rem' }}>
-                test
-            </motion.div>
-            <div style={{ marginTop: '30rem' }}></div>
-            <motion.div className="progress-bar" style={{ scaleY: scaleY }} />
         </div>
     );
 }
