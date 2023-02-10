@@ -1,9 +1,9 @@
 import AppLayout from '@/layouts/AppLayout';
 import styles from '@/styles/Home.module.css';
+import SouthIcon from '@mui/icons-material/South';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
-import SouthIcon from '@mui/icons-material/South';
-import { AnimatePresence, motion } from 'framer-motion';
 
 Home.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout isHome={true}>{page}</AppLayout>;
