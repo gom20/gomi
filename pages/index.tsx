@@ -1,5 +1,4 @@
 import AppLayout from '@/layouts/AppLayout';
-import styles from '@/styles/Home.module.css';
 import SouthIcon from '@mui/icons-material/South';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -38,28 +37,62 @@ export default function Home() {
     }, [router]);
 
     return (
-        <div className={styles.container}>
+        <div id="home">
             <motion.div
-                className={styles.box}
+                key="box-motion"
+                className={'box'}
                 initial={{
                     scale: 0,
                     opacity: 0,
                 }}
                 animate={{
-                    opacity: [1, 1, 1, 1, 1],
-                    scale: [2, 1, 2, 1, 2],
-                    rotate: [0, 0, 0, 180, 0],
-                    backgroundColor: ['hsl(60, 100%, 90%)', 'hsl(346, 100%, 95%)', 'hsl(60, 100%, 90%)'],
-                    borderRadius: ['50%', '50%', '50%', '20%', '50%'],
+                    opacity: [
+                        1, 1, 1, 1,
+                        // 1, 1, 1, 1,
+
+                        1, 1,
+                    ],
+                    scale: [
+                        0, 2, 1, 2,
+                        // 1, 2, 1, 2,
+
+                        0, 10,
+                    ],
+                    rotate: [
+                        0, 0, 180, 0,
+                        // 0, 0, 180, 0,
+
+                        0, 0,
+                    ],
+                    backgroundColor: [
+                        'hsl(60, 100%, 90%)',
+                        'hsl(60, 100%, 90%)',
+                        // 'hsl(346, 100%, 95%)',
+                        // 'hsl(346, 100%, 95%)',
+                        // 'hsl(60, 100%, 90%)',
+                        // 'hsl(60, 100%, 90%)',
+                        'hsl(0, 100%, 95%)',
+                        'hsl(0, 100%, 95%)',
+                        'hsl(0, 100%, 95%)',
+                        'hsl(241, 56%, 57%)',
+                    ],
+                    borderRadius: [
+                        '50%',
+                        '50%',
+                        '20%',
+                        '50%',
+                        //  '50%', '50%', '20%', '50%',
+                        '50%',
+                        '50%',
+                    ],
                 }}
                 transition={{
-                    duration: 3,
+                    duration: 4,
                     ease: 'easeInOut',
-                    times: [0, 0.2, 0.5, 0.8, 1],
-                    repeat: 1,
                 }}
             />
             <motion.div
+                key="hello-position"
                 initial={{
                     y: -50,
                     opacity: 0,
@@ -69,11 +102,34 @@ export default function Home() {
                     opacity: 1,
                 }}
                 transition={{ duration: 2, type: 'spring', delay: 0.3 }}
-                className={styles.title}>
-                Hello!
+                className={'title'}>
+                <motion.p
+                    key="hello-color"
+                    initial={{ color: '#000' }}
+                    animate={{
+                        color: [
+                            'hsl(210, 100%, 35%)',
+                            'hsl(210, 100%, 35%)',
+                            'hsl(210, 100%, 35%)',
+                            'hsl(241, 80%, 57%)',
+                            // 'hsl(241, 80%, 57%)',
+                            // 'hsl(241, 80%, 57%)',
+                            // 'hsl(210, 100%, 35%)',
+                            // 'hsl(210, 100%, 35%)',
+                            'hsl(241, 80%, 57%)',
+                            'hsl(0, 0%, 100%)',
+                        ],
+                    }}
+                    transition={{
+                        duration: 4,
+                        ease: 'easeInOut',
+                    }}>
+                    Hello!
+                </motion.p>
             </motion.div>
             <div>
                 <motion.div
+                    key="miyoung-position"
                     initial={{
                         x: -50,
                         opacity: 0,
@@ -83,11 +139,32 @@ export default function Home() {
                         opacity: 1,
                     }}
                     transition={{ duration: 2, type: 'spring', delay: 0.7 }}
-                    className={styles.desc}>
-                    I'm Miyoung.
+                    className={'desc'}>
+                    <motion.p
+                        key="miyoung-color"
+                        animate={{
+                            color: [
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 100%)',
+                            ],
+                        }}
+                        transition={{
+                            duration: 4,
+                            ease: 'easeInOut',
+                        }}>
+                        I'm Miyoung.
+                    </motion.p>
                 </motion.div>
-                {/* <br></br> */}
                 <motion.div
+                    key="fullstack-position"
                     initial={{
                         x: 50,
                         opacity: 0,
@@ -97,20 +174,65 @@ export default function Home() {
                         opacity: 1,
                     }}
                     transition={{ duration: 2, type: 'spring', delay: 1.1 }}
-                    className={styles.desc}>
-                    <p>I'm a Full Stack</p> <p style={{ fontWeight: '800' }}>Web Developer.</p>
+                    className={'desc'}>
+                    <motion.p
+                        key="full-color"
+                        animate={{
+                            color: [
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 100%)',
+                            ],
+                        }}
+                        transition={{
+                            duration: 4,
+                            ease: 'easeInOut',
+                        }}>
+                        I'm a Full Stack
+                    </motion.p>
+                    <motion.p
+                        key="developer-color"
+                        animate={{
+                            color: [
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                // 'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 0%)',
+                                'hsl(0, 0%, 100%)',
+                            ],
+                        }}
+                        transition={{
+                            duration: 4,
+                            ease: 'easeInOut',
+                        }}
+                        style={{ fontWeight: '700' }}>
+                        Web Developer.
+                    </motion.p>
                 </motion.div>
             </div>
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2, type: 'spring', delay: 1.4 }}
+                key="arror-position"
+                initial={{ y: 0 }}
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 1, type: 'spring', repeat: Infinity }}
                 onClick={() => {
                     router.push('/about');
                 }}
-                style={{ position: 'fixed', bottom: 0, marginBottom: '5rem' }}>
-                <motion.a>
-                    <SouthIcon fontSize="large"></SouthIcon>
+                style={{ position: 'fixed', bottom: 0, marginBottom: '2rem' }}>
+                <motion.a key="arror-motion">
+                    <SouthIcon fontSize="large" style={{ color: '#FFF' }}></SouthIcon>
                 </motion.a>
             </motion.div>
         </div>

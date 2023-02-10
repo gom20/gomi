@@ -2,7 +2,7 @@ import AppLayout from '@/layouts/AppLayout';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
-import styles from '@/styles/About.module.css';
+// import styles from '@/styles/About.module.css';
 
 About.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -47,7 +47,7 @@ export default function About() {
     }, [router]);
 
     return (
-        <div className={styles.container}>
+        <div id="about">
             <motion.div
                 initial={{
                     x: -100,
@@ -58,7 +58,7 @@ export default function About() {
                     opacity: 1,
                 }}
                 transition={{ duration: 2, type: 'spring', delay: 0.5 }}
-                className={styles.backtitle}>
+                className="back-title">
                 <p>ABOUT</p>
                 <p>ME</p>
             </motion.div>
@@ -74,14 +74,14 @@ export default function About() {
                     opacity: 1,
                 }}
                 transition={{ duration: 2, type: 'spring', delay: 0.5 }}
-                className={styles.backcircle}></motion.div>
+                className="back-circle"></motion.div>
 
-            <motion.div className={styles.title}>
-                <p>안녕하세요.</p> <p className={styles.en}>Web Developer</p>
+            <motion.div className="title">
+                <p>안녕하세요.</p> <p className="en">Web Developer</p>
                 <p>고미영입니다.</p>
             </motion.div>
-            <div className={styles.contents}>
-                <div className={styles.desc}>
+            <div className="contents">
+                <div className="desc">
                     Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications, web servers, and maintaining the semiconductor
                     manufacturing system. My job on this last project was to run a system that analyzed the amount of material used in the semiconductor production process, where I mainly monitored
                     the system and modified server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to deal with a large amount of
@@ -89,10 +89,10 @@ export default function About() {
                 </div>
                 <br></br>
 
-                <div className={styles.item}>
-                    <div className={styles.label}>SKILL</div>
+                <div className="item">
+                    <div className="label">SKILL</div>
                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <div className={styles.subitem}>
+                        <div className="sub-item">
                             <div>Language</div>
                             <div>
                                 <p>java</p>
@@ -101,7 +101,7 @@ export default function About() {
                                 <p>Mysql</p>
                             </div>
                         </div>
-                        <div className={styles.subitem}>
+                        <div className="sub-item">
                             <div>Language</div>
                             <div>
                                 <p>java</p>
@@ -110,7 +110,7 @@ export default function About() {
                                 <p>Mysql</p>
                             </div>
                         </div>
-                        <div className={styles.subitem}>
+                        <div className="sub-item">
                             <div>Language</div>
                             <div>
                                 <p>java</p>
@@ -119,7 +119,7 @@ export default function About() {
                                 <p>Mysql</p>
                             </div>
                         </div>
-                        <div className={styles.subitem}>
+                        <div className="sub-item">
                             <div>Language</div>
                             <div>
                                 <p>java</p>
@@ -132,8 +132,8 @@ export default function About() {
                 </div>
                 <br></br>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                    <div className={styles.item}>
-                        <div className={styles.label}>CERTIFICATE</div>
+                    <div className="item">
+                        <div className="label">CERTIFICATE</div>
                         <div>
                             <p>2022.10 AZ-900 (Microsoft)</p>
                             <p>2022.10 한국사능력검정 1급 (국사편찬위원회)</p>
@@ -145,8 +145,8 @@ export default function About() {
                         </div>
                     </div>
                     <div style={{ marginRight: '10rem' }}></div>
-                    <div className={styles.item}>
-                        <div className={styles.label}>LANGUAGE</div>
+                    <div className="item">
+                        <div className="label">LANGUAGE</div>
                         <div>
                             <p>2022.08 TOEIC 935</p>
                             <p>2017.08 JLPN N3</p>

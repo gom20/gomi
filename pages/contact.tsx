@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
 import styles from '@/styles/Contact.module.css';
+// import '@/styles/globals.css';
 
 Contact.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -36,7 +37,7 @@ export default function Contact() {
     }, [router]);
 
     return (
-        <div className={styles.container}>
+        <div className={'container'}>
             <h1>Contact Info입니다 </h1>
         </div>
     );
