@@ -3,10 +3,38 @@ import SouthIcon from '@mui/icons-material/South';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
+import css from 'styled-jsx/css';
 
 Home.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout isHome={true}>{page}</AppLayout>;
 };
+
+// const styles = {
+//     container: {
+//         display: 'flex',
+//         flexDirection: 'column',
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         minHeight: '100vh',
+//         minWidth: '100vw',
+//     },
+//     backCircle: {
+//         position: 'fixed',
+//         left: '50',
+//         width: '20rem',
+//         height: '20rem',
+//         background: '#f3f3f3',
+//         zIndex: '-1',
+//     },
+//     desc: {
+//         fontStyle: 'normal',
+//         fontWeight: '300',
+//         fontSize: '3rem',
+//         lineHeight: '4rem',
+//         color: '#000',
+//         fontFamily: 'Railway',
+//     },
+// };
 
 export default function Home() {
     const router = useRouter();
@@ -37,10 +65,18 @@ export default function Home() {
     }, [router]);
 
     return (
-        <div id="home">
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: '100vh',
+                minWidth: '100vw',
+            }}>
             <motion.div
                 key="box-motion"
-                className={'box'}
+                style={{ position: 'fixed', left: '50', width: '20rem', height: '20rem', background: '#f3f3f3', zIndex: '-1' }}
                 initial={{
                     scale: 0,
                     opacity: 0,
@@ -102,7 +138,13 @@ export default function Home() {
                     opacity: 1,
                 }}
                 transition={{ duration: 2, type: 'spring', delay: 0.3 }}
-                className={'title'}>
+                style={{
+                    fontWeight: '900',
+                    fontSize: '7rem',
+                    textAlign: 'center',
+                    fontFamily: 'Raleway',
+                    color: '#5755cf',
+                }}>
                 <motion.p
                     key="hello-color"
                     initial={{ color: '#000' }}
@@ -139,7 +181,7 @@ export default function Home() {
                         opacity: 1,
                     }}
                     transition={{ duration: 2, type: 'spring', delay: 0.7 }}
-                    className={'desc'}>
+                    style={{ fontStyle: 'normal', fontWeight: '300', fontSize: '3rem', lineHeight: '4rem', color: '#000', fontFamily: 'Railway' }}>
                     <motion.p
                         key="miyoung-color"
                         animate={{
@@ -174,7 +216,14 @@ export default function Home() {
                         opacity: 1,
                     }}
                     transition={{ duration: 2, type: 'spring', delay: 1.1 }}
-                    className={'desc'}>
+                    style={{
+                        fontStyle: 'normal',
+                        fontWeight: '300',
+                        fontSize: '3rem',
+                        lineHeight: '4rem',
+                        color: '#000',
+                        fontFamily: 'Railway',
+                    }}>
                     <motion.p
                         key="full-color"
                         animate={{
