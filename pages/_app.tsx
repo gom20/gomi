@@ -17,8 +17,8 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
 
     return getLayout(
         <>
-            <AnimatePresence mode="wait" initial={true}>
-                <motion.div key={router.pathname} initial={{ opacity: 0, y: '100%' }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: '-100%' }} transition={{ duration: 0.7 }}>
+            <AnimatePresence mode="popLayout" initial={true}>
+                <motion.div key={router.pathname} initial={{ opacity: 0, y: '100%' }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: '-100%' }} transition={{ duration: 0.5 }} layout>
                     <Component {...pageProps} />
                 </motion.div>
             </AnimatePresence>
