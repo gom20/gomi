@@ -22,9 +22,20 @@ html,
 body {
     max-width: 100vw;
     overflow-x: hidden;
-    font-family: 'Noto Sans KR';
+    font-family: 'Montserrat';
 }
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    background: pink;
+    transform-origin: 0%;
+    /* display: none; */
+    z-index: 999;
 }

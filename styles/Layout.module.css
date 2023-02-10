@@ -8,9 +8,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: transparent;
+    /* background-color: transparent; */
     min-width: 100vw;
+    background-color: rgba(0, 0, 0, 0.05);
     padding: 1rem;
+    z-index: 1;
 }
 
 .footer {
@@ -19,7 +21,7 @@
     right: 0;
     padding: 1rem;
     color: #818181;
-    font-size: small;
+    font-size: 0.3rem;
 }
 
 .info {
@@ -36,11 +38,13 @@
     text-decoration: none;
     font-size: 2rem;
     font-weight: 800;
-    color: #818181;
+    /* color: #818181; */
+    color: #c5c5c5;
     display: block;
     transition: 0.3s;
 }
 
 .link:hover {
-    color: #f1f1f1;
+    /* color: #f1f1f1; */
+    color: #5755cf;
 }

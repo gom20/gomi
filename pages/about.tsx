@@ -1,5 +1,5 @@
 import AppLayout from '@/layouts/AppLayout';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
 import styles from '@/styles/About.module.css';
@@ -10,6 +10,12 @@ About.getLayout = function getLayout(page: ReactElement) {
 
 export default function About() {
     const router = useRouter();
+    const { scrollYProgress } = useScroll();
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001,
+    });
 
     useEffect(() => {
         let timer: null | NodeJS.Timeout;
@@ -71,7 +77,7 @@ export default function About() {
                 className={styles.backcircle}></motion.div>
 
             <motion.div className={styles.title}>
-                <p>안녕하세요.</p> <p>Web Developer</p>
+                <p>안녕하세요.</p> <p className={styles.en}>Web Developer</p>
                 <p>고미영입니다.</p>
             </motion.div>
             <div className={styles.contents}>
@@ -148,6 +154,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
+            <motion.div className="progress-bar" style={{ scaleY: scaleY }} />
         </div>
     );
 }
