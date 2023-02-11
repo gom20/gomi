@@ -24,7 +24,7 @@ html,
 body {
     max-width: 100vw;
     overflow-x: hidden;
-    font-family: 'Montserrat';
+    font-family: 'Raleway';
 }
 
 body::-webkit-scrollbar {
@@ -43,16 +43,16 @@ body::-webkit-scrollbar {
 }
 
 /* Home */
-/* #home {
+#home {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     min-width: 100vw;
-} */
+}
 
-/* #home .title {
+#home .title {
     font-style: normal;
     font-weight: 900;
     font-size: 7rem;
@@ -79,7 +79,7 @@ body::-webkit-scrollbar {
     height: 20rem;
     background: #f3f3f3;
     z-index: -1;
-} */
+}
 
 /* About */
 #about {

@@ -3,38 +3,10 @@ import SouthIcon from '@mui/icons-material/South';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
-import css from 'styled-jsx/css';
 
 Home.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout isHome={true}>{page}</AppLayout>;
 };
-
-// const styles = {
-//     container: {
-//         display: 'flex',
-//         flexDirection: 'column',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         minHeight: '100vh',
-//         minWidth: '100vw',
-//     },
-//     backCircle: {
-//         position: 'fixed',
-//         left: '50',
-//         width: '20rem',
-//         height: '20rem',
-//         background: '#f3f3f3',
-//         zIndex: '-1',
-//     },
-//     desc: {
-//         fontStyle: 'normal',
-//         fontWeight: '300',
-//         fontSize: '3rem',
-//         lineHeight: '4rem',
-//         color: '#000',
-//         fontFamily: 'Railway',
-//     },
-// };
 
 export default function Home() {
     const router = useRouter();
@@ -65,62 +37,20 @@ export default function Home() {
     }, [router]);
 
     return (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: '100vh',
-                minWidth: '100vw',
-            }}>
+        <div id="home">
             <motion.div
                 key="box-motion"
-                style={{ position: 'fixed', left: '50', width: '20rem', height: '20rem', background: '#f3f3f3', zIndex: '-1' }}
+                className="box"
                 initial={{
                     scale: 0,
                     opacity: 0,
                 }}
                 animate={{
-                    opacity: [
-                        1, 1, 1, 1,
-                        // 1, 1, 1, 1,
-
-                        1, 1,
-                    ],
-                    scale: [
-                        0, 2, 1, 2,
-                        // 1, 2, 1, 2,
-
-                        0, 10,
-                    ],
-                    rotate: [
-                        0, 0, 180, 0,
-                        // 0, 0, 180, 0,
-
-                        0, 0,
-                    ],
-                    backgroundColor: [
-                        'hsl(60, 100%, 90%)',
-                        'hsl(60, 100%, 90%)',
-                        // 'hsl(346, 100%, 95%)',
-                        // 'hsl(346, 100%, 95%)',
-                        // 'hsl(60, 100%, 90%)',
-                        // 'hsl(60, 100%, 90%)',
-                        'hsl(0, 100%, 95%)',
-                        'hsl(0, 100%, 95%)',
-                        'hsl(0, 100%, 95%)',
-                        'hsl(241, 56%, 57%)',
-                    ],
-                    borderRadius: [
-                        '50%',
-                        '50%',
-                        '20%',
-                        '50%',
-                        //  '50%', '50%', '20%', '50%',
-                        '50%',
-                        '50%',
-                    ],
+                    opacity: [1, 1, 1, 1, 1, 1],
+                    scale: [0, 2, 1, 2, 0, 10],
+                    rotate: [0, 0, 180, 0, 0, 0],
+                    backgroundColor: ['hsl(60, 100%, 90%)', 'hsl(60, 100%, 90%)', 'hsl(0, 100%, 95%)', 'hsl(0, 100%, 95%)', 'hsl(0, 100%, 95%)', 'hsl(241, 56%, 57%)'],
+                    borderRadius: ['50%', '50%', '20%', '50%', '50%', '50%'],
                 }}
                 transition={{
                     duration: 4,
@@ -138,29 +68,12 @@ export default function Home() {
                     opacity: 1,
                 }}
                 transition={{ duration: 2, type: 'spring', delay: 0.3 }}
-                style={{
-                    fontWeight: '900',
-                    fontSize: '7rem',
-                    textAlign: 'center',
-                    fontFamily: 'Raleway',
-                    color: '#5755cf',
-                }}>
+                className="title">
                 <motion.p
                     key="hello-color"
                     initial={{ color: '#000' }}
                     animate={{
-                        color: [
-                            'hsl(210, 100%, 35%)',
-                            'hsl(210, 100%, 35%)',
-                            'hsl(210, 100%, 35%)',
-                            'hsl(241, 80%, 57%)',
-                            // 'hsl(241, 80%, 57%)',
-                            // 'hsl(241, 80%, 57%)',
-                            // 'hsl(210, 100%, 35%)',
-                            // 'hsl(210, 100%, 35%)',
-                            'hsl(241, 80%, 57%)',
-                            'hsl(0, 0%, 100%)',
-                        ],
+                        color: ['hsl(210, 100%, 35%)', 'hsl(210, 100%, 35%)', 'hsl(210, 100%, 35%)', 'hsl(241, 80%, 57%)', 'hsl(241, 80%, 57%)', 'hsl(0, 0%, 100%)'],
                     }}
                     transition={{
                         duration: 4,
@@ -181,22 +94,11 @@ export default function Home() {
                         opacity: 1,
                     }}
                     transition={{ duration: 2, type: 'spring', delay: 0.7 }}
-                    style={{ fontStyle: 'normal', fontWeight: '300', fontSize: '3rem', lineHeight: '4rem', color: '#000', fontFamily: 'Railway' }}>
+                    className="desc">
                     <motion.p
                         key="miyoung-color"
                         animate={{
-                            color: [
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 100%)',
-                            ],
+                            color: ['hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 100%)'],
                         }}
                         transition={{
                             duration: 4,
@@ -216,29 +118,11 @@ export default function Home() {
                         opacity: 1,
                     }}
                     transition={{ duration: 2, type: 'spring', delay: 1.1 }}
-                    style={{
-                        fontStyle: 'normal',
-                        fontWeight: '300',
-                        fontSize: '3rem',
-                        lineHeight: '4rem',
-                        color: '#000',
-                        fontFamily: 'Railway',
-                    }}>
+                    className="desc">
                     <motion.p
                         key="full-color"
                         animate={{
-                            color: [
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 100%)',
-                            ],
+                            color: ['hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 100%)'],
                         }}
                         transition={{
                             duration: 4,
@@ -249,24 +133,13 @@ export default function Home() {
                     <motion.p
                         key="developer-color"
                         animate={{
-                            color: [
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                // 'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 0%)',
-                                'hsl(0, 0%, 100%)',
-                            ],
+                            color: ['hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 100%)'],
                         }}
                         transition={{
                             duration: 4,
                             ease: 'easeInOut',
                         }}
-                        style={{ fontWeight: '700' }}>
+                        className="desc">
                         Web Developer.
                     </motion.p>
                 </motion.div>
