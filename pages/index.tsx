@@ -139,7 +139,8 @@ export default function Home() {
                             duration: 4,
                             ease: 'easeInOut',
                         }}
-                        className="desc">
+                        className="desc"
+                        style={{ fontWeight: '700' }}>
                         Web Developer.
                     </motion.p>
                 </motion.div>

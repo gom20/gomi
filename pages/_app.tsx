@@ -25,7 +25,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     const [width, setWidth] = useState(1100);
     const [variants, setVariants] = useState(initialPageVariants);
     useEffect(() => {
-        if (width <= 800) {
+        if (width <= 756) {
             setVariants({
                 initial: { opacity: 0, y: 0 },
                 animate: { opacity: 1, y: 0 },
@@ -37,6 +37,8 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     }, [width]);
 
     useEffect(() => {
+        setWidth(window.innerWidth);
+
         const handleWindowSizeChange = () => {
             setWidth(window.innerWidth);
         };

@@ -93,9 +93,7 @@ export default function Menu() {
                         x: [100, 100, 0],
                     }}
                     transition={{ times: [0, 0.7, 1], duration: 1 }}>
-                    <ListItem key={'external'} disablePadding className={styles.link}>
-                        <GitHubIcon fontSize="large" style={{ color: '#818181' }}></GitHubIcon>
-                    </ListItem>
+                    {listItem('/github')}
                 </motion.div>
             </List>
         </Box>
