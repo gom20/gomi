@@ -6,7 +6,7 @@
 }
 
 :root {
-    font-size: 0.75em;
+    font-size: 0.6em;
 }
 
 @media (min-width: 800px) {
@@ -96,8 +96,6 @@ body::-webkit-scrollbar {
     min-height: 100vh;
     min-width: 100vw;
     padding: 5rem;
-    padding-right: 20rem;
-    padding-left: 20rem;
     /* background-color: #5755cf; */
 }
 
@@ -179,8 +177,6 @@ body::-webkit-scrollbar {
     min-height: 100vh;
     min-width: 100vw;
     padding: 5rem;
-    padding-right: 20rem;
-    padding-left: 20rem;
 }
 
 #experience .title {
