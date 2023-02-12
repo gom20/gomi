@@ -37,7 +37,16 @@ export default function Home() {
     }, [router]);
 
     return (
-        <div id="home">
+        <motion.div
+            id="home"
+            key="home-color"
+            animate={{
+                backgroundColor: ['hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(241, 56%, 57%)'],
+            }}
+            transition={{
+                duration: 4,
+                ease: 'easeInOut',
+            }}>
             <motion.div
                 key="box-motion"
                 className="box"
@@ -47,10 +56,10 @@ export default function Home() {
                 }}
                 animate={{
                     opacity: [1, 1, 1, 1, 1, 1],
-                    scale: [0, 2, 1, 2, 0, 10],
+                    scale: [0, 2, 1, 2, 0, 2.3],
                     rotate: [0, 0, 180, 0, 0, 0],
                     backgroundColor: ['hsl(60, 100%, 90%)', 'hsl(60, 100%, 90%)', 'hsl(0, 100%, 95%)', 'hsl(0, 100%, 95%)', 'hsl(0, 100%, 95%)', 'hsl(241, 56%, 57%)'],
-                    borderRadius: ['50%', '50%', '20%', '50%', '50%', '50%'],
+                    borderRadius: ['50%', '50%', '20%', '50%', '50%', '50%', '50%'],
                 }}
                 transition={{
                     duration: 4,
@@ -82,7 +91,7 @@ export default function Home() {
                     Hello!
                 </motion.p>
             </motion.div>
-            <div>
+            <div className="desc-container">
                 <motion.div
                     key="miyoung-position"
                     initial={{
@@ -153,11 +162,11 @@ export default function Home() {
                 onClick={() => {
                     router.push('/about');
                 }}
-                style={{ position: 'fixed', bottom: 0, marginBottom: '2rem' }}>
+                style={{ position: 'fixed', bottom: 0, marginBottom: '2rem', zIndex: 2 }}>
                 <motion.a key="arror-motion">
                     <SouthIcon fontSize="large" style={{ color: '#FFF' }}></SouthIcon>
                 </motion.a>
             </motion.div>
-        </div>
+        </motion.div>
     );
 }

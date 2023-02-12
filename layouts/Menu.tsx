@@ -15,6 +15,8 @@ export default function Menu() {
     navData.set('/about', 'About Me');
     navData.set('/experience', 'Experience');
     navData.set('/contact', 'Contact');
+    navData.set('https://github.com/gom20', 'Github');
+    navData.set('https://gom20.tistory.com/', 'Blog');
 
     const [state, setState] = React.useState({
         isOpen: false,
@@ -28,7 +30,7 @@ export default function Menu() {
     };
 
     const list = () => (
-        <Box sx={{ width: 400 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+        <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
             <List style={{ paddingTop: '5rem' }}>
                 <motion.div
                     key="home"
@@ -83,17 +85,30 @@ export default function Menu() {
                     {listItem('/contact')}
                 </motion.div>
                 <motion.div
-                    key="external"
+                    key="github"
                     initial={{
                         opacity: 0,
-                        x: 100,
+                        x: -100,
                     }}
                     animate={{
-                        opacity: [0, 0, 1],
-                        x: [100, 100, 0],
+                        opacity: 1,
+                        x: 0,
                     }}
-                    transition={{ times: [0, 0.7, 1], duration: 1 }}>
-                    {listItem('/github')}
+                    transition={{ duration: 1.05 }}>
+                    {listItem('https://github.com/gom20')}
+                </motion.div>
+                <motion.div
+                    key="blog"
+                    initial={{
+                        opacity: 0,
+                        x: -100,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                    }}
+                    transition={{ duration: 1.1 }}>
+                    {listItem('https://gom20.tistory.com/')}
                 </motion.div>
             </List>
         </Box>
@@ -101,11 +116,11 @@ export default function Menu() {
 
     const listItem = (navKey: string) => (
         <ListItem key={navKey} disablePadding>
-            <motion.a whileHover={{ scale: 1.1 }} onHoverStart={(e) => {}} onHoverEnd={(e) => {}}>
-                <Link href={navKey} className={styles.link}>
+            <motion.div whileHover={{ scale: 1 }} onHoverStart={(e) => {}} onHoverEnd={(e) => {}}>
+                <Link href={navKey} className={styles.link} target={navKey.startsWith('/') ? '_self' : '_blank'}>
                     {navData.get(navKey)}
                 </Link>
-            </motion.a>
+            </motion.div>
         </ListItem>
     );
 
