@@ -77,8 +77,8 @@ export default function About() {
                 className="back-circle"></motion.div>
 
             <motion.div className="title">
-                <p>안녕하세요.</p> <p className="en">Web Developer</p>
-                <p>고미영입니다.</p>
+                <p>About Me</p>
+                <motion.div className="line"></motion.div>
             </motion.div>
             <div className="contents">
                 <div className="desc">
@@ -131,7 +131,7 @@ export default function About() {
                     </div>
                 </div>
                 <br></br>
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                {/* <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
                     <div className="item">
                         <div className="label">CERTIFICATE</div>
                         <div>
@@ -152,7 +152,7 @@ export default function About() {
                             <p>2017.08 JLPN N3</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <motion.div className="progress-bar" style={{ scaleY: scaleY }} />
         </div>
