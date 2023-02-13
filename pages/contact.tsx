@@ -50,7 +50,7 @@ export default function Contact() {
             <div className="bg"></div>
             <div className="title">Contact Info.</div>
             <div className="desc">
-                저에 대해 궁금하신 점이 있으신가요? <br /> 문의 사항은 언제든 환영합니다.
+                저에 대해 궁금하신 점이 있으신가요? <br /> 문의 사항은 언제나 환영합니다.
             </div>
             <div className="email">rhaldud89@gmail.com</div>
             <div className="icon-container">
