@@ -1,5 +1,4 @@
 import { AppContext } from '@/hooks/AppContext';
-import styles from '@/styles/Layout.module.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -12,7 +11,7 @@ import * as React from 'react';
 export default function Menu() {
     let navData = new Map<string, string>();
     navData.set('/', 'Home');
-    navData.set('/about', 'About Me');
+    navData.set('/about', 'About');
     navData.set('/experience', 'Experience');
     navData.set('/contact', 'Contact');
     navData.set('https://github.com/gom20', 'Github');
@@ -23,10 +22,6 @@ export default function Menu() {
         isOpen: false,
     });
 
-    // const test = () => {
-    //     data.setTargetPage('test');
-    // };
-
     const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
         if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
             return;
@@ -35,7 +30,7 @@ export default function Menu() {
     };
 
     const list = () => (
-        <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+        <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)} id="menu">
             <List style={{ paddingTop: '5rem' }}>
                 <motion.div
                     key="home"
@@ -124,20 +119,19 @@ export default function Menu() {
             <motion.div whileHover={{ scale: 1 }} onHoverStart={(e) => {}} onHoverEnd={(e) => {}}>
                 {navKey.startsWith('/') ? (
                     <div
-                        className={styles.link}
+                        className="link"
                         onClick={() => {
-                            setTargetPage(navKey);
+                            setTimeout(function () {
+                                setTargetPage(navKey);
+                            }, 100);
                         }}>
                         {navData.get(navKey)}
                     </div>
                 ) : (
-                    <Link href={navKey} className={styles.link} target={'_blank'}>
+                    <Link href={navKey} className="link" target={'_blank'}>
                         {navData.get(navKey)}
                     </Link>
                 )}
-                {/* <Link href={navKey} className={styles.link} target={navKey.startsWith('/') ? '_self' : '_blank'}>
-                    {navData.get(navKey)}
-                </Link> */}
             </motion.div>
         </ListItem>
     );

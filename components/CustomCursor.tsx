@@ -17,6 +17,6 @@ const CustomCursor = () => {
         };
     }, []);
 
-    return <div className={styles.ring} style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}></div>;
+    return <div className="ring" style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}></div>;
 };
 export default CustomCursor;
