@@ -1,8 +1,9 @@
 import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect, useContext } from 'react';
 import styles from '@/styles/Contact.module.css';
+import { AppContext } from '@/hooks/AppContext';
 // import '@/styles/globals.css';
 
 Contact.getLayout = function getLayout(page: ReactElement) {
@@ -10,7 +11,7 @@ Contact.getLayout = function getLayout(page: ReactElement) {
 };
 export default function Contact() {
     const router = useRouter();
-
+    const { setTargetPage } = useContext(AppContext);
     useEffect(() => {
         let timer: null | NodeJS.Timeout;
         const handleWheel = (e: WheelEvent) => {
@@ -21,11 +22,13 @@ export default function Contact() {
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (!hasScroll) {
                     if (e.deltaY < 0) {
-                        router.push('/experience');
+                        setTargetPage('/experience');
+                        // router.push('/experience');
                     }
                 } else {
                     if (scrollY == 0 && e.deltaY < 0) {
-                        router.push('/experience');
+                        setTargetPage('/experience');
+                        // router.push('/experience');
                     }
                 }
             }, 500);
@@ -34,7 +37,7 @@ export default function Contact() {
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
-    }, [router]);
+    }, []);
 
     return (
         <div className={'container'}>

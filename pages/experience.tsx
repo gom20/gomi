@@ -1,15 +1,16 @@
 import Project from '@/components/Project';
+import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState, useContext } from 'react';
 
 Experience.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
 export default function Experience() {
     const router = useRouter();
-
+    const { setTargetPage } = useContext(AppContext);
     const swipeConfidenceThreshold = 10000;
 
     const swipePower = (offset: number, velocity: number) => {
@@ -67,15 +68,19 @@ export default function Experience() {
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (!hasScroll) {
                     if (e.deltaY < 0) {
-                        router.push('/about');
+                        setTargetPage('/about');
+                        // router.push('/about');
                     } else {
-                        router.push('/contact');
+                        setTargetPage('/contact');
+                        // router.push('/contact');
                     }
                 } else {
                     if (scrollY == 0 && e.deltaY < 0) {
-                        router.push('/about');
+                        setTargetPage('/about');
+                        // router.push('/about');
                     } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
-                        router.push('/contact');
+                        setTargetPage('/contact');
+                        // router.push('/contact');
                     }
                 }
             }, 500);
@@ -84,7 +89,7 @@ export default function Experience() {
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
-    }, [router]);
+    }, []);
 
     return (
         <div id="experience">
