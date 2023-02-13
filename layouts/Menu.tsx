@@ -1,5 +1,5 @@
+import { AppContext } from '@/hooks/AppContext';
 import styles from '@/styles/Layout.module.css';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -18,9 +18,14 @@ export default function Menu() {
     navData.set('https://github.com/gom20', 'Github');
     navData.set('https://gom20.tistory.com/', 'Blog');
 
+    const { setTargetPage } = React.useContext(AppContext);
     const [state, setState] = React.useState({
         isOpen: false,
     });
+
+    // const test = () => {
+    //     data.setTargetPage('test');
+    // };
 
     const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
         if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
@@ -117,9 +122,22 @@ export default function Menu() {
     const listItem = (navKey: string) => (
         <ListItem key={navKey} disablePadding>
             <motion.div whileHover={{ scale: 1 }} onHoverStart={(e) => {}} onHoverEnd={(e) => {}}>
-                <Link href={navKey} className={styles.link} target={navKey.startsWith('/') ? '_self' : '_blank'}>
+                {navKey.startsWith('/') ? (
+                    <div
+                        className={styles.link}
+                        onClick={() => {
+                            setTargetPage(navKey);
+                        }}>
+                        {navData.get(navKey)}
+                    </div>
+                ) : (
+                    <Link href={navKey} className={styles.link} target={'_blank'}>
+                        {navData.get(navKey)}
+                    </Link>
+                )}
+                {/* <Link href={navKey} className={styles.link} target={navKey.startsWith('/') ? '_self' : '_blank'}>
                     {navData.get(navKey)}
-                </Link>
+                </Link> */}
             </motion.div>
         </ListItem>
     );

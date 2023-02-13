@@ -1,7 +1,8 @@
+import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect, useContext } from 'react';
 // import styles from '@/styles/About.module.css';
 
 About.getLayout = function getLayout(page: ReactElement) {
@@ -10,6 +11,7 @@ About.getLayout = function getLayout(page: ReactElement) {
 
 export default function About() {
     const router = useRouter();
+    const { setTargetPage } = useContext(AppContext);
     const { scrollYProgress } = useScroll();
     const scaleY = useSpring(scrollYProgress, {
         stiffness: 100,
@@ -27,15 +29,19 @@ export default function About() {
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (!hasScroll) {
                     if (e.deltaY < 0) {
-                        router.push('/');
+                        setTargetPage('/');
+                        // router.push('/');
                     } else {
-                        router.push('/experience');
+                        setTargetPage('/experience');
+                        // router.push('/experience');
                     }
                 } else {
                     if (scrollY == 0 && e.deltaY < 0) {
-                        router.push('/');
+                        setTargetPage('/');
+                        // router.push('/');
                     } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
-                        router.push('/experience');
+                        setTargetPage('/experience');
+                        // router.push('/experience');
                     }
                 }
             }, 500);
@@ -44,7 +50,7 @@ export default function About() {
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
-    }, [router]);
+    }, []);
 
     return (
         <div id="about">

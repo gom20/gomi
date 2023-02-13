@@ -1,8 +1,9 @@
+import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import SouthIcon from '@mui/icons-material/South';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect } from 'react';
+import { ReactElement, useContext, useEffect } from 'react';
 
 Home.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout isHome={true}>{page}</AppLayout>;
@@ -10,6 +11,13 @@ Home.getLayout = function getLayout(page: ReactElement) {
 
 export default function Home() {
     const router = useRouter();
+    const { setTargetPage } = useContext(AppContext);
+
+    const movePage = () => {
+        setTimeout(function () {
+            setTargetPage('/about');
+        }, 500);
+    };
 
     useEffect(() => {
         let timer: null | NodeJS.Timeout;
@@ -20,11 +28,11 @@ export default function Home() {
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? true : false;
                 if (!hasScroll) {
                     if (e.deltaY > 0) {
-                        router.push('/about');
+                        setTargetPage('/about');
                     }
                 } else {
                     if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
-                        router.push('/about');
+                        setTargetPage('/about');
                     }
                 }
             }, 500);
@@ -34,7 +42,7 @@ export default function Home() {
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
-    }, [router]);
+    }, []);
 
     return (
         <motion.div
@@ -160,7 +168,7 @@ export default function Home() {
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 1, type: 'spring', repeat: Infinity }}
                 onClick={() => {
-                    router.push('/about');
+                    movePage();
                 }}
                 style={{ position: 'fixed', bottom: 0, marginBottom: '2rem', zIndex: 2 }}>
                 <motion.a key="arror-motion">
