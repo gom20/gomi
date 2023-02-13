@@ -93,7 +93,8 @@ export default function Experience() {
 
     return (
         <div id="experience">
-            {/* <div className="title">Experience</div> */}
+            <div className="bg"></div>
+            <div className="title">Experience</div>
             <div className="container">
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div

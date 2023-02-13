@@ -40,7 +40,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <div className={'container'}>
+        <div id="contact">
             <h1>Contact Info입니다 </h1>
         </div>
     );

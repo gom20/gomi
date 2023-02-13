@@ -2,8 +2,7 @@ import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect, useContext } from 'react';
-// import styles from '@/styles/About.module.css';
+import { ReactElement, useContext, useEffect } from 'react';
 
 About.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -30,18 +29,14 @@ export default function About() {
                 if (!hasScroll) {
                     if (e.deltaY < 0) {
                         setTargetPage('/');
-                        // router.push('/');
                     } else {
                         setTargetPage('/experience');
-                        // router.push('/experience');
                     }
                 } else {
                     if (scrollY == 0 && e.deltaY < 0) {
                         setTargetPage('/');
-                        // router.push('/');
                     } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
                         setTargetPage('/experience');
-                        // router.push('/experience');
                     }
                 }
             }, 500);
@@ -60,7 +55,7 @@ export default function About() {
                     opacity: 0,
                 }}
                 animate={{
-                    x: 0,
+                    x: 10,
                     opacity: 1,
                 }}
                 transition={{ duration: 2, type: 'spring', delay: 0.5 }}
@@ -68,7 +63,7 @@ export default function About() {
                 <p>ABOUT</p>
                 <p>ME</p>
             </motion.div>
-            <motion.div
+            {/* <motion.div
                 initial={{
                     top: -150,
                     right: -150,
@@ -80,19 +75,19 @@ export default function About() {
                     opacity: 1,
                 }}
                 transition={{ duration: 2, type: 'spring', delay: 0.5 }}
-                className="back-circle"></motion.div>
+                className="back-circle"></motion.div> */}
 
-            <motion.div className="title">
+            <motion.div initial={{}} animate={{}} className="title">
                 <p>About Me</p>
                 <motion.div className="line"></motion.div>
             </motion.div>
             <div className="contents">
                 <div className="desc">
-                    Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications, web servers, and maintaining the semiconductor
-                    manufacturing system. My job on this last project was to run a system that analyzed the amount of material used in the semiconductor production process, where I mainly monitored
-                    the system and modified server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to deal with a large amount of
-                    data based on the Oracle Exadata database.
+                    안녕하세요. 웹 개발자 고미영입니다.
+                    <br></br>
+                    재직 기간동안 다양한 실무경험을 쌓아왔습니다.
                 </div>
+
                 <br></br>
 
                 <div className="item">
