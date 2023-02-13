@@ -1,15 +1,15 @@
 import Project from '@/components/Project';
 import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
+import NavigateBeforeOutlinedIcon from '@mui/icons-material/NavigateBeforeOutlined';
+import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { ReactElement, useEffect, useState, useContext } from 'react';
+import { ReactElement, useContext, useEffect, useState } from 'react';
 
 Experience.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
 export default function Experience() {
-    const router = useRouter();
     const { setTargetPage } = useContext(AppContext);
     const swipeConfidenceThreshold = 10000;
 
@@ -95,6 +95,23 @@ export default function Experience() {
         <div id="experience">
             <div className="bg"></div>
             <div className="title">Experience</div>
+            <div className="navigator">
+                <NavigateBeforeOutlinedIcon
+                    className="prev"
+                    style={page == 1 ? { color: 'gray' } : {}}
+                    onClick={() => {
+                        if (page == 1) return;
+                        paginate(-1);
+                    }}></NavigateBeforeOutlinedIcon>
+                {page} / 5
+                <NavigateNextOutlinedIcon
+                    className="next"
+                    style={page == 5 ? { color: 'gray' } : {}}
+                    onClick={() => {
+                        if (page == 5) return;
+                        paginate(1);
+                    }}></NavigateNextOutlinedIcon>
+            </div>
             <div className="container">
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div
@@ -115,30 +132,16 @@ export default function Experience() {
                         onDragEnd={(e, { offset, velocity }) => {
                             const swipe = swipePower(offset.x, velocity.x);
                             if (swipe < -swipeConfidenceThreshold) {
+                                if (page == 5) return;
                                 paginate(1);
                             } else if (swipe > swipeConfidenceThreshold) {
+                                if (page == 1) return;
                                 paginate(-1);
                             }
                         }}>
                         {getContent(page)}
                     </motion.div>
                 </AnimatePresence>
-                <div
-                    className="next"
-                    onClick={() => {
-                        if (page == 5) return;
-                        paginate(1);
-                    }}>
-                    {'‣'}
-                </div>
-                <div
-                    className="prev"
-                    onClick={() => {
-                        if (page == 1) return;
-                        paginate(-1);
-                    }}>
-                    {'‣'}
-                </div>
             </div>
         </div>
     );
