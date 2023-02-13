@@ -6,7 +6,7 @@
 }
 
 :root {
-    font-size: 0.6em;
+    font-size: 0.75em;
 }
 
 @media (min-width: 800px) {
@@ -89,10 +89,10 @@ body::-webkit-scrollbar {
     justify-content: space-between;
     /* background-color: transparent; */
     min-width: 100vw;
-    background-color: rgba(0, 0, 0, 0.05);
+    /* background-color: rgba(0, 0, 0, 0.05); */
     padding: 1rem;
-    padding-right: 3rem;
-    padding-left: 3rem;
+    /* padding-right: 3rem;
+    padding-left: 3rem; */
     z-index: 1;
 }
 
@@ -113,12 +113,6 @@ body::-webkit-scrollbar {
     font-weight: 800;
     opacity: 0.7;
 }
-
-/* Menu */
-/* #menu {
-    position: 'fixed'; 
-     right: 0;
-} */
 
 #menu .link {
     padding: 1rem 1rem 1rem 4rem;
@@ -162,30 +156,25 @@ body::-webkit-scrollbar {
     margin-left: 3rem;
 }
 
+#navi .selected {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: red;
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+}
+
 @media screen and (min-width: 800px) {
     #navi {
         display: block;
     }
 }
 
-@media screen and (min-width: 300px) and (max-width: 800px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
     #navi {
         display: none;
     }
-}
-
-/* Header */
-#header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* background-color: transparent; */
-    min-width: 100vw;
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 1rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    z-index: 1;
 }
 
 #info {
@@ -234,7 +223,7 @@ body::-webkit-scrollbar {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 #home .box {
@@ -275,18 +264,11 @@ body::-webkit-scrollbar {
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     min-height: 100vh;
     min-width: 100vw;
     padding: 5rem;
-}
-
-#about .contents {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 #about .back-title {
@@ -318,45 +300,40 @@ body::-webkit-scrollbar {
     font-weight: 700;
 }
 
-#about .title .en {
-    font-size: 3rem;
-    color: #5755cf;
-    font-weight: 800;
-}
-
-@media screen and (min-width: 800px) {
-    #about .title {
-        display: block;
-    }
-}
-
-@media screen and (min-width: 300px) and (max-width: 800px) {
-    #about .title {
-        display: none;
-    }
-}
-
-#about .contents {
-    font-size: 3rem;
-    /* z-index: 1; */
-}
-
-#about .contents .desc {
+#about .desc {
     font-size: 1rem;
     /* font-weight: 900; */
 }
 
-#about .contents .item {
-    font-size: 1rem;
-    /* font-weight: 900; */
+#about .item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-#about .contents .label {
-    font-size: 1rem;
-    font-weight: 900;
-    color: #5755cf;
+#about .item {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#about .item-icon {
+    align-self: center;
+    width: 8rem;
+    height: 8rem;
+    background-color: #5755cf;
+    border-radius: 50%;
+}
+#about .item-name {
+    font-size: 1.4rem;
 }
 
+#about .item-desc {
+    font-size: 1rem;
+}
 /* Experience */
 #experience {
     display: flex;
@@ -406,30 +383,41 @@ body::-webkit-scrollbar {
     left: 0;
     width: 100vw;
     height: 50vh;
-    margin: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: aqua;
 }
 
+@media screen and (min-width: 800px) {
+    #experience .project {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+    #experience .project {
+        width: 90vw;
+    }
+}
+
 #experience .project {
-    /* position: relative; */
-    /* width: 100vw;
-    height: 50vh; */
+    height: 50vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-color: aquamarine;
 }
 
+#experience .navigator {
+    display: flex;
+    flex-direction: row;
+}
 #experience .next,
 .prev {
     top: calc(50% - 20px);
-    position: fixed;
-    background: white;
-    border-radius: 30px;
+    /* position: fixed; */
     width: 40px;
     height: 40px;
     display: flex;
@@ -437,8 +425,6 @@ body::-webkit-scrollbar {
     align-items: center;
     user-select: none;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 18px;
     z-index: 2;
 }
 
@@ -448,7 +434,6 @@ body::-webkit-scrollbar {
 
 #experience .prev {
     left: 10px;
-    transform: scale(-1);
 }
 
 /* Contact */

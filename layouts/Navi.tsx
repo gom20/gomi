@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import * as React from 'react';
 
 export default function Navi() {
-    const { pages, setTargetPage } = React.useContext(AppContext);
+    const { pages, targetPage, setTargetPage } = React.useContext(AppContext);
 
     const getPageName = (page: string) => {
         const name = page.substring(1);
