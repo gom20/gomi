@@ -142,7 +142,7 @@ body::-webkit-scrollbar {
 
 /* Navi */
 #navi {
-    top: calc(50% - 20px);
+    top: calc(50% - 56px);
     position: fixed;
     z-index: 1;
 }
@@ -334,6 +334,19 @@ body::-webkit-scrollbar {
 #about .item-desc {
     font-size: 1rem;
 }
+
+/* Skill */
+#skill {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 5rem;
+}
+
 /* Experience */
 #experience {
     display: flex;
@@ -374,7 +387,7 @@ body::-webkit-scrollbar {
     font-size: 3rem;
     color: #000;
     font-weight: 700;
-    align-self: flex-start;
+    align-self: center;
 }
 
 #experience .container {
@@ -441,9 +454,61 @@ body::-webkit-scrollbar {
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     min-height: 100vh;
     min-width: 100vw;
-    padding: 5rem;
+    padding: 10rem;
+}
+
+@media screen and (min-width: 800px) {
+    #contact {
+        padding: 10rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #contact {
+        padding: 2rem;
+    }
+}
+
+#contact .bg {
+    position: fixed;
+    z-index: -10;
+    height: 100vh;
+    width: 100vw;
+    animation-name: MOVE-BG;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background-image: url('../bgtest.jpg');
+    align-self: center;
+}
+
+#contact .title {
+    /* align-self: flex-start; */
+    font-size: 4rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#contact .desc {
+    color: #c5c5c5;
+    margin-bottom: 0.5rem;
+}
+
+#contact .email {
+    color: #c5c5c5;
+    margin-bottom: 3rem;
+}
+
+#contact .icon-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#contact .icon-container > div {
+    margin-right: 2rem;
 }

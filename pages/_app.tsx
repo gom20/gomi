@@ -17,7 +17,7 @@ type AppPropsWithLayout = AppProps & {
 export default function App({ Component, pageProps, router }: AppPropsWithLayout) {
     const getLayout = Component.getLayout ?? ((page) => page);
 
-    const pages = ['/', '/about', '/experience', '/contact'];
+    const pages = ['/', '/about', '/experience', '/skill', '/contact'];
     const [targetPage, setTargetPage] = useState(router.asPath);
     let initialPageVariants = {
         initial: { opacity: 0, y: 1100 },

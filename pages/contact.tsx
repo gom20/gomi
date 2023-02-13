@@ -1,17 +1,25 @@
+import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ReactElement, useEffect, useContext } from 'react';
-import styles from '@/styles/Contact.module.css';
-import { AppContext } from '@/hooks/AppContext';
-// import '@/styles/globals.css';
+import { ReactElement, useContext, useEffect } from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Image from 'next/image';
+import Link from 'next/link';
 
 Contact.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
 export default function Contact() {
-    const router = useRouter();
-    const { setTargetPage } = useContext(AppContext);
+    const { setTargetPage, targetPage, pages } = useContext(AppContext);
+
+    const nextPage = () => {
+        setTargetPage(pages[pages.indexOf(targetPage) + 1]);
+    };
+    const prevPage = () => {
+        setTargetPage(pages[pages.indexOf(targetPage) - 1]);
+    };
+
     useEffect(() => {
         let timer: null | NodeJS.Timeout;
         const handleWheel = (e: WheelEvent) => {
@@ -22,13 +30,11 @@ export default function Contact() {
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (!hasScroll) {
                     if (e.deltaY < 0) {
-                        setTargetPage('/experience');
-                        // router.push('/experience');
+                        prevPage();
                     }
                 } else {
                     if (scrollY == 0 && e.deltaY < 0) {
-                        setTargetPage('/experience');
-                        // router.push('/experience');
+                        prevPage();
                     }
                 }
             }, 500);
@@ -41,7 +47,25 @@ export default function Contact() {
 
     return (
         <div id="contact">
-            <h1>Contact Info입니다 </h1>
+            <div className="bg"></div>
+            <div className="title">Contact Info.</div>
+            <div className="desc">
+                저에 대해 궁금하신 점이 있으신가요? <br /> 문의 사항은 언제든 환영합니다.
+            </div>
+            <div className="email">rhaldud89@gmail.com</div>
+            <div className="icon-container">
+                <motion.div whileHover={{ scale: 1.2 }}>
+                    <Link href={'https://github.com/gom20'}>
+                        <GitHubIcon style={{ height: 32, width: 32, color: '#fff' }}></GitHubIcon>
+                    </Link>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.2 }}>
+                    <Image priority src="/kakao_icon.svg" height={31} width={31} alt="Follow us on Twitter" />
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.2 }}>
+                    <Image priority src="/tistory_icon.svg" height={30} width={30} alt="Follow us on Twitter" />
+                </motion.div>
+            </div>
         </div>
     );
 }
