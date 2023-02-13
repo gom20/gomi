@@ -71,7 +71,7 @@ export default function Experience() {
                         setTargetPage('/about');
                         // router.push('/about');
                     } else {
-                        setTargetPage('/contact');
+                        setTargetPage('/skill');
                         // router.push('/contact');
                     }
                 } else {
@@ -79,7 +79,7 @@ export default function Experience() {
                         setTargetPage('/about');
                         // router.push('/about');
                     } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
-                        setTargetPage('/contact');
+                        setTargetPage('/skill');
                         // router.push('/contact');
                     }
                 }
@@ -95,23 +95,7 @@ export default function Experience() {
         <div id="experience">
             <div className="bg"></div>
             <div className="title">Experience</div>
-            <div className="navigator">
-                <NavigateBeforeOutlinedIcon
-                    className="prev"
-                    style={page == 1 ? { color: 'gray' } : {}}
-                    onClick={() => {
-                        if (page == 1) return;
-                        paginate(-1);
-                    }}></NavigateBeforeOutlinedIcon>
-                {page} / 5
-                <NavigateNextOutlinedIcon
-                    className="next"
-                    style={page == 5 ? { color: 'gray' } : {}}
-                    onClick={() => {
-                        if (page == 5) return;
-                        paginate(1);
-                    }}></NavigateNextOutlinedIcon>
-            </div>
+
             <div className="container">
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div
@@ -142,6 +126,23 @@ export default function Experience() {
                         {getContent(page)}
                     </motion.div>
                 </AnimatePresence>
+            </div>
+            <div className="navigator">
+                <NavigateBeforeOutlinedIcon
+                    className="prev"
+                    style={page == 1 ? { color: 'gray' } : {}}
+                    onClick={() => {
+                        if (page == 1) return;
+                        paginate(-1);
+                    }}></NavigateBeforeOutlinedIcon>
+                {page} / 5
+                <NavigateNextOutlinedIcon
+                    className="next"
+                    style={page == 5 ? { color: 'gray' } : {}}
+                    onClick={() => {
+                        if (page == 5) return;
+                        paginate(1);
+                    }}></NavigateNextOutlinedIcon>
             </div>
         </div>
     );

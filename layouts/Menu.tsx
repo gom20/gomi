@@ -13,6 +13,7 @@ export default function Menu() {
     navData.set('/', 'Home');
     navData.set('/about', 'About');
     navData.set('/experience', 'Experience');
+    navData.set('/skill', 'Skill');
     navData.set('/contact', 'Contact');
     navData.set('https://github.com/gom20', 'Github');
     navData.set('https://gom20.tistory.com/', 'Blog');
@@ -58,6 +59,7 @@ export default function Menu() {
                     transition={{ duration: 0.75 }}>
                     {listItem('/about')}
                 </motion.div>
+
                 <motion.div
                     key="experience"
                     initial={{
@@ -72,6 +74,19 @@ export default function Menu() {
                     {listItem('/experience')}
                 </motion.div>
                 <motion.div
+                    key="skill"
+                    initial={{
+                        opacity: 0,
+                        x: -100,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                    }}
+                    transition={{ duration: 0.9 }}>
+                    {listItem('/skill')}
+                </motion.div>
+                <motion.div
                     key="contact"
                     initial={{
                         opacity: 0,
@@ -84,7 +99,7 @@ export default function Menu() {
                     transition={{ duration: 1 }}>
                     {listItem('/contact')}
                 </motion.div>
-                <motion.div
+                {/* <motion.div
                     key="github"
                     initial={{
                         opacity: 0,
@@ -109,7 +124,7 @@ export default function Menu() {
                     }}
                     transition={{ duration: 1.1 }}>
                     {listItem('https://gom20.tistory.com/')}
-                </motion.div>
+                </motion.div> */}
             </List>
         </Box>
     );
