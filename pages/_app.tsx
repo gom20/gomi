@@ -4,7 +4,7 @@ import '@/styles/globals.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { ReactElement, ReactNode, useContext, useEffect, useReducer, useState } from 'react';
 
 export type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
@@ -15,10 +15,11 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps, router }: AppPropsWithLayout) {
-    const getLayout = Component.getLayout ?? ((page) => page);
-
     const pages = ['/', '/about', '/experience', '/skill', '/contact'];
     const [targetPage, setTargetPage] = useState(router.asPath);
+
+    const getLayout = Component.getLayout ?? ((page) => page);
+
     let initialPageVariants = {
         initial: { opacity: 0, y: 1100 },
         animate: { opacity: 1, y: 0 },
@@ -31,7 +32,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     useEffect(() => {
         const curIdx = pages.indexOf(globalThis.location.pathname);
         const nextIdx = pages.indexOf(targetPage);
-        if (screenWidth > 756) {
+        if (screenWidth > 800) {
             if (curIdx <= nextIdx) {
                 setVariants({
                     initial: { opacity: 1, y: 1100 },
@@ -46,12 +47,11 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
                 });
             }
         }
-
         router.push(targetPage);
     }, [targetPage]);
 
     useEffect(() => {
-        if (screenWidth > 756) {
+        if (screenWidth > 800) {
             setVariants(initialPageVariants);
         } else {
             setVariants({

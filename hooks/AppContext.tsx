@@ -5,4 +5,9 @@ interface IAppContext {
     targetPage: string;
     setTargetPage: React.Dispatch<React.SetStateAction<string>>;
 }
-export const AppContext = createContext<IAppContext>({ pages: ['/', '/about', '/experience', '/contact'], targetPage: '', setTargetPage: () => {} });
+
+export const AppContext = createContext<IAppContext>({
+    pages: [],
+    targetPage: '',
+    setTargetPage: () => {},
+});
