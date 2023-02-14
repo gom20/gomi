@@ -9,6 +9,7 @@ Skill.getLayout = function getLayout(page: ReactElement) {
 export default function Skill() {
     const items = [
         {
+            key: 1,
             icon: 'icon',
             title: 'Back-end Development',
             skill: 'java|javascript|java|sql|',
@@ -18,6 +19,7 @@ export default function Skill() {
                 ' 기반 배치성 프로그램을 운영하면서 Oracle DB와 오라클SQL을 주 스킬로 사용하였습니다.',
         },
         {
+            key: 2,
             icon: 'icon',
             title: 'Back-end Development',
             skill: 'java|javascript|java|sql|',
@@ -27,6 +29,7 @@ export default function Skill() {
                 ' 기반 배치성 프로그램을 운영하면서 Oracle DB와 오라클SQL을 주 스킬로 사용하였습니다.',
         },
         {
+            key: 3,
             icon: 'icon',
             title: 'Back-end Development',
             skill: 'java|javascript|java|sql|',
@@ -36,6 +39,7 @@ export default function Skill() {
                 ' 기반 배치성 프로그램을 운영하면서 Oracle DB와 오라클SQL을 주 스킬로 사용하였습니다.',
         },
         {
+            key: 4,
             icon: 'icon',
             title: 'Back-end Development',
             skill: 'java|javascript|java|sql|',
@@ -45,6 +49,7 @@ export default function Skill() {
                 ' 기반 배치성 프로그램을 운영하면서 Oracle DB와 오라클SQL을 주 스킬로 사용하였습니다.',
         },
         {
+            key: 5,
             icon: 'icon',
             title: 'Back-end Development',
             skill: 'java|javascript|java|sql|',
@@ -54,6 +59,7 @@ export default function Skill() {
                 ' 기반 배치성 프로그램을 운영하면서 Oracle DB와 오라클SQL을 주 스킬로 사용하였습니다.',
         },
         {
+            key: 6,
             icon: 'icon',
             title: 'Back-end Development',
             skill: 'java|javascript|java|sql|',
@@ -95,10 +101,10 @@ export default function Skill() {
 
     return (
         <div id="skill">
-            <div className="title">Skill-set</div>
+            <div className="title">Skill-Set</div>
             <div className="item-container">
                 {items.map((item) => {
-                    return <SkillItem data={item}></SkillItem>;
+                    return <SkillItem data={item} key={item.key}></SkillItem>;
                 })}
             </div>
         </div>

@@ -58,7 +58,7 @@ export default function Navi() {
     return (
         <div id="navi">
             {pages.map((page: any) => {
-                return <NaviItem page={page}></NaviItem>;
+                return <NaviItem page={page} key={page}></NaviItem>;
             })}
         </div>
     );
