@@ -39,7 +39,9 @@ export default function Contact() {
         <div id="contact">
             <div className="bg"></div>
             <div className="bg-image"></div>
-            <div className="title">Contact Info.</div>
+            <div className="title" style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ color: '#2ad883' }}>Contact</div> <div>&nbsp;Info.</div>
+            </div>
             <div className="desc">
                 저에 대해 궁금하신 점이 있으신가요? <br /> 문의 사항은 언제나 환영합니다.
             </div>

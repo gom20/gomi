@@ -59,7 +59,7 @@ export default function About() {
 
     return (
         <div id="about">
-            <motion.div
+            {/* <motion.div
                 initial={{
                     x: -100,
                     opacity: 0,
@@ -72,7 +72,7 @@ export default function About() {
                 className="back-title">
                 <p>ABOUT</p>
                 <p>ME</p>
-            </motion.div>
+            </motion.div> */}
             {/* <motion.div
                 initial={{
                     top: -150,
