@@ -459,7 +459,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     min-height: 100vh;
     min-width: 100vw;
@@ -469,21 +469,27 @@ body::-webkit-scrollbar {
 
 @media screen and (min-width: 1200px) {
     #skill {
+        padding-top: 4rem;
         padding-right: 20rem;
         padding-left: 20rem;
+        padding-bottom: 4rem;
     }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
     #skill {
+        padding-top: 4rem;
         padding-right: 8rem;
         padding-left: 8rem;
+        padding-bottom: 4rem;
     }
 }
 
 @media screen and (min-width: 0px) and (max-width: 800) {
     #skill {
+        padding-top: 4rem;
         padding: 2rem;
+        padding-bottom: 4rem;
     }
 }
 
@@ -510,6 +516,7 @@ body::-webkit-scrollbar {
     background-size: cover;
     align-self: center;
 }
+
 #skill .back-circle {
     position: fixed;
     /* top: 0; */
@@ -544,9 +551,12 @@ body::-webkit-scrollbar {
     height: 15rem;
     margin: 2rem;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #161c21;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (min-width: 1200px) {
@@ -579,7 +589,7 @@ body::-webkit-scrollbar {
 
 #skill .item-title {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 #skill .item-skill {
     font-size: 0.7rem;
@@ -587,7 +597,9 @@ body::-webkit-scrollbar {
 }
 
 #skill .item-desc {
+    margin-top: 1rem;
     font-size: 0.8rem;
+    line-height: 1.2rem;
 }
 
 /* Contact */

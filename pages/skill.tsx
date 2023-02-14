@@ -1,18 +1,16 @@
 import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
-import Image from 'next/image';
-import { ReactElement, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { ReactElement, useContext, useEffect, useState } from 'react';
 
 import BuildCircleIcon from '@mui/icons-material/BuildCircle';
 
-import MonitorIcon from '@mui/icons-material/Monitor';
-import TerminalIcon from '@mui/icons-material/Terminal';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import DevicesIcon from '@mui/icons-material/Devices';
 import DvrIcon from '@mui/icons-material/Dvr';
-
+import GitHubIcon from '@mui/icons-material/GitHub';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import TerminalIcon from '@mui/icons-material/Terminal';
 Skill.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
@@ -21,46 +19,40 @@ export default function Skill() {
     const items = [
         {
             key: 1,
-            icon: <TerminalIcon style={{ height: 32, width: 32, color: '#fff' }} />,
-            title: 'Back-end Development',
-            skill: 'Java | SpringBoot | OracleDB | OracleSQL',
-            desc:
-                'Sales Solution 개발 업무 당시 Rest API 서버 개발을 경헙이 있습니다.' + '운영 업무를 하면서 Java 기반의 배치성 프로그램을 운영하였습니다. 이당시에는 Oracel SQL을 주로 사용하였습니다.',
+            title: 'Back-end',
+            skill: 'Java | SpringBoot | OracleSQL',
+            desc: 'Retail 솔루션을 개발 업무로 Spring 기반 웹서버를 개발한 경험이 있습니다. ' + 'MES 시스템 운영 업무로 Java 기반의 배치 프로그램을 유지보수 하였습니다.',
         },
         {
             key: 2,
-            icon: <DevicesIcon style={{ height: 32, width: 32, color: '#fff' }} />,
-            title: 'Front-end Development',
-            skill: 'Javascript | Typescript | React | Redux | Html',
-            desc: 'Smart TV 웹앱 개발자로 경력을 시작했습니다. ' + 'Javascript, Html, CSS 익숙하며 그 당시에는 jQuery를 많이 사용하였습니다.' + '최신 Front end 기술을 계속 숙지하고 있습니다.',
+            title: 'Front-end',
+            skill: 'Javascript | Typescript | React | Redux',
+            desc: 'Smart TV 웹앱 개발자로 경력을 시작했습니다. ' + 'Javascript, HTML, CSS와 같은 기본적인 프론트엔드 가술에 익숙하며 최신 프론트엔드 기술도 지속적으로 학습하고 있습니다.',
         },
         {
             key: 3,
-            icon: <RocketLaunchIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'Deploy',
             skill: 'AWS | Vercel',
-            desc: '사이드 프로젝트 완료 후 AWS에 EC2 인스턴스에 Redis, MariaDB 구축하여 REST API 서버를 배포한 경험이 있습니다. 포트폴리오는 Vercel을 사용하여 자동 배포하고 있습니다. ',
+            desc: '사이드 프로젝트를 하면서 AWS EC2 인스턴스를 생성하여 Redis, MariaDB를 설치하고 REST API 서버를 배포한 경험이 있습니다. 포트폴리오 배포는 Vercel을 사용합니다. ',
         },
         {
             key: 4,
-            icon: <DvrIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'IDE',
-            skill: 'Eclipse | VisualStudio | intelliJ | SublimeText',
-            desc: '재직 기간 대부분의 시간을 Eclipse를 사용하였기 때문에 툴 사용에 능숙합니다.  ' + 'Front end개발은 주로 Visual Studio 를 사용합니다. ',
+            skill: 'Eclipse | VisualStudio | intelliJ ',
+            desc: 'Java 로 개발하는 업무는 대부분 Eclipse IDE를 사용하였습니다. ' + '프론트엔드 개발은 주로 Visual Studio를 사용합니다. ',
         },
         {
             key: 5,
-            icon: <GitHubIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'Version Control',
             skill: 'Github | SVN',
-            desc: '실무에서 SVN과 git모두 사용하였습니다. 현재는 주로 github를 사용하여 버전 관리를 하고 있습니다. ',
+            desc: '실무에서 SVN과 Git 모두 사용한 경험이 있습니다. 현재는 주로 Github를 사용하여 형상 관리를 하고 있습니다. ',
         },
         {
             key: 6,
-            icon: <BuildCircleIcon style={{ height: 32, width: 32, color: '#fff' }} />,
+
             title: 'Tool',
-            skill: 'Counfluence | Jira',
-            desc: '솔루션 개발 시 Jira로 이슈관리를 한 경험이 있으며, MES 시스템을 운영하면서 필요한 필수 정보들을 Confluence를 통해 페이지를 작성하여 팀원들과 공유하였습니다.',
+            skill: 'Jira | Confluence',
+            desc: '솔루션 개발 업무에서 Jira로 이슈 관리를 하였습니다. 시스템 운영 업무에서 Confluence를 사용하여 운영 정보를 공유하였습니다.',
         },
     ];
 
@@ -125,17 +117,46 @@ export default function Skill() {
 }
 
 function SkillItem({ data }: { data: any }) {
-    const delayTime = data.key * 0.08;
+    const delayTime = data.key * 0.1;
+
+    const [isHover, setHover] = useState(false);
+
+    const renderItemIcon = (key: number) => {
+        const iconStyle = { height: 35, width: 35, color: isHover ? '#2ad883' : '#fff' };
+        switch (key) {
+            case 1:
+                return <TerminalIcon style={iconStyle} />;
+            case 2:
+                return <DevicesIcon style={iconStyle} />;
+            case 3:
+                return <RocketLaunchIcon style={iconStyle} />;
+            case 4:
+                return <DvrIcon style={iconStyle} />;
+            case 5:
+                return <GitHubIcon style={iconStyle} />;
+            case 6:
+                return <BuildCircleIcon style={iconStyle} />;
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, rotateY: 90 }}
             animate={{ opacity: 1, rotateY: 0 }}
-            transition={{ duration: 1, delay: delayTime }}
-            whileHover={{ y: -5, scale: 1.1, transition: { ease: 'easeOut', duration: 0.5 } }}
+            transition={{ duration: !isHover ? 1 : 0.5, delay: !isHover ? delayTime : 0, type: 'easeInOut' }}
+            whileHover={{ y: -5, scale: 1.1, transition: { type: 'easeInOut', duration: 0.5 } }}
+            onHoverStart={(e) => {
+                setHover(true);
+            }}
+            onHoverEnd={(e) => {
+                setHover(false);
+            }}
             className="item">
             <div className="item-bg"></div>
-            <div className="item-icon">{data.icon}</div>
-            <div className="item-title">{data.title}</div>
+            <div className="item-icon">{renderItemIcon(data.key)}</div>
+            <div className="item-title" style={isHover ? { color: '#2ad883' } : {}}>
+                {data.title}
+            </div>
             <div className="item-skill">{data.skill}</div>
             <div className="item-desc">{data.desc}</div>
         </motion.div>
