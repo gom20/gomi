@@ -4,7 +4,14 @@ import Image from 'next/image';
 import { ReactElement, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-import StorageIcon from '@mui/icons-material/Storage';
+import BuildCircleIcon from '@mui/icons-material/BuildCircle';
+
+import MonitorIcon from '@mui/icons-material/Monitor';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import DevicesIcon from '@mui/icons-material/Devices';
+import DvrIcon from '@mui/icons-material/Dvr';
 
 Skill.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -14,7 +21,7 @@ export default function Skill() {
     const items = [
         {
             key: 1,
-            icon: <Image priority src="/git_icon.svg" height={31} width={31} alt="Follow us on Twitter" />,
+            icon: <TerminalIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'Back-end Development',
             skill: 'Java | SpringBoot | OracleDB | OracleSQL',
             desc:
@@ -22,35 +29,35 @@ export default function Skill() {
         },
         {
             key: 2,
-            icon: <Image priority src="/git_icon.svg" height={31} width={31} alt="Follow us on Twitter" />,
+            icon: <DevicesIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'Front-end Development',
             skill: 'Javascript | Typescript | React | Redux | Html',
             desc: 'Smart TV 웹앱 개발자로 경력을 시작했습니다. ' + 'Javascript, Html, CSS 익숙하며 그 당시에는 jQuery를 많이 사용하였습니다.' + '최신 Front end 기술을 계속 숙지하고 있습니다.',
         },
         {
             key: 3,
-            icon: <Image priority src="/git_icon.svg" height={31} width={31} alt="Follow us on Twitter" />,
+            icon: <RocketLaunchIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'Deploy',
             skill: 'AWS | Vercel',
             desc: '사이드 프로젝트 완료 후 AWS에 EC2 인스턴스에 Redis, MariaDB 구축하여 REST API 서버를 배포한 경험이 있습니다. 포트폴리오는 Vercel을 사용하여 자동 배포하고 있습니다. ',
         },
         {
             key: 4,
-            icon: <Image priority src="/eclipse_icon.svg" height={31} width={31} alt="Follow us on Twitter" />,
+            icon: <DvrIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'IDE',
             skill: 'Eclipse | VisualStudio | intelliJ | SublimeText',
             desc: '재직 기간 대부분의 시간을 Eclipse를 사용하였기 때문에 툴 사용에 능숙합니다.  ' + 'Front end개발은 주로 Visual Studio 를 사용합니다. ',
         },
         {
             key: 5,
-            icon: <Image priority src="/eclipse_icon.svg" height={31} width={31} alt="Follow us on Twitter" />,
+            icon: <GitHubIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'Version Control',
             skill: 'Github | SVN',
             desc: '실무에서 SVN과 git모두 사용하였습니다. 현재는 주로 github를 사용하여 버전 관리를 하고 있습니다. ',
         },
         {
             key: 6,
-            icon: <Image priority src="/eclipse_icon.svg" height={31} width={31} alt="Follow us on Twitter" />,
+            icon: <BuildCircleIcon style={{ height: 32, width: 32, color: '#fff' }} />,
             title: 'Tool',
             skill: 'Counfluence | Jira',
             desc: '솔루션 개발 시 Jira로 이슈관리를 한 경험이 있으며, MES 시스템을 운영하면서 필요한 필수 정보들을 Confluence를 통해 페이지를 작성하여 팀원들과 공유하였습니다.',
