@@ -293,9 +293,11 @@ body::-webkit-scrollbar {
 }
 
 #about .title {
-    font-size: 3rem;
-    color: #5755cf;
+    z-index: 3;
+    font-size: 4rem;
+    color: #2ad883;
     font-weight: 700;
+    align-self: center;
 }
 
 #about .desc {
@@ -384,8 +386,8 @@ body::-webkit-scrollbar {
 
 #experience .title {
     z-index: 3;
-    font-size: 3rem;
-    color: #000;
+    font-size: 4rem;
+    color: #ffffff;
     font-weight: 700;
     align-self: center;
 }

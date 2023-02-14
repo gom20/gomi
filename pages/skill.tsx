@@ -89,36 +89,6 @@ export default function Skill() {
     return (
         <div id="skill">
             <div className="bg"></div>
-            {/* <motion.div
-                initial={{
-                    top: -150,
-                    right: -150,
-                    opacity: 0,
-                }}
-                animate={{
-                    top: 10,
-                    right: 10,
-                    opacity: 0.3,
-                }}
-                transition={{ duration: 1.5, type: 'spring', delay: 0.5 }}
-                style={{ position: 'fixed', fontSize: '30rem', zIndex: 3, fontWeight: '800' }}>
-                +
-            </motion.div>
-            <motion.div
-                initial={{
-                    bottom: -150,
-                    left: -150,
-                    opacity: 0,
-                }}
-                animate={{
-                    bottom: 10,
-                    left: 10,
-                    opacity: 0.3,
-                }}
-                transition={{ duration: 1.5, type: 'spring', delay: 0.5 }}
-                style={{ position: 'fixed', fontSize: '30rem', zIndex: 3, fontWeight: '800' }}>
-                +
-            </motion.div> */}
             <motion.div
                 initial={{
                     top: -150,
@@ -128,12 +98,13 @@ export default function Skill() {
                 animate={{
                     top: 0,
                     right: 0,
-                    opacity: 0.5,
+                    opacity: 0.4,
                 }}
                 transition={{ duration: 1.5, type: 'spring', delay: 0.5 }}
                 style={{ position: 'fixed', zIndex: 2 }}>
                 <Image priority src="/line-pattern.svg" height={800} width={800} alt="test" />
             </motion.div>
+
             <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
                 Skill-Set
             </motion.div>
@@ -147,9 +118,14 @@ export default function Skill() {
 }
 
 function SkillItem({ data }: { data: any }) {
-    const delayTime = data.key * 0.05;
+    const delayTime = data.key * 0.08;
     return (
-        <motion.div initial={{ opacity: 0, rotateY: 90 }} animate={{ opacity: 1, rotateY: 0 }} transition={{ duration: 1, delay: delayTime }} className="item">
+        <motion.div
+            initial={{ opacity: 0, rotateY: 90 }}
+            animate={{ opacity: 1, rotateY: 0 }}
+            transition={{ duration: 1, delay: delayTime }}
+            whileHover={{ y: -5, scale: 1.1, transition: { ease: 'easeOut', duration: 0.5 } }}
+            className="item">
             <div className="item-bg"></div>
             <div className="item-icon">{data.icon}</div>
             <div className="item-title">{data.title}</div>

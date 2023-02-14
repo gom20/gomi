@@ -95,7 +95,9 @@ export default function Experience() {
         <div id="experience">
             <div className="bg"></div>
             <div className="bg-image"></div>
-            <div className="title">Experience</div>
+            <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
+                Experience
+            </motion.div>
 
             <div className="container">
                 <AnimatePresence initial={false} custom={direction}>

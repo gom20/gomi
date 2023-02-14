@@ -2,6 +2,7 @@ import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import PeopleIcon from '@mui/icons-material/People';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import Image from 'next/image';
 import { ReactElement, useContext, useEffect } from 'react';
 
 About.getLayout = function getLayout(page: ReactElement) {
@@ -59,33 +60,21 @@ export default function About() {
 
     return (
         <div id="about">
-            {/* <motion.div
-                initial={{
-                    x: -100,
-                    opacity: 0,
-                }}
-                animate={{
-                    x: 10,
-                    opacity: 1,
-                }}
-                transition={{ duration: 2, type: 'spring', delay: 0.5 }}
-                className="back-title">
-                <p>ABOUT</p>
-                <p>ME</p>
-            </motion.div> */}
-            {/* <motion.div
+            <motion.div
                 initial={{
                     top: -150,
                     right: -150,
                     opacity: 0,
                 }}
                 animate={{
-                    top: -90,
-                    right: -90,
-                    opacity: 1,
+                    top: 0,
+                    right: 0,
+                    opacity: 0.4,
                 }}
-                transition={{ duration: 2, type: 'spring', delay: 0.5 }}
-                className="back-circle"></motion.div> */}
+                transition={{ duration: 1.5, type: 'spring', delay: 0.5 }}
+                style={{ position: 'fixed', zIndex: 2 }}>
+                <Image priority src="/line-pattern.svg" height={800} width={800} alt="test" />
+            </motion.div>
 
             <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
                 <p>About Me</p>

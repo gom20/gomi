@@ -39,13 +39,23 @@ export default function Contact() {
         <div id="contact">
             <div className="bg"></div>
             <div className="bg-image"></div>
-            <div className="title" style={{ display: 'flex', flexDirection: 'row' }}>
+            <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, type: 'spring', delay: 0.5 }}
+                className="title"
+                style={{ display: 'flex', flexDirection: 'row' }}>
                 <div style={{ color: '#2ad883' }}>Contact</div> <div>&nbsp;Info.</div>
-            </div>
-            <div className="desc">
-                저에 대해 궁금하신 점이 있으신가요? <br /> 문의 사항은 언제나 환영합니다.
-            </div>
-            <div className="email">rhaldud89@gmail.com</div>
+            </motion.div>
+            <motion.div initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.7 }} className="desc">
+                저에 대해 궁금하신 점이 있으신가요?
+            </motion.div>
+            <motion.div initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 1 }} className="desc">
+                문의 사항은 언제나 환영합니다.
+            </motion.div>
+            <motion.div initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 1.3 }} className="email">
+                rhaldud89@gmail.com
+            </motion.div>
             <div className="icon-container">
                 <motion.div whileHover={{ scale: 1.2 }}>
                     <Link href={'https://github.com/gom20'} target="_blank">
