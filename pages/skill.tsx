@@ -3,6 +3,7 @@ import AppLayout from '@/layouts/AppLayout';
 import Image from 'next/image';
 import { ReactElement, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
+
 import StorageIcon from '@mui/icons-material/Storage';
 
 Skill.getLayout = function getLayout(page: ReactElement) {
@@ -118,7 +119,21 @@ export default function Skill() {
                 style={{ position: 'fixed', fontSize: '30rem', zIndex: 3, fontWeight: '800' }}>
                 +
             </motion.div> */}
-
+            <motion.div
+                initial={{
+                    top: -150,
+                    right: -150,
+                    opacity: 0,
+                }}
+                animate={{
+                    top: 0,
+                    right: 0,
+                    opacity: 0.5,
+                }}
+                transition={{ duration: 1.5, type: 'spring', delay: 0.5 }}
+                style={{ position: 'fixed', zIndex: 2 }}>
+                <Image priority src="/line-pattern.svg" height={800} width={800} alt="test" />
+            </motion.div>
             <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
                 Skill-Set
             </motion.div>
