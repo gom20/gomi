@@ -94,6 +94,7 @@ export default function Experience() {
     return (
         <div id="experience">
             <div className="bg"></div>
+            <div className="bg-image"></div>
             <div className="title">Experience</div>
 
             <div className="container">

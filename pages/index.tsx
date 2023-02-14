@@ -2,7 +2,6 @@ import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import SouthIcon from '@mui/icons-material/South';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 import { ReactElement, useContext, useEffect } from 'react';
 
 Home.getLayout = function getLayout(page: ReactElement) {
@@ -10,7 +9,6 @@ Home.getLayout = function getLayout(page: ReactElement) {
 };
 
 export default function Home() {
-    const router = useRouter();
     const { setTargetPage } = useContext(AppContext);
 
     const movePage = () => {
@@ -49,7 +47,7 @@ export default function Home() {
             id="home"
             key="home-color"
             animate={{
-                backgroundColor: ['hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(241, 56%, 57%)'],
+                backgroundColor: ['hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(210, 21%, 15%)'],
             }}
             transition={{
                 duration: 4,
@@ -66,7 +64,7 @@ export default function Home() {
                     opacity: [1, 1, 1, 1, 1, 1],
                     scale: [0, 2, 1, 2, 0, 2.3],
                     rotate: [0, 0, 180, 0, 0, 0],
-                    backgroundColor: ['hsl(60, 100%, 90%)', 'hsl(60, 100%, 90%)', 'hsl(0, 100%, 95%)', 'hsl(0, 100%, 95%)', 'hsl(0, 100%, 95%)', 'hsl(241, 56%, 57%)'],
+                    backgroundColor: ['hsl(137, 93%, 89%)', 'hsl(137, 93%, 89%)', 'hsl(179, 55%, 78%)', 'hsl(179, 55%, 78%)', 'hsl(179, 55%, 78%)', 'hsl(210, 21%, 15%)'],
                     borderRadius: ['50%', '50%', '20%', '50%', '50%', '50%', '50%'],
                 }}
                 transition={{
@@ -90,7 +88,7 @@ export default function Home() {
                     key="hello-color"
                     initial={{ color: '#000' }}
                     animate={{
-                        color: ['hsl(210, 100%, 35%)', 'hsl(210, 100%, 35%)', 'hsl(210, 100%, 35%)', 'hsl(241, 80%, 57%)', 'hsl(241, 80%, 57%)', 'hsl(0, 0%, 100%)'],
+                        color: ['hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(223, 100%, 56%)', 'hsl(223, 100%, 56%)', 'hsl(151, 69%, 51%)'],
                     }}
                     transition={{
                         duration: 4,

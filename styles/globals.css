@@ -11,7 +11,7 @@
 
 @media (min-width: 800px) {
     :root {
-        font-size: 0.875em;
+        font-size: 0.85em;
     }
 }
 @media (min-width: 1200px) {
@@ -25,7 +25,7 @@ body {
     max-width: 100vw;
     overflow-x: hidden;
     font-family: 'Pretendard';
-    background-color: #000;
+    background-color: #131313;
     color: #fff;
 }
 
@@ -116,34 +116,6 @@ body::-webkit-scrollbar {
     opacity: 0.7;
 }
 
-#menu .link {
-    padding: 1rem 1rem 1rem 4rem;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 700;
-    /* color: #818181; */
-    color: #c5c5c5;
-    display: block;
-    transition: 0.3s;
-}
-
-#menu .link-selected {
-    padding: 1rem 1rem 1rem 4rem;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 700;
-    /* color: #818181; */
-    color: #c5c5c5;
-    display: block;
-    transition: 0.3s;
-    color: #5755cf;
-}
-
-#menu .link:hover {
-    /* color: #f1f1f1; */
-    color: #5755cf;
-}
-
 /* Footer */
 #footer {
     position: fixed;
@@ -165,7 +137,7 @@ body::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
-    background-color: #818181;
+    background-color: #f3f3f3;
     margin-bottom: 2rem;
     margin-left: 3rem;
 }
@@ -174,7 +146,7 @@ body::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
-    background-color: red;
+    background-color: #2ad883;
     margin-bottom: 2rem;
     margin-left: 3rem;
 }
@@ -224,9 +196,21 @@ body::-webkit-scrollbar {
     transition: 0.3s;
 }
 
+#menu .link-selected {
+    padding: 1rem 1rem 1rem 4rem;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    /* color: #818181; */
+    color: #c5c5c5;
+    display: block;
+    transition: 0.3s;
+    color: #2ad883;
+}
+
 #menu .link:hover {
     /* color: #f1f1f1; */
-    color: #5755cf;
+    color: #2ad883;
 }
 
 /* Home */
@@ -334,6 +318,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
 }
+
 #about .item-icon {
     align-self: center;
     width: 8rem;
@@ -363,14 +348,26 @@ body::-webkit-scrollbar {
 
 #experience .bg {
     position: fixed;
-    z-index: -10;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    align-self: center;
+}
+
+#experience .bg-image {
+    position: fixed;
+    z-index: 2;
     height: 100vh;
     width: 100vw;
     animation-name: MOVE-BG;
-    animation-duration: 100s;
+    animation-duration: 50s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    /* background-image: url('../test.png'); */
+    background-image: url('../experience-bg.jpg');
+    opacity: 0.2;
+    background-size: cover;
+    align-self: center;
 }
 
 @keyframes MOVE-BG {
@@ -386,6 +383,7 @@ body::-webkit-scrollbar {
 }
 
 #experience .title {
+    z-index: 3;
     font-size: 3rem;
     color: #000;
     font-weight: 700;
@@ -393,6 +391,7 @@ body::-webkit-scrollbar {
 }
 
 #experience .container {
+    z-index: 3;
     position: relative;
     top: 0;
     left: 0;
@@ -401,7 +400,8 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    /* background-color: aqua; */
+    /* opacity: 0.3; */
 }
 
 @media screen and (min-width: 800px) {
@@ -422,10 +422,11 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 #experience .navigator {
+    z-index: 3;
     display: flex;
     flex-direction: row;
 }
@@ -461,17 +462,17 @@ body::-webkit-scrollbar {
     min-height: 100vh;
     min-width: 100vw;
     padding: 5rem;
-    background-color: #000;
+    /* background-color: #131313; */
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1200px) {
     #skill {
         padding-right: 20rem;
         padding-left: 20rem;
     }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1300px) {
+@media screen and (min-width: 800px) and (max-width: 1200px) {
     #skill {
         padding-right: 8rem;
         padding-left: 8rem;
@@ -484,42 +485,46 @@ body::-webkit-scrollbar {
     }
 }
 
-#skill .item {
-    width: 17rem;
-    height: 15rem;
-    background-color: #5755cf;
-    margin: 2rem;
+#skill .bg {
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background-color: #1f272f;
+    align-self: center;
 }
 
-@media screen and (min-width: 1300px) {
-    #skill .item {
-        width: 17rem;
-        height: 15rem;
-        margin: 2rem;
-    }
+#skill .bg-image {
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    animation-name: MOVE-BG;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background-image: url('../skill-bg.jpg');
+    opacity: 0.2;
+    background-size: cover;
+    align-self: center;
 }
-
-@media screen and (min-width: 800px) and (max-width: 1300px) {
-    #skill .item {
-        width: 16rem;
-        height: 12rem;
-        margin: 1rem;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 800) {
-    #skill .item {
-        width: 13rem;
-        height: 11rem;
-        margin: 0.5rem;
-    }
+#skill .back-circle {
+    position: fixed;
+    /* top: 0; */
+    /* right: 0; */
+    width: 30rem;
+    height: 30rem;
+    background-color: #2ad883;
+    border-radius: 100%;
+    z-index: 3;
 }
 
 #skill .title {
     z-index: 3;
     font-size: 4rem;
-    color: #fff;
+    color: #2ad883;
     font-weight: 700;
+    align-self: center;
     /* margin-bottom: 0.5rem; */
 }
 
@@ -529,6 +534,58 @@ body::-webkit-scrollbar {
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 1rem;
+    z-index: 3;
+}
+
+#skill .item {
+    width: 17rem;
+    height: 15rem;
+    margin: 2rem;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #161c21;
+}
+
+@media screen and (min-width: 1200px) {
+    #skill .item {
+        width: 17rem;
+        height: 15rem;
+        margin: 2rem;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    #skill .item {
+        width: 17rem;
+        height: 13rem;
+        margin: 1rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800) {
+    #skill .item {
+        width: 14rem;
+        height: 11rem;
+        margin: 0.5rem;
+    }
+}
+
+#skill .item > div {
+    margin-bottom: 0.3rem;
+}
+
+#skill .item-title {
+    font-size: 1rem;
+    font-weight: 700;
+}
+#skill .item-skill {
+    font-size: 0.7rem;
+    color: #c5c5c5;
+}
+
+#skill .item-desc {
+    font-size: 0.8rem;
 }
 
 /* Contact */
