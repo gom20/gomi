@@ -6,7 +6,6 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import * as React from 'react';
 export default function Menu() {
     let navData = new Map<string, string>();
@@ -15,10 +14,7 @@ export default function Menu() {
     navData.set('/experience', 'Experience');
     navData.set('/skill', 'Skill');
     navData.set('/contact', 'Contact');
-    navData.set('https://github.com/gom20', 'Github');
-    navData.set('https://gom20.tistory.com/', 'Blog');
-
-    const { setTargetPage } = React.useContext(AppContext);
+    const { targetPage, setTargetPage } = React.useContext(AppContext);
     const [state, setState] = React.useState({
         isOpen: false,
     });
@@ -132,21 +128,15 @@ export default function Menu() {
     const listItem = (navKey: string) => (
         <ListItem key={navKey} disablePadding>
             <motion.div whileHover={{ scale: 1 }} onHoverStart={(e) => {}} onHoverEnd={(e) => {}}>
-                {navKey.startsWith('/') ? (
-                    <div
-                        className="link"
-                        onClick={() => {
-                            setTimeout(function () {
-                                setTargetPage(navKey);
-                            }, 100);
-                        }}>
-                        {navData.get(navKey)}
-                    </div>
-                ) : (
-                    <Link href={navKey} className="link" target={'_blank'}>
-                        {navData.get(navKey)}
-                    </Link>
-                )}
+                <div
+                    className={navKey == targetPage ? 'link-selected' : 'link'}
+                    onClick={() => {
+                        setTimeout(function () {
+                            setTargetPage(navKey);
+                        }, 100);
+                    }}>
+                    {navData.get(navKey)}
+                </div>
             </motion.div>
         </ListItem>
     );

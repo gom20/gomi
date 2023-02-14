@@ -25,6 +25,8 @@ body {
     max-width: 100vw;
     overflow-x: hidden;
     font-family: 'Pretendard';
+    background-color: #000;
+    color: #fff;
 }
 
 body::-webkit-scrollbar {
@@ -125,6 +127,18 @@ body::-webkit-scrollbar {
     transition: 0.3s;
 }
 
+#menu .link-selected {
+    padding: 1rem 1rem 1rem 4rem;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    /* color: #818181; */
+    color: #c5c5c5;
+    display: block;
+    transition: 0.3s;
+    color: #5755cf;
+}
+
 #menu .link:hover {
     /* color: #f1f1f1; */
     color: #5755cf;
@@ -156,7 +170,7 @@ body::-webkit-scrollbar {
     margin-left: 3rem;
 }
 
-#navi .selected {
+#navi .circle-selected {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
@@ -368,7 +382,7 @@ body::-webkit-scrollbar {
     animation-duration: 100s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    background-image: url('../test.png');
+    /* background-image: url('../test.png'); */
 }
 
 @keyframes MOVE-BG {
@@ -482,7 +496,7 @@ body::-webkit-scrollbar {
     animation-duration: 50s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    background-image: url('../bgtest.jpg');
+    /* background-image: url('../bgtest.jpg'); */
     align-self: center;
 }
 
