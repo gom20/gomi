@@ -12,10 +12,6 @@ Contact.getLayout = function getLayout(page: ReactElement) {
 };
 export default function Contact() {
     const { setTargetPage, targetPage, pages } = useContext(AppContext);
-
-    const nextPage = () => {
-        setTargetPage(pages[pages.indexOf(targetPage) + 1]);
-    };
     const prevPage = () => {
         setTargetPage(pages[pages.indexOf(targetPage) - 1]);
     };
@@ -28,14 +24,8 @@ export default function Contact() {
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
-                if (!hasScroll) {
-                    if (e.deltaY < 0) {
-                        prevPage();
-                    }
-                } else {
-                    if (scrollY == 0 && e.deltaY < 0) {
-                        prevPage();
-                    }
+                if ((hasScroll && scrollY == 0 && e.deltaY < 0) || (!hasScroll && e.deltaY < 0)) {
+                    prevPage();
                 }
             }, 500);
         };
@@ -48,6 +38,7 @@ export default function Contact() {
     return (
         <div id="contact">
             <div className="bg"></div>
+            <div className="bg-image"></div>
             <div className="title">Contact Info.</div>
             <div className="desc">
                 저에 대해 궁금하신 점이 있으신가요? <br /> 문의 사항은 언제나 환영합니다.
@@ -55,15 +46,19 @@ export default function Contact() {
             <div className="email">rhaldud89@gmail.com</div>
             <div className="icon-container">
                 <motion.div whileHover={{ scale: 1.2 }}>
-                    <Link href={'https://github.com/gom20'}>
+                    <Link href={'https://github.com/gom20'} target="_blank">
                         <GitHubIcon style={{ height: 32, width: 32, color: '#fff' }}></GitHubIcon>
                     </Link>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.2 }}>
-                    <Image priority src="/kakao_icon.svg" height={31} width={31} alt="Follow us on Twitter" />
+                    <Link href={'https://open.kakao.com/o/swKFAh4e'} target="_blank">
+                        <Image priority src="/kakao_icon.svg" height={31} width={31} alt="Follow us on Twitter" />
+                    </Link>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.2 }}>
-                    <Image priority src="/tistory_icon.svg" height={30} width={30} alt="Follow us on Twitter" />
+                    <Link href={'https://gom20.tistory.com'} target="_blank">
+                        <Image priority src="/tistory_icon.svg" height={30} width={30} alt="Follow us on Twitter" />
+                    </Link>
                 </motion.div>
             </div>
         </div>

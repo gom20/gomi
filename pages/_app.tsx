@@ -27,20 +27,20 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     };
 
     const [screenWidth, setScreenWidth] = useState(1100);
-    const [variants, setVariants] = useState(initialPageVariants);
+    const [pageVariants, setPageVariants] = useState(initialPageVariants);
 
     useEffect(() => {
         const curIdx = pages.indexOf(globalThis.location.pathname);
         const nextIdx = pages.indexOf(targetPage);
         if (screenWidth > 800) {
             if (curIdx <= nextIdx) {
-                setVariants({
+                setPageVariants({
                     initial: { opacity: 1, y: 1100 },
                     animate: { opacity: 1, y: 0 },
                     exit: { opacity: 1, y: -1100 },
                 });
             } else {
-                setVariants({
+                setPageVariants({
                     initial: { opacity: 1, y: -1100 },
                     animate: { opacity: 1, y: 0 },
                     exit: { opacity: 1, y: 1100 },
@@ -52,9 +52,9 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
 
     useEffect(() => {
         if (screenWidth > 800) {
-            setVariants(initialPageVariants);
+            setPageVariants(initialPageVariants);
         } else {
-            setVariants({
+            setPageVariants({
                 initial: { opacity: 0, y: 0 },
                 animate: { opacity: 1, y: 0 },
                 exit: { opacity: 0, y: 0 },
@@ -80,7 +80,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
             {getLayout(
                 <>
                     <AnimatePresence mode="popLayout" initial={true}>
-                        <motion.div key={router.pathname} variants={variants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.5 }}>
+                        <motion.div key={router.pathname} variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.5 }}>
                             <Component {...{ ...pageProps }} />
                         </motion.div>
                     </AnimatePresence>
