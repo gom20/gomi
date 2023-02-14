@@ -5,12 +5,12 @@ import Navi from './Navi';
 
 export default function AppLayout(props: { isHome?: boolean; children: React.ReactNode }) {
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.7 }}>
+        <motion.div id="header-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.7 }}>
             <AnimatePresence>
                 {!props.isHome && (
                     <>
                         <motion.div
-                            style={{ position: 'fixed', top: 0, zIndex: 1 }}
+                            style={{ position: 'fixed', top: 0, zIndex: 10 }}
                             key="header"
                             initial={{ opacity: 1, y: -100 }}
                             animate={{ opacity: 1, y: 0 }}
