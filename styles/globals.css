@@ -85,6 +85,7 @@ body::-webkit-scrollbar {
 }
 
 /* Header */
+
 #header {
     display: flex;
     flex-direction: row;
@@ -95,7 +96,6 @@ body::-webkit-scrollbar {
     padding: 1rem;
     /* padding-right: 3rem;
     padding-left: 3rem; */
-    z-index: 1;
 }
 
 /* Info */
@@ -349,19 +349,6 @@ body::-webkit-scrollbar {
     font-size: 1rem;
 }
 
-/* Skill */
-#skill {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
-    min-width: 100vw;
-    padding: 5rem;
-    background-color: #000;
-}
-
 /* Experience */
 #experience {
     display: flex;
@@ -462,6 +449,86 @@ body::-webkit-scrollbar {
 
 #experience .prev {
     left: 10px;
+}
+
+/* Skill */
+#skill {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 5rem;
+    background-color: #000;
+}
+
+@media screen and (min-width: 1300px) {
+    #skill {
+        padding-right: 20rem;
+        padding-left: 20rem;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1300px) {
+    #skill {
+        padding-right: 8rem;
+        padding-left: 8rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800) {
+    #skill {
+        padding: 2rem;
+    }
+}
+
+#skill .item {
+    width: 17rem;
+    height: 15rem;
+    background-color: #5755cf;
+    margin: 2rem;
+}
+
+@media screen and (min-width: 1300px) {
+    #skill .item {
+        width: 17rem;
+        height: 15rem;
+        margin: 2rem;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1300px) {
+    #skill .item {
+        width: 16rem;
+        height: 12rem;
+        margin: 1rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800) {
+    #skill .item {
+        width: 13rem;
+        height: 11rem;
+        margin: 0.5rem;
+    }
+}
+
+#skill .title {
+    z-index: 3;
+    font-size: 4rem;
+    color: #fff;
+    font-weight: 700;
+    /* margin-bottom: 0.5rem; */
+}
+
+#skill .item-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 /* Contact */
