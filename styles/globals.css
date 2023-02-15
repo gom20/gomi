@@ -373,7 +373,7 @@ body::-webkit-scrollbar {
     height: 100vh;
     width: 100vw;
     animation-name: MOVE-BG;
-    animation-duration: 50s;
+    animation-duration: 40s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     background-image: url('../experience-bg.jpg');
