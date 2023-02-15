@@ -98,9 +98,8 @@ export default function Experience() {
                             variants={variants}
                             initial="enter"
                             animate="center"
-                            // exit="exit"
                             transition={{
-                                x: { type: 'spring', stiffness: 300, damping: 30 },
+                                x: { type: 'spring', stiffness: 200, damping: 30 },
                                 opacity: { duration: 0.3 },
                             }}
                             drag="x"
