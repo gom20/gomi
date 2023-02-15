@@ -30,14 +30,11 @@ export default function About() {
         const handleWheel = (e: WheelEvent) => {
             if (timer) return;
 
-            console.log(e.deltaY);
-
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
 
                 if (!hasScroll) {
-                    console.log(hasScroll);
                     if (e.deltaY < 0) {
                         setTargetPage('/');
                     } else {
@@ -59,7 +56,7 @@ export default function About() {
     }, []);
 
     return (
-        <div id="about">
+        <div id="about" className="container">
             <motion.div
                 initial={{
                     top: -150,

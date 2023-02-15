@@ -86,9 +86,9 @@ export default function Skill() {
     }, []);
 
     return (
-        <div id="skill">
+        <div id="skill" className="container">
             <div className="bg"></div>
-            <motion.div
+            {/* <motion.div
                 initial={{
                     top: -150,
                     right: -150,
@@ -102,7 +102,7 @@ export default function Skill() {
                 transition={{ duration: 1.5, type: 'spring', delay: 0.5 }}
                 style={{ position: 'fixed', zIndex: 2 }}>
                 <Image priority src="/line-pattern.svg" height={800} width={800} alt="test" />
-            </motion.div>
+            </motion.div> */}
 
             <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
                 Skill-Set

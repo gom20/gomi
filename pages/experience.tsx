@@ -46,16 +46,7 @@ export default function Experience() {
     };
 
     const getContent = (page: number) => {
-        let color = 'blue';
-        if (page % 2 == 0) {
-            color = 'red';
-        }
-        return (
-            <div className="project">
-                <div>나의 경력입니다. {page}</div>
-                <Project page={page} />
-            </div>
-        );
+        return <Project page={page} />;
     };
 
     useEffect(() => {
@@ -92,60 +83,61 @@ export default function Experience() {
     }, []);
 
     return (
-        <div id="experience">
+        <div id="experience" className="container">
             <div className="bg"></div>
             <div className="bg-image"></div>
             <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
                 Experience
             </motion.div>
-
-            <div className="container">
-                <AnimatePresence initial={false} custom={direction}>
-                    <motion.div
-                        key={page}
-                        custom={direction}
-                        variants={variants}
-                        initial="enter"
-                        animate="center"
-                        // exit="exit"
-                        transition={{
-                            // duration: 0.3,
-                            x: { type: 'spring', stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.3 },
-                        }}
-                        drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        dragElastic={1}
-                        onDragEnd={(e, { offset, velocity }) => {
-                            const swipe = swipePower(offset.x, velocity.x);
-                            if (swipe < -swipeConfidenceThreshold) {
-                                if (page == 5) return;
-                                paginate(1);
-                            } else if (swipe > swipeConfidenceThreshold) {
-                                if (page == 1) return;
-                                paginate(-1);
-                            }
-                        }}>
-                        {getContent(page)}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-            <div className="navigator">
-                <NavigateBeforeOutlinedIcon
-                    className="prev"
-                    style={page == 1 ? { color: 'gray' } : {}}
-                    onClick={() => {
-                        if (page == 1) return;
-                        paginate(-1);
-                    }}></NavigateBeforeOutlinedIcon>
-                {page} / 5
-                <NavigateNextOutlinedIcon
-                    className="next"
-                    style={page == 5 ? { color: 'gray' } : {}}
-                    onClick={() => {
-                        if (page == 5) return;
-                        paginate(1);
-                    }}></NavigateNextOutlinedIcon>
+            <div className="project-navi-container">
+                <div className="project-container">
+                    <AnimatePresence initial={false} custom={direction}>
+                        <motion.div
+                            key={page}
+                            custom={direction}
+                            variants={variants}
+                            initial="enter"
+                            animate="center"
+                            // exit="exit"
+                            transition={{
+                                // duration: 0.3,
+                                x: { type: 'spring', stiffness: 300, damping: 30 },
+                                opacity: { duration: 0.3 },
+                            }}
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={1}
+                            onDragEnd={(e, { offset, velocity }) => {
+                                const swipe = swipePower(offset.x, velocity.x);
+                                if (swipe < -swipeConfidenceThreshold) {
+                                    if (page == 5) return;
+                                    paginate(1);
+                                } else if (swipe > swipeConfidenceThreshold) {
+                                    if (page == 1) return;
+                                    paginate(-1);
+                                }
+                            }}>
+                            {getContent(page)}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+                <div className="navigator">
+                    <NavigateBeforeOutlinedIcon
+                        className="prev"
+                        style={page == 1 ? { color: '#818181' } : { color: '#f3f3f3' }}
+                        onClick={() => {
+                            if (page == 1) return;
+                            paginate(-1);
+                        }}></NavigateBeforeOutlinedIcon>
+                    {page} / 5
+                    <NavigateNextOutlinedIcon
+                        className="next"
+                        style={page == 5 ? { color: '#818181' } : { color: '#f3f3f3' }}
+                        onClick={() => {
+                            if (page == 5) return;
+                            paginate(1);
+                        }}></NavigateNextOutlinedIcon>
+                </div>
             </div>
         </div>
     );
