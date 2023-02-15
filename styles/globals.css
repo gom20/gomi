@@ -435,7 +435,19 @@ body::-webkit-scrollbar {
 @media screen and (min-width: 0px) and (max-width: 800px) {
     #experience .project {
         width: 28rem;
-        height: 50rem;
+        height: 33rem;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #experience .work-desc {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #experience .work-desc {
+        display: none;
     }
 }
 
