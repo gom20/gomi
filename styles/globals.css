@@ -427,15 +427,15 @@ body::-webkit-scrollbar {
 
 @media screen and (min-width: 800px) {
     #experience .project {
-        width: 60vw;
-        height: 50vh;
+        width: 60rem;
+        height: 30rem;
     }
 }
 
 @media screen and (min-width: 0px) and (max-width: 800px) {
     #experience .project {
-        width: 90vw;
-        height: 50vh;
+        width: 28rem;
+        height: 50rem;
     }
 }
 
