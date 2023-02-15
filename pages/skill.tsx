@@ -21,7 +21,7 @@ export default function Skill() {
             key: 1,
             title: 'Back-end',
             skill: 'Java | SpringBoot | OracleSQL',
-            desc: 'Retail 솔루션을 개발 업무로 Spring 기반 웹서버를 개발한 경험이 있습니다. ' + 'MES 시스템 운영 업무로 Java 기반의 배치 프로그램을 유지보수 하였습니다.',
+            desc: 'Retail 솔루션 개발 업무로 Spring 기반 웹서버를 개발한 경험이 있습니다. ' + 'MES 시스템 운영 업무로 Java 기반의 배치 프로그램을 유지보수 하였습니다.',
         },
         {
             key: 2,
@@ -122,7 +122,7 @@ function SkillItem({ data }: { data: any }) {
     const [isHover, setHover] = useState(false);
 
     const renderItemIcon = (key: number) => {
-        const iconStyle = { height: 35, width: 35, color: isHover ? '#2ad883' : '#fff' };
+        const iconStyle = { height: 35, width: 35, color: isHover ? '#000' : '#FFF' };
         switch (key) {
             case 1:
                 return <TerminalIcon style={iconStyle} />;
@@ -151,14 +151,19 @@ function SkillItem({ data }: { data: any }) {
             onHoverEnd={(e) => {
                 setHover(false);
             }}
-            className="item">
+            className="item"
+            style={{ backgroundColor: isHover ? '#2ad883' : '#161c21' }}>
             <div className="item-bg"></div>
             <div className="item-icon">{renderItemIcon(data.key)}</div>
-            <div className="item-title" style={isHover ? { color: '#2ad883' } : {}}>
+            <div className="item-title" style={isHover ? { color: '#000' } : {}}>
                 {data.title}
             </div>
-            <div className="item-skill">{data.skill}</div>
-            <div className="item-desc">{data.desc}</div>
+            <div className="item-skill" style={isHover ? { color: '#535353' } : {}}>
+                {data.skill}
+            </div>
+            <div className="item-desc" style={isHover ? { color: '#000' } : {}}>
+                {data.desc}
+            </div>
         </motion.div>
     );
 }

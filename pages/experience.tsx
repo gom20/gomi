@@ -110,7 +110,7 @@ export default function Experience() {
                             onDragEnd={(e, { offset, velocity }) => {
                                 const swipe = swipePower(offset.x, velocity.x);
                                 if (swipe < -swipeConfidenceThreshold) {
-                                    if (page == 5) return;
+                                    if (page == 6) return;
                                     paginate(1);
                                 } else if (swipe > swipeConfidenceThreshold) {
                                     if (page == 1) return;
@@ -129,12 +129,12 @@ export default function Experience() {
                             if (page == 1) return;
                             paginate(-1);
                         }}></NavigateBeforeOutlinedIcon>
-                    {page} / 5
+                    {page} / 6
                     <NavigateNextOutlinedIcon
                         className="next"
-                        style={page == 5 ? { color: '#818181' } : { color: '#f3f3f3' }}
+                        style={page == 6 ? { color: '#818181' } : { color: '#f3f3f3' }}
                         onClick={() => {
-                            if (page == 5) return;
+                            if (page == 6) return;
                             paginate(1);
                         }}></NavigateNextOutlinedIcon>
                 </div>

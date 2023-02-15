@@ -396,7 +396,7 @@ body::-webkit-scrollbar {
 #experience .title {
     z-index: 3;
     font-size: 4rem;
-    color: #ffffff;
+    /* color: #ffffff; */
     font-weight: 700;
     align-self: center;
 }
@@ -463,6 +463,13 @@ body::-webkit-scrollbar {
     font-weight: 700;
 }
 
+#experience .career-gradi {
+    background-image: linear-gradient(120deg, #2ad883 0%, #84c7bf 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #experience .career-item-container {
     font-size: 2rem;
     display: flex;
@@ -477,7 +484,7 @@ body::-webkit-scrollbar {
 #experience .career-line {
     position: fixed;
     margin-left: 0.3rem;
-    border-left: 1px solid #fff;
+    border-left: 1px solid #b6b6b6;
     height: 28vh;
 }
 
@@ -485,7 +492,7 @@ body::-webkit-scrollbar {
     width: 0.6rem;
     height: 0.6rem;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #b6b6b6;
     margin-right: 2rem;
 }
 
@@ -541,7 +548,40 @@ body::-webkit-scrollbar {
 #experience .work {
     height: inherit;
     width: inherit;
+    padding: 3rem;
     z-index: 4;
+}
+
+#experience .work-company {
+    font-size: 4rem;
+    font-weight: 700;
+    background-image: linear-gradient(160deg, #2ad883 0%, #80d0c7 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+}
+
+#experience .work-title {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+#experience .work-duration {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+#experience .work-skill {
+    color: #818181;
+    margin-bottom: 3rem;
+}
+
+#experience .work-desc {
+    color: #f3f3f3;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 #experience .navigator {
@@ -724,7 +764,7 @@ body::-webkit-scrollbar {
 #contact .title {
     z-index: 3;
     font-size: 4rem;
-    color: #fff;
+    /* color: #fff; */
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
