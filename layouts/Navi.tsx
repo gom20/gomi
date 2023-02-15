@@ -8,12 +8,9 @@ export function NaviItem({ page }: { page: string }) {
     const [circleStyle, setCircleStyle] = useState('circle');
 
     useEffect(() => {
-        console.log('currentPage가 바뀌기만을 기다렸다.');
         if (page == targetPage) {
-            console.log('빨강색');
             setCircleStyle('circle-selected');
         } else {
-            console.log('파랑색');
             setCircleStyle('circle');
         }
     }, [targetPage]);

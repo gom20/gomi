@@ -45,6 +45,7 @@ export default function Home() {
     return (
         <motion.div
             id="home"
+            className="container"
             key="home-color"
             animate={{
                 backgroundColor: ['hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(210, 21%, 15%)'],

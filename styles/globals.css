@@ -78,12 +78,6 @@ body::-webkit-scrollbar {
 }
 
 /* Layout */
-.container {
-    position: fixed;
-    min-width: 100vw;
-    top: 0;
-}
-
 /* Header */
 
 #header {
@@ -213,15 +207,46 @@ body::-webkit-scrollbar {
     color: #2ad883;
 }
 
+/* Global */
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        padding-top: 4rem;
+        padding-right: 20rem;
+        padding-left: 20rem;
+        padding-bottom: 4rem;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    .container {
+        padding-top: 4rem;
+        padding-right: 8rem;
+        padding-left: 8rem;
+        padding-bottom: 4rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    .container {
+        padding-top: 4rem;
+        padding: 2rem;
+        padding-bottom: 4rem;
+    }
+}
+
 /* Home */
 #home {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    /* overflow-y: hidden; */
 }
 
 #home .box {
@@ -258,17 +283,6 @@ body::-webkit-scrollbar {
 }
 
 /* About */
-#about {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
-    min-width: 100vw;
-    padding: 5rem;
-}
-
 #about .back-title {
     position: fixed;
     bottom: 0;
@@ -338,18 +352,12 @@ body::-webkit-scrollbar {
 
 /* Experience */
 #experience {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    /* background-color: yellow; */
+    justify-content: space-around;
 }
 
 #experience .bg {
     position: fixed;
+    top: 0;
     z-index: 1;
     height: 100vh;
     width: 100vw;
@@ -359,6 +367,7 @@ body::-webkit-scrollbar {
 
 #experience .bg-image {
     position: fixed;
+    top: 0;
     z-index: 2;
     height: 100vh;
     width: 100vw;
@@ -392,52 +401,163 @@ body::-webkit-scrollbar {
     align-self: center;
 }
 
-#experience .container {
+#experience .project-navi-container {
     z-index: 3;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#experience .project-container {
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: aqua; */
-    /* opacity: 0.3; */
+    margin-bottom: 1rem;
+}
+
+#experience .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (min-width: 800px) {
     #experience .project {
         width: 60vw;
+        height: 50vh;
     }
 }
 
-@media screen and (min-width: 300px) and (max-width: 800px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
     #experience .project {
         width: 90vw;
+        height: 50vh;
     }
 }
 
-#experience .project {
-    height: 50vh;
+#experience .project-bg {
+    position: fixed;
+    width: inherit;
+    height: inherit;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 3;
+}
+
+#experience .career {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: inherit;
+    width: inherit;
+    z-index: 4;
+}
+
+#experience .career-intro {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#experience .career-item-container {
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
+    /* font-weight: 700; */
+    height: inherit;
+    justify-content: space-around;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#experience .career-line {
+    position: fixed;
+    margin-left: 0.3rem;
+    border-left: 1px solid #fff;
+    height: 28vh;
+}
+
+#experience .career-circle {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 2rem;
+}
+
+@media screen and (min-width: 800px) {
+    #experience .career-circle {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #experience .career-circle {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #experience .career-line {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #experience .career-line {
+        display: none;
+    }
+}
+
+#experience .career-item {
+    display: flex;
+    flex: row;
     justify-content: flex-start;
-    align-items: flex-start;
-    /* background-color: aquamarine; */
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#experience .career-text {
+    margin-bottom: 1rem;
+}
+
+#experience .career-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+#experience .career-desc {
+    font-size: 0.8rem;
+    color: #818181;
+    font-weight: 500;
+}
+
+#experience .work {
+    height: inherit;
+    width: inherit;
+    z-index: 4;
 }
 
 #experience .navigator {
     z-index: 3;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #818181;
 }
 #experience .next,
 .prev {
     top: calc(50% - 20px);
     /* position: fixed; */
-    width: 40px;
-    height: 40px;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -456,43 +576,8 @@ body::-webkit-scrollbar {
 
 /* Skill */
 #skill {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
-    min-width: 100vw;
-    /* padding: 5rem; */
-    /* background-color: #131313; */
 }
-
-@media screen and (min-width: 1200px) {
-    #skill {
-        padding-top: 4rem;
-        padding-right: 20rem;
-        padding-left: 20rem;
-        padding-bottom: 4rem;
-    }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1200px) {
-    #skill {
-        padding-top: 4rem;
-        padding-right: 8rem;
-        padding-left: 8rem;
-        padding-bottom: 4rem;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 800) {
-    #skill {
-        padding-top: 4rem;
-        padding: 2rem;
-        padding-bottom: 4rem;
-    }
-}
-
 #skill .bg {
     position: fixed;
     z-index: 1;
@@ -534,7 +619,6 @@ body::-webkit-scrollbar {
     color: #2ad883;
     font-weight: 700;
     align-self: center;
-    /* margin-bottom: 0.5rem; */
 }
 
 #skill .item-container {
@@ -567,18 +651,10 @@ body::-webkit-scrollbar {
     }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1200px) {
+@media screen and (min-width: 0px) and (max-width: 1200px) {
     #skill .item {
         width: 17rem;
         height: 13rem;
-        margin: 1rem;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 800) {
-    #skill .item {
-        width: 14rem;
-        height: 11rem;
         margin: 0.5rem;
     }
 }
@@ -604,13 +680,8 @@ body::-webkit-scrollbar {
 
 /* Contact */
 #contact {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
-    min-width: 100vw;
     padding: 10rem;
 }
 

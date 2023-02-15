@@ -36,7 +36,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <div id="contact">
+        <div id="contact" className="container">
             <div className="bg"></div>
             <div className="bg-image"></div>
             <motion.div
