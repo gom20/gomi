@@ -100,7 +100,6 @@ export default function Experience() {
                             animate="center"
                             // exit="exit"
                             transition={{
-                                // duration: 0.3,
                                 x: { type: 'spring', stiffness: 300, damping: 30 },
                                 opacity: { duration: 0.3 },
                             }}

@@ -105,7 +105,14 @@ export default function About() {
 
             <div className="item-title">Certificate</div>
             <div className="item-container">
-                <div> 아주대학교 </div>
+                <div>
+                    2022.10 AZ-900 (Microsoft) 2022.09 SQL 개발자 (한국데이터산업진흥원) 2012.06정보처리기사 (한국산업인력공단) 2012.06사무자동화산업기사 (한국산업인력공단) 2012.03 리눅스마스터 2급
+                    (KAIT 정보통신진흥협회) 2011.11 정보처리산업기사 (한국산업인력공단)
+                </div>
+            </div>
+            <div className="item-title">Language</div>
+            <div className="item-container">
+                <div>TOEIC 935</div>
             </div>
             <motion.div className="progress-bar" style={{ scaleY: scaleY }} />
         </div>
