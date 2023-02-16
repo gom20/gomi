@@ -84,7 +84,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
                             <Component {...{ ...pageProps }} />
                         </motion.div>
                     </AnimatePresence>
-                    {/* <CustomCursor /> */}
+                    <CustomCursor />
                 </>
             )}
         </AppContext.Provider>

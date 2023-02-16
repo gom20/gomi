@@ -1,11 +1,7 @@
 import { AppContext } from '@/hooks/AppContext';
 import { useContext } from 'react';
 
-export default function Info() {
+export default function Pager() {
     const { pages, targetPage } = useContext(AppContext);
-    return (
-        <div id="info">
-            <div className="logo"></div>
-        </div>
-    );
+    return <div id="pager">0{pages.indexOf(targetPage) + 1}</div>;
 }
