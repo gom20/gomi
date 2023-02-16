@@ -1,21 +1,18 @@
 import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactElement, useContext, useEffect, useState } from 'react';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { ReactElement, useContext, useEffect } from 'react';
 
 About.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
 
 export default function About() {
-    const [isVisibleDetail, setVisibleDetail] = useState(false);
-
     const { setTargetPage } = useContext(AppContext);
 
-    const certificates = [
+    const items = [
         { date: '2022.10', name: 'AZ-900' },
         { date: '2022.09', name: 'SQL 개발자' },
         { date: '2012.06', name: '정보처리기사' },
@@ -24,17 +21,11 @@ export default function About() {
         { date: '2011.11', name: '정보처리산업기사' },
     ];
 
-    const works = [
-        { date: '2022', name: '한화시스템' },
-        { date: '2021', name: '프리랜서' },
-        { date: '2013-2020', name: '삼성SDS' },
-    ];
-
-    const renderCertificate = (certificate: any) => {
+    const renderItem = (item: any) => {
         return (
-            <div className="item">
-                <div className="item-date">{certificate.date}</div>
-                <div className="item-name">{certificate.name}</div>
+            <div className="item" key={item.name}>
+                <div className="item-date">{item.date}</div>
+                <div className="item-name">{item.name}</div>
             </div>
         );
     };
@@ -109,7 +100,7 @@ export default function About() {
                 </div>
             </motion.div>
             <motion.div
-                key="about-title-bg"
+                key="about-title-bg1"
                 className="title-bg"
                 initial={{
                     top: '-51vh',
@@ -127,7 +118,7 @@ export default function About() {
                 }}
             />
             <motion.div
-                key="about-title-bg"
+                key="about-title-bg2"
                 className="title-bg"
                 initial={{
                     bottom: '-51vh',
@@ -152,18 +143,23 @@ export default function About() {
             <Image priority src="/profile-image.jpg" height={200} width={200} alt="test" style={{ zIndex: 2, borderRadius: '50%' }} />
             <div className="profile-container">
                 <div className="text-container">
-                    <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="sub-title">
+                    <motion.div
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 1, type: 'spring', delay: 0.5 }}
+                        className="sub-title">
                         <p>안녕하세요.</p>{' '}
                         <p className="gradation-text" style={{ fontWeight: '700' }}>
                             Web Developer
                         </p>
-                        <div style={{ flexDirection: 'row', display: 'flex' }}>성실함의 대명사 고미영입니다.</div>
+                        <div style={{ flexDirection: 'row', display: 'flex' }}>고미영입니다.</div>
                     </motion.div>
                     <div style={{ color: 'gray', fontSize: '0.8rem', fontWeight: '200' }}>
-                        Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications, web servers, and maintaining the semiconductor
-                        manufacturing system. My job on this last project was to run a system that analyzed the amount of material used in the semiconductor production process, where I mainly
-                        monitored the system and modified server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to deal with a large
-                        amount of data based on the Oracle Exadata database.{' '}
+                        Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications,
+                        web servers, and maintaining the semiconductor manufacturing system. My job on this last project was to run a system that
+                        analyzed the amount of material used in the semiconductor production process, where I mainly monitored the system and modified
+                        server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to
+                        deal with a large amount of data based on the Oracle Exadata database.{' '}
                     </div>
                 </div>
             </div>
@@ -192,8 +188,8 @@ export default function About() {
                     <div>
                         <div className="item-title">Certificate</div>
                         <div className="item-container">
-                            {certificates.map((data) => {
-                                return renderCertificate(data);
+                            {items.map((data) => {
+                                return renderItem(data);
                             })}
                         </div>
                     </div>

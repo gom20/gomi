@@ -4,7 +4,7 @@ import '@/styles/globals.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { ReactElement, ReactNode, useContext, useEffect, useReducer, useState } from 'react';
+import { ReactElement, ReactNode, useEffect, useState } from 'react';
 
 export type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
@@ -21,29 +21,30 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     const getLayout = Component.getLayout ?? ((page) => page);
 
     let initialPageVariants = {
-        initial: { opacity: 0, y: 1100 },
+        initial: { opacity: 0, y: 1080 },
         animate: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -1100 },
+        exit: { opacity: 0, y: -1080 },
     };
 
-    const [screenWidth, setScreenWidth] = useState(1100);
+    const [screenWidth, setScreenWidth] = useState(1920);
+    const [screenHeight, setScreenHeight] = useState(1080);
     const [pageVariants, setPageVariants] = useState(initialPageVariants);
 
     useEffect(() => {
         const curIdx = pages.indexOf(globalThis.location.pathname);
         const nextIdx = pages.indexOf(targetPage);
-        if (screenWidth > 800) {
+        if (screenWidth >= 800) {
             if (curIdx <= nextIdx) {
                 setPageVariants({
-                    initial: { opacity: 1, y: 1100 },
+                    initial: { opacity: 1, y: screenHeight },
                     animate: { opacity: 1, y: 0 },
-                    exit: { opacity: 1, y: -1100 },
+                    exit: { opacity: 1, y: screenHeight * -1 },
                 });
             } else {
                 setPageVariants({
-                    initial: { opacity: 1, y: -1100 },
+                    initial: { opacity: 1, y: screenHeight * -1 },
                     animate: { opacity: 1, y: 0 },
-                    exit: { opacity: 1, y: 1100 },
+                    exit: { opacity: 1, y: screenHeight },
                 });
             }
         }
@@ -64,9 +65,11 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
 
     useEffect(() => {
         setScreenWidth(window.innerWidth);
+        setScreenHeight(window.innerHeight);
 
         const handleWindowSizeChange = () => {
             setScreenWidth(window.innerWidth);
+            setScreenHeight(window.innerHeight);
         };
 
         window.addEventListener('resize', handleWindowSizeChange);
@@ -80,7 +83,13 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
             {getLayout(
                 <>
                     <AnimatePresence mode="popLayout" initial={true}>
-                        <motion.div key={router.pathname} variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.5 }}>
+                        <motion.div
+                            key={router.pathname}
+                            variants={pageVariants}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                            transition={{ duration: 0.5 }}>
                             <Component {...{ ...pageProps }} />
                         </motion.div>
                     </AnimatePresence>
