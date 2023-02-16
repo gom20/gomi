@@ -2,7 +2,9 @@ import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion, useScroll } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ReactElement, useContext, useEffect, useState } from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 About.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -70,6 +72,42 @@ export default function About() {
     return (
         <div id="about" className="container">
             {/* <motion.div initial={{ opacity: 0, top: 0 }} animate={{ opacity: 1, top: '10rem' }} transition={{ duration: 0.8, ease: 'easeInOut', delay: 1 }} className="title-bg"></motion.div> */}
+            <motion.div
+                key="about-circle-bg"
+                className="circle-bg"
+                initial={{
+                    rotate: 0,
+                    right: -800,
+                    opacity: 0,
+                }}
+                animate={{
+                    rotate: 360,
+                    right: -300,
+                    opacity: 1,
+                }}
+                transition={{
+                    duration: 2,
+                    ease: 'easeInOut',
+                    delay: 0.2,
+                }}>
+                <div className="link-container">
+                    <motion.div whileHover={{ scale: 1.05 }} style={{ marginLeft: '1rem' }}>
+                        <Link href={'https://github.com/gom20'} target="_blank" className="link">
+                            Github
+                        </Link>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }}>
+                        <Link href={'https://gom20.tistory.com'} target="_blank" className="link">
+                            Blog
+                        </Link>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} style={{ marginLeft: '0.3rem' }}>
+                        <Link href={'https://open.kakao.com/o/swKFAh4e'} target="_blank" className="link">
+                            Kakao
+                        </Link>
+                    </motion.div>
+                </div>
+            </motion.div>
             <motion.div
                 key="about-title-bg"
                 className="title-bg"
