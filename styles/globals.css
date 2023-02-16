@@ -301,6 +301,37 @@ body::-webkit-scrollbar {
     justify-content: space-between;
 }
 
+#about .circle-bg {
+    width: 40rem;
+    height: 40rem;
+    background-color: #2ad883;
+    position: fixed;
+    border-radius: 50%;
+    z-index: 1;
+    top: calc(50% - 20rem);
+}
+
+#about .link-container {
+    position: relative;
+    top: 12rem;
+}
+
+#about .link {
+    padding: 1rem 1rem 1rem 2rem;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    /* color: #818181; */
+    color: #161c21;
+    display: block;
+    transition: 0.3s;
+}
+
+#about .link:hover {
+    /* color: #f1f1f1; */
+    color: #fff;
+}
+
 #about .title {
     z-index: 3;
     font-size: 4.5rem;
