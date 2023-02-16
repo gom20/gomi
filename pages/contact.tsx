@@ -1,11 +1,10 @@
 import { AppContext } from '@/hooks/AppContext';
 import AppLayout from '@/layouts/AppLayout';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { ReactElement, useContext, useEffect } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ReactElement, useContext, useEffect } from 'react';
 
 Contact.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
