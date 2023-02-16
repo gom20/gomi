@@ -7,6 +7,12 @@ export function NaviItem({ page }: { page: string }) {
     const [isHover, setHover] = useState(false);
     const [circleStyle, setCircleStyle] = useState('circle');
 
+    const getPageName = (page: string) => {
+        const name = page.substring(1);
+        if (!name) return 'Home';
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
+    };
+
     useEffect(() => {
         if (page == targetPage) {
             setCircleStyle('circle-selected');
@@ -15,16 +21,10 @@ export function NaviItem({ page }: { page: string }) {
         }
     }, [targetPage]);
 
-    const getPageName = (page: string) => {
-        const name = page.substring(1);
-        if (!name) return 'Home';
-        return name.substring(0, 1).toUpperCase() + name.substring(1);
-    };
-
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }} key={'navi-item:' + page}>
+        <div className="navi-item">
             <motion.div
-                key={'navi-circle:' + page}
+                key={'navi-motion-' + page}
                 whileHover={{ scale: 2 }}
                 onHoverStart={(e) => {
                     setHover(true);
@@ -38,9 +38,13 @@ export function NaviItem({ page }: { page: string }) {
                         setTargetPage(page);
                     }, 100);
                 }}></motion.div>
-            <AnimatePresence key={'navi-hover:' + page}>
+            <AnimatePresence>
                 {isHover && (
-                    <motion.div key={'navi-hover-text:' + page} initial={{ opacity: 0, x: -3, y: -15 }} animate={{ opacity: 1, x: 10, y: -15 }} exit={{ opacity: 0, x: 10, y: -15 }} style={{}}>
+                    <motion.div
+                        key={'navi-hover-text-' + page}
+                        initial={{ opacity: 0, x: -3, y: -15 }}
+                        animate={{ opacity: 1, x: 10, y: -15 }}
+                        exit={{ opacity: 0, x: 10, y: -15 }}>
                         {getPageName(page)}
                     </motion.div>
                 )}
@@ -55,7 +59,7 @@ export default function Navi() {
     return (
         <div id="navi">
             {pages.map((page: any) => {
-                return <NaviItem page={page} key={page}></NaviItem>;
+                return <NaviItem page={page} key={'navi-item-' + page}></NaviItem>;
             })}
         </div>
     );

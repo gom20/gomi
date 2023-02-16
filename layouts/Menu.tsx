@@ -7,6 +7,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import { motion } from 'framer-motion';
 import * as React from 'react';
+
 export default function Menu() {
     let navData = new Map<string, string>();
     navData.set('/', 'Home');
@@ -14,10 +15,23 @@ export default function Menu() {
     navData.set('/experience', 'Experience');
     navData.set('/skill', 'Skill');
     navData.set('/contact', 'Contact');
-    const { targetPage, setTargetPage } = React.useContext(AppContext);
+
+    const { pages, targetPage, setTargetPage } = React.useContext(AppContext);
     const [state, setState] = React.useState({
         isOpen: false,
     });
+
+    const durations = [0.5, 0.75, 0.9, 1, 1.1];
+    const linkVariants = {
+        initial: {
+            opacity: 0,
+            x: -100,
+        },
+        animate: {
+            opacity: 1,
+            x: 0,
+        },
+    };
 
     const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
         if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
@@ -26,106 +40,7 @@ export default function Menu() {
         setState({ isOpen: open });
     };
 
-    const list = () => (
-        <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)} id="menu">
-            <List style={{ paddingTop: '5rem' }}>
-                <motion.div
-                    key="home"
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{ duration: 0.5 }}>
-                    {listItem('/')}
-                </motion.div>
-                <motion.div
-                    key="about"
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{ duration: 0.75 }}>
-                    {listItem('/about')}
-                </motion.div>
-
-                <motion.div
-                    key="experience"
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{ duration: 0.9 }}>
-                    {listItem('/experience')}
-                </motion.div>
-                <motion.div
-                    key="skill"
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{ duration: 0.9 }}>
-                    {listItem('/skill')}
-                </motion.div>
-                <motion.div
-                    key="contact"
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{ duration: 1 }}>
-                    {listItem('/contact')}
-                </motion.div>
-                {/* <motion.div
-                    key="github"
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{ duration: 1.05 }}>
-                    {listItem('https://github.com/gom20')}
-                </motion.div>
-                <motion.div
-                    key="blog"
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    transition={{ duration: 1.1 }}>
-                    {listItem('https://gom20.tistory.com/')}
-                </motion.div> */}
-            </List>
-        </Box>
-    );
-
-    const listItem = (navKey: string) => (
+    const renderItem = (navKey: string) => (
         <ListItem key={navKey} disablePadding>
             <motion.div whileHover={{ scale: 1 }} onHoverStart={(e) => {}} onHoverEnd={(e) => {}}>
                 <div
@@ -139,6 +54,19 @@ export default function Menu() {
                 </div>
             </motion.div>
         </ListItem>
+    );
+    const renderList = () => (
+        <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)} id="menu">
+            <List style={{ paddingTop: '5rem' }}>
+                {pages.map((page, idx) => {
+                    return (
+                        <motion.div key={page} variants={linkVariants} initial="initial" animate="animate" transition={{ duration: durations[idx] }}>
+                            {renderItem(page)}
+                        </motion.div>
+                    );
+                })}
+            </List>
+        </Box>
     );
 
     return (
@@ -156,7 +84,7 @@ export default function Menu() {
                             backgroundColor: 'black',
                         },
                     }}>
-                    {list()}
+                    {renderList()}
                 </Drawer>
             </React.Fragment>
         </div>
