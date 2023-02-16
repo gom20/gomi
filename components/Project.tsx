@@ -41,9 +41,9 @@ export default function Project(props: Props) {
             title: '자재 사용량 분석 시스템 운영',
             skill: 'Java | OracleSQL | PeakPerformance | OnTuneViewer | Linux |  Eclipse',
             desc:
-                '반도체 자재 사용량 분석 시스템 서버를 운영하였습니다.' +
+                '반도체 자재 사용량 분석 시스템 서버를 운영하였습니다. ' +
                 'Bistel사의 PeakPerformance 프레임워크 기반의 배치성 작업을 실행하는 Java 프로그램입니다. ' +
-                '소스 시스템에서 생산 공정에서 발생한 센서 데이터를 I/F 받아 여러 단계에 거쳐, 최종적으로 자재 별 사용량과 원단위 데이터를 산출하는 것이 목적입니다. ' +
+                '반도체 생산 공정에서 발생한 센서 데이터를 I/F 받아 여러 단계에 거쳐, 최종적으로 자재 별 사용량과 원단위 데이터를 산출하는 것이 목적입니다. ' +
                 '주요 업무로는 시스템 모니터링 (CPU, Memory, Disk, Application 장애 모니터링), 시스템 유지보수 및 성능 개선(SQL튜닝, Application 로직 개선, 프로세스 별 자원 분배 최적화), 고객 SR과 VOC 대응(신규 기능 개발, 데이터 추출, 문의 대응), 해외법인 확산 지원을 하였습니다. ' +
                 '주로 사용한 기술은 Java와 Oracle SQL입니다. ',
         },

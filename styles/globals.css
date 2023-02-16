@@ -245,6 +245,13 @@ body::-webkit-scrollbar {
     }
 }
 
+.gradation-text {
+    background-image: linear-gradient(120deg, #2ad883 0%, #84c7bf 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* Home */
 #home {
     justify-content: center;
@@ -254,8 +261,8 @@ body::-webkit-scrollbar {
     position: fixed;
     top: 50;
     left: 50;
-    width: 18rem;
-    height: 18rem;
+    width: 29rem;
+    height: 29rem;
     background: #f3f3f3;
     z-index: 1;
 }
@@ -265,9 +272,9 @@ body::-webkit-scrollbar {
     font-weight: 900;
     font-size: 7rem;
     text-align: center;
-    color: #5755cf;
-    font-family: 'Raleway';
+    /* font-family: 'Raleway'; */
     z-index: 2;
+    margin-bottom: 1rem;
 }
 
 #home .desc-container {
@@ -277,13 +284,16 @@ body::-webkit-scrollbar {
 #home .desc {
     font-style: normal;
     font-weight: 200;
-    font-size: 3rem;
-    line-height: 4rem;
+    font-size: 2.3rem;
+    line-height: 3rem;
     text-align: center;
     color: #000;
 }
 
 /* About */
+#about {
+    justify-content: center;
+}
 #about .back-title {
     position: fixed;
     bottom: 0;
@@ -309,42 +319,46 @@ body::-webkit-scrollbar {
 
 #about .title {
     z-index: 3;
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: #2ad883;
     font-weight: 700;
     align-self: center;
 }
 
-#about .desc {
-    font-size: 1rem;
-    /* font-weight: 900; */
+#about .sub-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2ad883;
+}
+
+#about .profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 #about .item-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+#about .item-title {
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 #about .item {
-    width: 15rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
 }
 
-#about .item-icon {
-    align-self: center;
-    width: 8rem;
-    height: 8rem;
-    background-color: #5755cf;
-    border-radius: 50%;
-}
 #about .item-name {
-    font-size: 1.4rem;
 }
 
 #about .item-desc {
@@ -396,7 +410,7 @@ body::-webkit-scrollbar {
 
 #experience .title {
     z-index: 3;
-    font-size: 4rem;
+    font-size: 4.5rem;
     /* color: #ffffff; */
     font-weight: 700;
     align-self: center;
@@ -675,7 +689,7 @@ body::-webkit-scrollbar {
 
 #skill .title {
     z-index: 3;
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: #2ad883;
     font-weight: 700;
     align-self: center;
@@ -783,7 +797,7 @@ body::-webkit-scrollbar {
 
 #contact .title {
     z-index: 3;
-    font-size: 4rem;
+    font-size: 4.5rem;
     /* color: #fff; */
     font-weight: 700;
     margin-bottom: 0.5rem;

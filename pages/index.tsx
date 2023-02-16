@@ -45,10 +45,12 @@ export default function Home() {
     return (
         <motion.div
             id="home"
+            key="home-bg"
             className="container"
-            key="home-color"
+            initial={{}}
             animate={{
-                backgroundColor: ['hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(210, 21%, 15%)'],
+                opacity: [1, 1, 1, 1, 1, 1],
+                backgroundColor: ['hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(210, 21%, 15%)'],
             }}
             transition={{
                 duration: 4,
@@ -63,9 +65,9 @@ export default function Home() {
                 }}
                 animate={{
                     opacity: [1, 1, 1, 1, 1, 1],
-                    scale: [0, 2, 1, 2, 0, 2.3],
+                    scale: [0, 1, 0.8, 1, 0, 1],
                     rotate: [0, 0, 180, 0, 0, 0],
-                    backgroundColor: ['hsl(137, 93%, 89%)', 'hsl(137, 93%, 89%)', 'hsl(179, 55%, 78%)', 'hsl(179, 55%, 78%)', 'hsl(179, 55%, 78%)', 'hsl(210, 21%, 15%)'],
+                    backgroundColor: ['hsl(210, 21%, 15%)', 'hsl(210, 21%, 15%)', 'hsl(210, 21%, 15%)', 'hsl(210, 21%, 15%)', 'hsl(210, 21%, 15%)', 'hsl(151, 69%, 51%)'],
                     borderRadius: ['50%', '50%', '20%', '50%', '50%', '50%', '50%'],
                 }}
                 transition={{
@@ -89,7 +91,7 @@ export default function Home() {
                     key="hello-color"
                     initial={{ color: '#000' }}
                     animate={{
-                        color: ['hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(223, 100%, 56%)', 'hsl(223, 100%, 56%)', 'hsl(151, 69%, 51%)'],
+                        color: ['hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(0, 0%, 100%)', 'hsl(151, 69%, 51%)', 'hsl(210, 21%, 15%)'],
                     }}
                     transition={{
                         duration: 4,
@@ -102,62 +104,51 @@ export default function Home() {
                 <motion.div
                     key="miyoung-position"
                     initial={{
-                        x: -50,
+                        rotateX: 90,
                         opacity: 0,
                     }}
                     animate={{
-                        x: 0,
+                        rotateX: 0,
                         opacity: 1,
                     }}
-                    transition={{ duration: 2, type: 'spring', delay: 0.7 }}
+                    transition={{ duration: 1, type: 'spring', delay: 0.7 }}
                     className="desc">
                     <motion.p
                         key="miyoung-color"
                         animate={{
-                            color: ['hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 100%)'],
+                            color: ['hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(0, 0%, 100%)'],
                         }}
                         transition={{
                             duration: 4,
                             ease: 'easeInOut',
-                        }}>
-                        I'm Miyoung.
+                        }}
+                        style={{ fontWeight: '600' }}>
+                        I'm a Web Developer.
                     </motion.p>
                 </motion.div>
                 <motion.div
                     key="fullstack-position"
                     initial={{
-                        x: 50,
+                        rotateX: 90,
                         opacity: 0,
                     }}
                     animate={{
-                        x: 0,
+                        rotateX: 0,
                         opacity: 1,
                     }}
-                    transition={{ duration: 2, type: 'spring', delay: 1.1 }}
+                    transition={{ duration: 1, type: 'spring', delay: 1.1 }}
                     className="desc">
-                    <motion.p
-                        key="full-color"
-                        animate={{
-                            color: ['hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 100%)'],
-                        }}
-                        transition={{
-                            duration: 4,
-                            ease: 'easeInOut',
-                        }}>
-                        I'm a Full Stack
-                    </motion.p>
                     <motion.p
                         key="developer-color"
                         animate={{
-                            color: ['hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 0%)', 'hsl(0, 0%, 100%)'],
+                            color: ['hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(151, 69%, 51%)', 'hsl(0, 0%, 100%)'],
                         }}
                         transition={{
                             duration: 4,
                             ease: 'easeInOut',
                         }}
-                        className="desc"
-                        style={{ fontWeight: '700' }}>
-                        Web Developer.
+                        className="desc">
+                        Welcome to My Space
                     </motion.p>
                 </motion.div>
             </div>
