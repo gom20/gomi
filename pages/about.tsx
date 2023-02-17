@@ -1,7 +1,6 @@
 import { AppContext } from '@/layouts/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ReactElement, useContext, useEffect } from 'react';
 
@@ -22,18 +21,25 @@ export default function About() {
         let timer: null | NodeJS.Timeout;
         const handleWheel = (e: WheelEvent) => {
             if (timer) return;
+
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
+                    window.removeEventListener('wheel', handleWheel);
                     prevPage();
                 }
                 if (e.deltaY > 0 && (!hasScroll || (hasScroll && window.innerHeight + window.scrollY >= document.body.offsetHeight))) {
+                    window.removeEventListener('wheel', handleWheel);
                     nextPage();
                 }
             }, 500);
         };
-        window.addEventListener('wheel', handleWheel);
+
+        setTimeout(function () {
+            window.addEventListener('wheel', handleWheel);
+        }, 1000);
+
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
@@ -57,7 +63,7 @@ export default function About() {
                 transition={{
                     duration: 2,
                     ease: 'easeInOut',
-                    delay: 0.2,
+                    delay: 0.7,
                 }}>
                 <div className="link-container">
                     <motion.div whileHover={{ scale: 1.02 }} style={{ marginLeft: '0.8rem' }}>
@@ -92,7 +98,7 @@ export default function About() {
                 transition={{
                     duration: 1,
                     ease: 'easeInOut',
-                    delay: 0.3,
+                    delay: 0.7,
                 }}
             />
             <motion.div
@@ -111,13 +117,13 @@ export default function About() {
                 transition={{
                     duration: 1,
                     ease: 'easeInOut',
-                    delay: 0.3,
+                    delay: 0.7,
                 }}
             />
             <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1, type: 'spring', delay: 0.5 }}
+                transition={{ duration: 1, type: 'spring', delay: 0.7 }}
                 className="title">
                 <div>About&nbsp;</div>
                 <div style={{ color: '#FFF' }}>Me</div>
@@ -134,7 +140,7 @@ export default function About() {
                 transition={{
                     duration: 1,
                     ease: 'easeInOut',
-                    delay: 0.3,
+                    delay: 0.8,
                 }}
                 className="profile-img-container">
                 <img className="profile-img" src="/profile-image.jpg" alt="profile" />
@@ -142,23 +148,23 @@ export default function About() {
             <div className="profile-container">
                 <div className="intro-text-container">
                     <motion.div className="intro-title">
-                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeInOut', delay: 0.7 }}>
-                            Hello! I'm a
-                        </motion.p>
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
+                            transition={{ duration: 1, ease: 'easeInOut', delay: 0.9 }}
                             className="flex-row">
-                            <b className="gradation-text">Web Developer, Miyoung.</b>
+                            <b className="gradation-text">Miyoung Go</b>
                         </motion.div>
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeInOut', delay: 1.1 }}>
+                            I'm a Web Developer.
+                        </motion.p>
                     </motion.div>
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.2 }}
+                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.3 }}
                         className="intro-text">
-                        Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications,
+                        Throughout my eight years as a software engineer, I worked on various projects such as developing Smart TV web applications,
                         web servers, and maintaining the semiconductor manufacturing system.
                     </motion.div>
                 </div>
@@ -166,7 +172,7 @@ export default function About() {
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.4 }}
+                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.5 }}
                         className="item-container">
                         <div className="item-title">Education</div>
                         <div className="item">
@@ -219,7 +225,7 @@ export default function About() {
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.8 }}
+                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.7 }}
                         className="item-container">
                         <div className="item-title">Language</div>
                         <div className="item">

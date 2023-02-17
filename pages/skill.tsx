@@ -1,16 +1,14 @@
 import { AppContext } from '@/layouts/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { ReactElement, useContext, useEffect, useState } from 'react';
-
 import BuildCircleIcon from '@mui/icons-material/BuildCircle';
-
 import DevicesIcon from '@mui/icons-material/Devices';
 import DvrIcon from '@mui/icons-material/Dvr';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import TerminalIcon from '@mui/icons-material/Terminal';
+
 Skill.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
@@ -77,14 +75,20 @@ export default function Skill() {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
+                    window.removeEventListener('wheel', handleWheel);
                     prevPage();
                 }
                 if (e.deltaY > 0 && (!hasScroll || (hasScroll && window.innerHeight + window.scrollY >= document.body.offsetHeight))) {
+                    window.removeEventListener('wheel', handleWheel);
                     nextPage();
                 }
             }, 500);
         };
-        window.addEventListener('wheel', handleWheel);
+
+        setTimeout(function () {
+            window.addEventListener('wheel', handleWheel);
+        }, 1000);
+
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
@@ -93,22 +97,6 @@ export default function Skill() {
     return (
         <div id="skill" className="container">
             <div className="bg"></div>
-            {/* <motion.div
-                initial={{
-                    top: -150,
-                    right: -150,
-                    opacity: 0,
-                }}
-                animate={{
-                    top: 0,
-                    right: 0,
-                    opacity: 0.4,
-                }}
-                transition={{ duration: 1.5, type: 'spring', delay: 0.5 }}
-                style={{ position: 'fixed', zIndex: 2 }}>
-                <Image priority src="/line-pattern.svg" height={800} width={800} alt="test" />
-            </motion.div> */}
-
             <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}

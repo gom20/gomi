@@ -65,14 +65,20 @@ export default function Experience() {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
+                    window.removeEventListener('wheel', handleWheel);
                     prevPage();
                 }
                 if (e.deltaY > 0 && (!hasScroll || (hasScroll && window.innerHeight + window.scrollY >= document.body.offsetHeight))) {
+                    window.removeEventListener('wheel', handleWheel);
                     nextPage();
                 }
             }, 500);
         };
-        window.addEventListener('wheel', handleWheel);
+
+        setTimeout(function () {
+            window.addEventListener('wheel', handleWheel);
+        }, 1000);
+
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };
@@ -80,7 +86,6 @@ export default function Experience() {
 
     return (
         <div id="experience" className="container">
-            <div className="bg"></div>
             <div className="bg-image"></div>
             <motion.div
                 initial={{ x: -100, opacity: 0 }}
