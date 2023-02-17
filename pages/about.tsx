@@ -18,24 +18,6 @@ export default function About() {
         setTargetPage(pages[pages.indexOf(targetPage) - 1]);
     };
 
-    const items = [
-        { date: '2022.10', name: 'AZ-900' },
-        { date: '2022.09', name: 'SQL 개발자' },
-        { date: '2012.06', name: '정보처리기사' },
-        { date: '2012.06', name: '사무자동화산업기사' },
-        { date: '2012.03', name: '리눅스마스터 2급' },
-        { date: '2011.11', name: '정보처리산업기사' },
-    ];
-
-    const renderItem = (item: any) => {
-        return (
-            <div className="item" key={item.name}>
-                <div className="item-date">{item.date}</div>
-                <div className="item-name">{item.name}</div>
-            </div>
-        );
-    };
-
     useEffect(() => {
         let timer: null | NodeJS.Timeout;
         const handleWheel = (e: WheelEvent) => {
@@ -78,17 +60,17 @@ export default function About() {
                     delay: 0.2,
                 }}>
                 <div className="link-container">
-                    <motion.div whileHover={{ scale: 1.05 }} style={{ marginLeft: '1rem' }}>
+                    <motion.div whileHover={{ scale: 1.02 }} style={{ marginLeft: '0.8rem' }}>
                         <Link href={'https://github.com/gom20'} target="_blank" className="link">
                             Github
                         </Link>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }}>
+                    <motion.div whileHover={{ scale: 1.02 }}>
                         <Link href={'https://gom20.tistory.com'} target="_blank" className="link">
                             Blog
                         </Link>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} style={{ marginLeft: '0.3rem' }}>
+                    <motion.div whileHover={{ scale: 1.02 }} style={{ marginLeft: '0.8rem' }}>
                         <Link href={'https://open.kakao.com/o/swKFAh4e'} target="_blank" className="link">
                             Kakao
                         </Link>
@@ -96,8 +78,8 @@ export default function About() {
                 </div>
             </motion.div>
             <motion.div
-                key="about-title-bg1"
-                className="title-bg"
+                key="about-profile-bg-up"
+                className="profile-bg"
                 initial={{
                     top: '-51vh',
                     opacity: 0,
@@ -110,12 +92,12 @@ export default function About() {
                 transition={{
                     duration: 1,
                     ease: 'easeInOut',
-                    delay: 0.2,
+                    delay: 0.3,
                 }}
             />
             <motion.div
-                key="about-title-bg2"
-                className="title-bg"
+                key="about-profile-bg-down"
+                className="profile-bg"
                 initial={{
                     bottom: '-51vh',
                     opacity: 0,
@@ -129,66 +111,129 @@ export default function About() {
                 transition={{
                     duration: 1,
                     ease: 'easeInOut',
-                    delay: 0.2,
+                    delay: 0.3,
                 }}
             />
-            <motion.div className="title" style={{ display: 'flex', flexDirection: 'row' }}>
+            <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, type: 'spring', delay: 0.5 }}
+                className="title">
                 <div>About&nbsp;</div>
                 <div style={{ color: '#FFF' }}>Me</div>
             </motion.div>
-            <Image priority src="/profile-image.jpg" height={200} width={200} alt="test" style={{ zIndex: 2, borderRadius: '50%' }} />
+            <motion.div
+                initial={{
+                    opacity: 0,
+                    rotateY: 90,
+                }}
+                animate={{
+                    opacity: 1,
+                    rotateY: 0,
+                }}
+                transition={{
+                    duration: 1,
+                    ease: 'easeInOut',
+                    delay: 0.3,
+                }}
+                className="profile-img-container">
+                <Image className="profile-img" priority src="/profile-image.jpg" height={200} width={200} alt="profile" />
+            </motion.div>
             <div className="profile-container">
-                <div className="text-container">
-                    <motion.div
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, type: 'spring', delay: 0.5 }}
-                        className="sub-title">
-                        <p>안녕하세요.</p>{' '}
-                        <p className="gradation-text" style={{ fontWeight: '700' }}>
-                            Web Developer
-                        </p>
-                        <div style={{ flexDirection: 'row', display: 'flex' }}>고미영입니다.</div>
+                <div className="intro-text-container">
+                    <motion.div className="intro-title">
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeInOut', delay: 0.7 }}>
+                            안녕하세요.
+                        </motion.p>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
+                            className="flex-row">
+                            <b className="gradation-text">웹 개발자</b>&nbsp;고미영입니다.
+                        </motion.div>
                     </motion.div>
-                    <div style={{ color: 'gray', fontSize: '0.8rem', fontWeight: '200' }}>
+                    <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.2 }}
+                        className="intro-text">
                         Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications,
                         web servers, and maintaining the semiconductor manufacturing system. My job on this last project was to run a system that
                         analyzed the amount of material used in the semiconductor production process, where I mainly monitored the system and modified
                         server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to
-                        deal with a large amount of data based on the Oracle Exadata database.{' '}
-                    </div>
+                        deal with a large amount of data based on the Oracle Exadata database.
+                    </motion.div>
                 </div>
-            </div>
-
-            <div className="detail-container">
-                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                    <div>
+                <div className="info-container">
+                    <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.4 }}
+                        className="item-container">
                         <div className="item-title">Education</div>
+                        <div className="item">
+                            <div className="date">2013.02</div>
+                            <div className="name">
+                                <div>아주대학교 정보통신대학</div>
+                                <div>미디어학부 졸업 (4.22/4.5)</div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.6 }}>
                         <div className="item-container">
-                            <div className="item">
-                                <div className="date">2013.02</div>
-                                <div>
-                                    <div>아주대학교 정보통신대학</div>
-                                    <div>미디어학부 졸업 (4.22/4.5)</div>
+                            <div className="item-title">Certificate</div>
+                            <div className="flex-row">
+                                <div className="flex-column">
+                                    <div className="item">
+                                        <div className="date">2022.10</div>
+                                        <div className="name">AZ-900</div>
+                                    </div>
+                                    <div className="item">
+                                        <div className="date">2022.09</div>
+                                        <div className="name">SQL 개발자</div>
+                                    </div>
+                                    <div className="item">
+                                        <div className="date">2012.06</div>
+                                        <div className="name">정보처리기사</div>
+                                    </div>
+                                </div>
+                                <div className="flex-column">
+                                    <div className="item">
+                                        <div className="date">2012.06</div>
+                                        <div className="name">사무자동화산업기사</div>
+                                    </div>
+                                    <div className="item">
+                                        <div className="date">2012.03</div>
+                                        <div className="name">리눅스마스터 2급</div>
+                                    </div>
+                                    <div className="item">
+                                        <div className="date">2011.11</div>
+                                        <div className="name">정보처리산업기사</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </motion.div>
+                    <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.8 }}
+                        className="item-container">
                         <div className="item-title">Language</div>
-                        <div className="item-container">
-                            <div className="item">
-                                <div className="date">2022.08</div>
-                                <div className="name">TOEIC 935</div>
-                            </div>
+                        <div className="item">
+                            <div className="date">2022.08</div>
+                            <div className="name">TOEIC 935</div>
                         </div>
-                    </div>
-                    <div>
-                        <div className="item-title">Certificate</div>
-                        <div className="item-container">
-                            {items.map((data) => {
-                                return renderItem(data);
-                            })}
+                        <div className="item">
+                            <div className="date">2017.01</div>
+                            <div className="name">JLPT N3</div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>
