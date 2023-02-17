@@ -126,6 +126,7 @@ export default function Experience() {
                 </div>
                 <div className="navigator">
                     <NavigateBeforeOutlinedIcon
+                        fontSize="medium"
                         className="prev"
                         style={page == 1 ? { color: '#818181' } : { color: '#f3f3f3' }}
                         onClick={() => {
