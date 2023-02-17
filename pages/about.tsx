@@ -137,20 +137,20 @@ export default function About() {
                     delay: 0.3,
                 }}
                 className="profile-img-container">
-                <Image className="profile-img" priority src="/profile-image.jpg" height={200} width={200} alt="profile" />
+                <img className="profile-img" src="/profile-image.jpg" alt="profile" />
             </motion.div>
             <div className="profile-container">
                 <div className="intro-text-container">
                     <motion.div className="intro-title">
                         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeInOut', delay: 0.7 }}>
-                            안녕하세요.
+                            Hello! I'm a
                         </motion.p>
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, ease: 'easeInOut', delay: 1 }}
                             className="flex-row">
-                            <b className="gradation-text">웹 개발자</b>&nbsp;고미영입니다.
+                            <b className="gradation-text">Web Developer, Miyoung.</b>
                         </motion.div>
                     </motion.div>
                     <motion.div
@@ -159,10 +159,7 @@ export default function About() {
                         transition={{ duration: 1, ease: 'easeInOut', delay: 1.2 }}
                         className="intro-text">
                         Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications,
-                        web servers, and maintaining the semiconductor manufacturing system. My job on this last project was to run a system that
-                        analyzed the amount of material used in the semiconductor production process, where I mainly monitored the system and modified
-                        server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to
-                        deal with a large amount of data based on the Oracle Exadata database.
+                        web servers, and maintaining the semiconductor manufacturing system.
                     </motion.div>
                 </div>
                 <div className="info-container">
