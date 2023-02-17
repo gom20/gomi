@@ -80,12 +80,12 @@ export default function Project(props: Props) {
         {
             key: 1,
             title: '삼성 SDS',
-            desc: 'Software Engineer ',
+            desc: 'Software Engineer',
             duration: '(2013.02-2020.07)',
         },
         {
             key: 2,
-            title: '아이엘포유',
+            title: '프리랜서',
             desc: 'Freelancer',
             duration: '(2021.04-2021.07)',
         },
