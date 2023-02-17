@@ -141,7 +141,7 @@ export default function Home() {
                                 'hsl(151, 69%, 51%)',
                                 'hsl(151, 69%, 51%)',
                                 'hsl(151, 69%, 51%)',
-                                'hsl(0, 0%, 100%)',
+                                'hsl(210, 21%, 15%)',
                             ],
                         }}
                         transition={{
@@ -173,7 +173,7 @@ export default function Home() {
                                 'hsl(151, 69%, 51%)',
                                 'hsl(151, 69%, 51%)',
                                 'hsl(151, 69%, 51%)',
-                                'hsl(0, 0%, 100%)',
+                                'hsl(210, 21%, 15%)',
                             ],
                         }}
                         transition={{
@@ -181,7 +181,7 @@ export default function Home() {
                             ease: 'easeInOut',
                         }}
                         className="desc"
-                        style={{ fontSize: '1.8rem' }}>
+                        style={{ fontSize: '1.7rem' }}>
                         Welcome to My Space
                     </motion.p>
                 </motion.div>
