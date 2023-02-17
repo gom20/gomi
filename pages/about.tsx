@@ -1,4 +1,4 @@
-import { AppContext } from '@/hooks/AppContext';
+import { AppContext } from '@/layouts/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -10,7 +10,13 @@ About.getLayout = function getLayout(page: ReactElement) {
 };
 
 export default function About() {
-    const { setTargetPage } = useContext(AppContext);
+    const { setTargetPage, targetPage, pages } = useContext(AppContext);
+    const nextPage = () => {
+        setTargetPage(pages[pages.indexOf(targetPage) + 1]);
+    };
+    const prevPage = () => {
+        setTargetPage(pages[pages.indexOf(targetPage) - 1]);
+    };
 
     const items = [
         { date: '2022.10', name: 'AZ-900' },
@@ -34,23 +40,14 @@ export default function About() {
         let timer: null | NodeJS.Timeout;
         const handleWheel = (e: WheelEvent) => {
             if (timer) return;
-
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
-
-                if (!hasScroll) {
-                    if (e.deltaY < 0) {
-                        setTargetPage('/');
-                    } else {
-                        setTargetPage('/experience');
-                    }
-                } else {
-                    if (scrollY == 0 && e.deltaY < 0) {
-                        setTargetPage('/');
-                    } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
-                        setTargetPage('/experience');
-                    }
+                if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
+                    prevPage();
+                }
+                if (e.deltaY > 0 && (!hasScroll || (hasScroll && window.innerHeight + window.scrollY >= document.body.offsetHeight))) {
+                    nextPage();
                 }
             }, 500);
         };
@@ -62,10 +59,9 @@ export default function About() {
 
     return (
         <div id="about" className="container">
-            {/* <motion.div initial={{ opacity: 0, top: 0 }} animate={{ opacity: 1, top: '10rem' }} transition={{ duration: 0.8, ease: 'easeInOut', delay: 1 }} className="title-bg"></motion.div> */}
             <motion.div
-                key="about-circle-bg"
-                className="circle-bg"
+                key="about-circle-menu"
+                className="circle-menu"
                 initial={{
                     rotate: 0,
                     right: -800,

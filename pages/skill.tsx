@@ -1,4 +1,4 @@
-import { AppContext } from '@/hooks/AppContext';
+import { AppContext } from '@/layouts/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -15,47 +15,51 @@ Skill.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
 
+const items = [
+    {
+        key: 1,
+        title: 'Back-end',
+        skill: 'Java | SpringBoot | OracleSQL',
+        desc:
+            'Retail 솔루션 개발 업무로 Spring 기반 웹서버를 개발한 경험이 있습니다. ' +
+            'MES 시스템 운영 업무로 Java 기반의 배치 프로그램을 유지보수 하였습니다.',
+    },
+    {
+        key: 2,
+        title: 'Front-end',
+        skill: 'Javascript | Typescript | React | Redux',
+        desc:
+            'Smart TV 웹앱 개발자로 경력을 시작했습니다. ' +
+            'Javascript, HTML, CSS와 같은 기본적인 프론트엔드 가술에 익숙하며 최신 프론트엔드 기술도 지속적으로 학습하고 있습니다.',
+    },
+    {
+        key: 3,
+        title: 'Deploy',
+        skill: 'AWS | Vercel',
+        desc: '사이드 프로젝트를 하면서 AWS EC2 인스턴스를 생성하여 Redis, MariaDB를 설치하고 REST API 서버를 배포한 경험이 있습니다. 포트폴리오 배포는 Vercel을 사용합니다. ',
+    },
+    {
+        key: 4,
+        title: 'IDE',
+        skill: 'Eclipse | VisualStudio | intelliJ ',
+        desc: 'Java 로 개발하는 업무는 대부분 Eclipse IDE를 사용하였습니다. ' + '프론트엔드 개발은 주로 Visual Studio를 사용합니다. ',
+    },
+    {
+        key: 5,
+        title: 'Version Control',
+        skill: 'Github | SVN',
+        desc: '실무에서 SVN과 Git 모두 사용한 경험이 있습니다. 현재는 주로 Github를 사용하여 형상 관리를 하고 있습니다. ',
+    },
+    {
+        key: 6,
+
+        title: 'Tool',
+        skill: 'Jira | Confluence',
+        desc: '솔루션 개발 업무에서 Jira로 이슈 관리를 하였습니다. 시스템 운영 업무에서 Confluence를 사용하여 운영 정보를 공유하였습니다.',
+    },
+];
+
 export default function Skill() {
-    const items = [
-        {
-            key: 1,
-            title: 'Back-end',
-            skill: 'Java | SpringBoot | OracleSQL',
-            desc: 'Retail 솔루션 개발 업무로 Spring 기반 웹서버를 개발한 경험이 있습니다. ' + 'MES 시스템 운영 업무로 Java 기반의 배치 프로그램을 유지보수 하였습니다.',
-        },
-        {
-            key: 2,
-            title: 'Front-end',
-            skill: 'Javascript | Typescript | React | Redux',
-            desc: 'Smart TV 웹앱 개발자로 경력을 시작했습니다. ' + 'Javascript, HTML, CSS와 같은 기본적인 프론트엔드 가술에 익숙하며 최신 프론트엔드 기술도 지속적으로 학습하고 있습니다.',
-        },
-        {
-            key: 3,
-            title: 'Deploy',
-            skill: 'AWS | Vercel',
-            desc: '사이드 프로젝트를 하면서 AWS EC2 인스턴스를 생성하여 Redis, MariaDB를 설치하고 REST API 서버를 배포한 경험이 있습니다. 포트폴리오 배포는 Vercel을 사용합니다. ',
-        },
-        {
-            key: 4,
-            title: 'IDE',
-            skill: 'Eclipse | VisualStudio | intelliJ ',
-            desc: 'Java 로 개발하는 업무는 대부분 Eclipse IDE를 사용하였습니다. ' + '프론트엔드 개발은 주로 Visual Studio를 사용합니다. ',
-        },
-        {
-            key: 5,
-            title: 'Version Control',
-            skill: 'Github | SVN',
-            desc: '실무에서 SVN과 Git 모두 사용한 경험이 있습니다. 현재는 주로 Github를 사용하여 형상 관리를 하고 있습니다. ',
-        },
-        {
-            key: 6,
-
-            title: 'Tool',
-            skill: 'Jira | Confluence',
-            desc: '솔루션 개발 업무에서 Jira로 이슈 관리를 하였습니다. 시스템 운영 업무에서 Confluence를 사용하여 운영 정보를 공유하였습니다.',
-        },
-    ];
-
     const { setTargetPage, targetPage, pages } = useContext(AppContext);
     const nextPage = () => {
         setTargetPage(pages[pages.indexOf(targetPage) + 1]);
@@ -72,9 +76,10 @@ export default function Skill() {
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
-                if ((hasScroll && scrollY == 0 && e.deltaY < 0) || (!hasScroll && e.deltaY < 0)) {
+                if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
                     prevPage();
-                } else {
+                }
+                if (e.deltaY > 0 && (!hasScroll || (hasScroll && window.innerHeight + window.scrollY >= document.body.offsetHeight))) {
                     nextPage();
                 }
             }, 500);
@@ -104,7 +109,11 @@ export default function Skill() {
                 <Image priority src="/line-pattern.svg" height={800} width={800} alt="test" />
             </motion.div> */}
 
-            <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
+            <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, type: 'spring', delay: 0.5 }}
+                className="title">
                 Skill-Set
             </motion.div>
             <div className="item-container">
