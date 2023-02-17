@@ -276,33 +276,7 @@ b {
 
 /* about */
 #about {
-    justify-content: center;
-}
-
-@media screen and (min-width: 1300px) {
-    .container {
-        padding-top: 2rem;
-        padding-right: 16rem;
-        padding-left: 16rem;
-        padding-bottom: 2rem;
-    }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1300px) {
-    .container {
-        padding-top: 2rem;
-        padding-right: 8rem;
-        padding-left: 8rem;
-        padding-bottom: 2rem;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 800px) {
-    .container {
-        padding-top: 2rem;
-        padding: 2rem;
-        padding-bottom: 2rem;
-    }
+    /* justify-content: center; */
 }
 
 #about .circle-menu {
@@ -373,6 +347,27 @@ b {
     border-radius: 50%;
 }
 
+@media screen and (min-width: 1300px) {
+    #about .profile-img {
+        width: 22rem;
+        height: 22rem;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1300px) {
+    #about .profile-img {
+        width: 15rem;
+        height: 15rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #about .profile-img {
+        width: 15rem;
+        height: 15rem;
+    }
+}
+
 #about .profile-container {
     display: flex;
     flex-direction: column;
@@ -409,7 +404,7 @@ b {
 }
 
 #about .intro-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #fff;
     margin-bottom: 0.4rem;
@@ -417,7 +412,7 @@ b {
 
 #about .intro-text {
     color: #b3b3b3;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 200;
 }
 
