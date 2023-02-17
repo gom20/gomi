@@ -707,7 +707,7 @@ b {
 #experience .next,
 .prev {
     top: calc(50% - 20px);
-    /* position: fixed; */
+    position: relative;
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -716,14 +716,6 @@ b {
     user-select: none;
     cursor: pointer;
     z-index: 2;
-}
-
-#experience .next {
-    right: 10px;
-}
-
-#experience .prev {
-    left: 10px;
 }
 
 /* Skill */
