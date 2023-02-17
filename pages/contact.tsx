@@ -1,4 +1,4 @@
-import { AppContext } from '@/hooks/AppContext';
+import { AppContext } from '@/layouts/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { motion } from 'framer-motion';
@@ -23,7 +23,7 @@ export default function Contact() {
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
-                if ((hasScroll && scrollY == 0 && e.deltaY < 0) || (!hasScroll && e.deltaY < 0)) {
+                if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
                     prevPage();
                 }
             }, 500);
@@ -46,13 +46,25 @@ export default function Contact() {
                 style={{ display: 'flex', flexDirection: 'row' }}>
                 <div style={{ color: '#2ad883' }}>Contact</div> <div>&nbsp;Info.</div>
             </motion.div>
-            <motion.div initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.7 }} className="desc">
+            <motion.div
+                initial={{ rotateX: 90, opacity: 0 }}
+                animate={{ rotateX: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="desc">
                 저에 대해 궁금하신 점이 있으신가요?
             </motion.div>
-            <motion.div initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 1 }} className="desc">
+            <motion.div
+                initial={{ rotateX: 90, opacity: 0 }}
+                animate={{ rotateX: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
+                className="desc">
                 문의 사항은 언제나 환영합니다.
             </motion.div>
-            <motion.div initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 1.3 }} className="email">
+            <motion.div
+                initial={{ rotateX: 90, opacity: 0 }}
+                animate={{ rotateX: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                className="email">
                 rhaldud89@gmail.com
             </motion.div>
             <div className="icon-container">

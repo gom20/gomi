@@ -1,4 +1,4 @@
-import { AppContext } from '@/hooks/AppContext';
+import { AppContext } from '@/layouts/AppContext';
 import { useContext } from 'react';
 
 export default function Pager() {

@@ -1,4 +1,3 @@
-import styles from '@/styles/CustomCursor.module.css';
 import { useEffect, useState } from 'react';
 const CustomCursor = () => {
     type IPosition = {

@@ -223,7 +223,7 @@ body::-webkit-scrollbar {
     }
 }
 
-/* Home */
+/* home */
 #home {
     justify-content: center;
 }
@@ -243,7 +243,6 @@ body::-webkit-scrollbar {
     font-weight: 900;
     font-size: 6rem;
     text-align: center;
-    /* font-family: 'Raleway'; */
     z-index: 2;
     margin-bottom: 1rem;
 }
@@ -266,15 +265,27 @@ body::-webkit-scrollbar {
     justify-content: space-between;
 }
 
-#about .circle-bg {
-    width: 40rem;
-    height: 40rem;
+#about .circle-menu {
+    width: 38rem;
+    height: 38rem;
     background-color: #2ad883;
     position: fixed;
     border-radius: 50%;
     z-index: 1;
-    top: calc(50% - 20rem);
+    top: calc(50% - 19rem);
 }
+
+/* @media screen and (min-width: 1300px) {
+    #about .detail-container {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #about .detail-container {
+        display: none;
+    }
+} */
 
 #about .link-container {
     position: relative;

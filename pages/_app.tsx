@@ -1,5 +1,5 @@
 import CustomCursor from '@/components/CustomCursor';
-import { AppContext } from '@/hooks/AppContext';
+import { AppContext } from '@/layouts/AppContext';
 import '@/styles/globals.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NextPage } from 'next';

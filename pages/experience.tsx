@@ -1,5 +1,5 @@
 import Project from '@/components/Project';
-import { AppContext } from '@/hooks/AppContext';
+import { AppContext } from '@/layouts/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import NavigateBeforeOutlinedIcon from '@mui/icons-material/NavigateBeforeOutlined';
 import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined';
@@ -10,7 +10,14 @@ Experience.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
 };
 export default function Experience() {
-    const { setTargetPage } = useContext(AppContext);
+    const { setTargetPage, targetPage, pages } = useContext(AppContext);
+    const nextPage = () => {
+        setTargetPage(pages[pages.indexOf(targetPage) + 1]);
+    };
+    const prevPage = () => {
+        setTargetPage(pages[pages.indexOf(targetPage) - 1]);
+    };
+
     const swipeConfidenceThreshold = 10000;
 
     const swipePower = (offset: number, velocity: number) => {
@@ -57,22 +64,11 @@ export default function Experience() {
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
-                if (!hasScroll) {
-                    if (e.deltaY < 0) {
-                        setTargetPage('/about');
-                        // router.push('/about');
-                    } else {
-                        setTargetPage('/skill');
-                        // router.push('/contact');
-                    }
-                } else {
-                    if (scrollY == 0 && e.deltaY < 0) {
-                        setTargetPage('/about');
-                        // router.push('/about');
-                    } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight && e.deltaY > 0) {
-                        setTargetPage('/skill');
-                        // router.push('/contact');
-                    }
+                if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
+                    prevPage();
+                }
+                if (e.deltaY > 0 && (!hasScroll || (hasScroll && window.innerHeight + window.scrollY >= document.body.offsetHeight))) {
+                    nextPage();
                 }
             }, 500);
         };
@@ -86,7 +82,11 @@ export default function Experience() {
         <div id="experience" className="container">
             <div className="bg"></div>
             <div className="bg-image"></div>
-            <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
+            <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, type: 'spring', delay: 0.5 }}
+                className="title">
                 Experience
             </motion.div>
             <div className="project-navi-container">
