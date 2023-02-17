@@ -708,8 +708,6 @@ b {
 .prev {
     top: calc(50% - 20px);
     position: relative;
-    width: 2rem;
-    height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
