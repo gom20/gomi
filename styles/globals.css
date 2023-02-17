@@ -161,7 +161,7 @@ b {
     justify-content: center;
     align-items: center;
     border-top-left-radius: 10%;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 #logo {
@@ -349,22 +349,15 @@ b {
 
 @media screen and (min-width: 1300px) {
     #about .profile-img {
-        width: 22rem;
-        height: 22rem;
+        width: 21rem;
+        height: 21rem;
     }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1300px) {
+@media screen and (min-width: 0px) and (max-width: 1300px) {
     #about .profile-img {
-        width: 15rem;
-        height: 15rem;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 800px) {
-    #about .profile-img {
-        width: 15rem;
-        height: 15rem;
+        width: 12rem;
+        height: 12rem;
     }
 }
 
@@ -376,13 +369,7 @@ b {
     z-index: 2;
 }
 
-@media screen and (min-width: 1300px) {
-    #about .profile-container {
-        width: 48rem;
-    }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1300px) {
+@media screen and (min-width: 800px) {
     #about .profile-container {
         width: 48rem;
     }
@@ -404,7 +391,7 @@ b {
 }
 
 #about .intro-title {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: #fff;
     margin-bottom: 0.4rem;
@@ -412,8 +399,7 @@ b {
 
 #about .intro-text {
     color: #b3b3b3;
-    font-size: 0.9rem;
-    font-weight: 200;
+    font-size: 1rem;
 }
 
 #about .info-container {
@@ -424,7 +410,6 @@ b {
     align-items: flex-start;
     justify-content: space-between;
     z-index: 2;
-    font-size: 0.5rem;
 }
 
 #about .item-container {
@@ -433,7 +418,13 @@ b {
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #about .item-container {
+        margin-bottom: 1.5rem;
+    }
 }
 
 #about .item {
@@ -441,8 +432,8 @@ b {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: 0.8rem;
     color: #cecece;
+    font-size: 0.8rem;
 }
 
 #about .item-title {
@@ -468,16 +459,6 @@ b {
     justify-content: space-around;
 }
 
-#experience .bg {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    height: 100vh;
-    width: 100vw;
-    background-color: #000;
-    align-self: center;
-}
-
 #experience .bg-image {
     position: fixed;
     top: 0;
@@ -489,7 +470,7 @@ b {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     background-image: url('../experience-bg.jpg');
-    opacity: 0.2;
+    opacity: 0.3;
     background-size: cover;
     align-self: center;
 }
@@ -505,7 +486,6 @@ b {
         transform: scale(1);
     }
 }
-
 #experience .title {
     z-index: 3;
     font-size: 4.5rem;

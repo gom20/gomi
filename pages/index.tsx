@@ -21,16 +21,21 @@ export default function Home() {
         let timer: null | NodeJS.Timeout;
         const handleWheel = (e: WheelEvent) => {
             if (timer) return;
+
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? true : false;
                 if (e.deltaY > 0 && (!hasScroll || (hasScroll && window.innerHeight + window.scrollY >= document.body.offsetHeight))) {
+                    window.removeEventListener('wheel', handleWheel);
                     nextPage();
                 }
             }, 500);
         };
 
-        window.addEventListener('wheel', handleWheel);
+        setTimeout(function () {
+            window.addEventListener('wheel', handleWheel);
+        }, 1000);
+
         return () => {
             window.removeEventListener('wheel', handleWheel);
         };

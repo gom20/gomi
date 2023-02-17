@@ -11,6 +11,7 @@ Contact.getLayout = function getLayout(page: ReactElement) {
 };
 export default function Contact() {
     const { setTargetPage, targetPage, pages } = useContext(AppContext);
+    let isTransitioning = false;
     const prevPage = () => {
         setTargetPage(pages[pages.indexOf(targetPage) - 1]);
     };
@@ -18,18 +19,23 @@ export default function Contact() {
     useEffect(() => {
         let timer: null | NodeJS.Timeout;
         const handleWheel = (e: WheelEvent) => {
-            if (timer) return;
+            if (timer || isTransitioning) return;
 
             timer = setTimeout(function () {
                 timer = null;
                 let hasScroll = window.innerHeight == document.body.offsetHeight ? false : true;
                 if (e.deltaY < 0 && (!hasScroll || (hasScroll && scrollY == 0))) {
+                    isTransitioning = true;
+                    window.removeEventListener('wheel', handleWheel);
                     prevPage();
                 }
             }, 500);
         };
-        window.addEventListener('wheel', handleWheel);
+        setTimeout(function () {
+            window.addEventListener('wheel', handleWheel);
+        }, 1000);
         return () => {
+            console.log('unmount');
             window.removeEventListener('wheel', handleWheel);
         };
     }, []);
@@ -58,7 +64,7 @@ export default function Contact() {
                 animate={{ rotateX: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
                 className="desc">
-                문의 사항은 언제나 환영합니다.
+                문의 사항은 이메일로 보내주시기 바랍니다.
             </motion.div>
             <motion.div
                 initial={{ rotateX: 90, opacity: 0 }}

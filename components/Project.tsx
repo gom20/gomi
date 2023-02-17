@@ -1,6 +1,4 @@
-import { AppProps } from 'next/app';
 import { motion } from 'framer-motion';
-import { fontSize } from '@mui/system';
 
 type Props = {
     page: number;
@@ -122,11 +120,11 @@ export default function Project(props: Props) {
                     <div className="career">
                         <div className="career-intro">
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
-                                <div className="career-gradi" style={{ color: '#2ad883', fontSize: '7rem', lineHeight: 1, fontFamily: 'Raleway' }}>
-                                    8&nbsp;
+                                <div className="career-gradi" style={{ color: '#2ad883', fontSize: '7rem', lineHeight: 1 }}>
+                                    8
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                                    <div style={{ fontSize: '2rem', fontWeight: '300' }}>years</div>
+                                    <div style={{ fontSize: '1.8rem', fontWeight: '300' }}>&nbsp;years</div>
                                 </div>
                             </div>
                             <div>working as a</div>
