@@ -164,11 +164,14 @@ export default function About() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, ease: 'easeInOut', delay: 1.3 }}
                         className="intro-text">
-                        Throughout my eight years as a software engineer, I worked on various projects such as developing Smart TV web applications,
-                        web servers, and maintaining the semiconductor manufacturing system.
+                        Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications,
+                        web servers, and maintaining the semiconductor manufacturing system. My job on this last project was to run a system that
+                        analyzed the amount of material used in the semiconductor production process, where I mainly monitored the system and modified
+                        server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to
+                        deal with a large amount of data based on the Oracle Exadata database.
                     </motion.div>
                 </div>
-                <div className="info-container">
+                {/* <div className="info-container">
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
@@ -237,7 +240,7 @@ export default function About() {
                             <div className="name">JLPT N3</div>
                         </div>
                     </motion.div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

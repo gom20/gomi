@@ -40,13 +40,13 @@ const items = [
         key: 4,
         title: 'IDE',
         skill: 'Eclipse | VisualStudio | intelliJ ',
-        desc: 'Java 로 개발하는 업무는 대부분 Eclipse IDE를 사용하였습니다. ' + '프론트엔드 개발은 주로 Visual Studio를 사용합니다. ',
+        desc: 'Java 로 개발하는 업무는 주로 Eclipse IDE를 사용하였습니다. ' + '프론트엔드 개발은 주로 Visual Studio를 사용합니다. ',
     },
     {
         key: 5,
         title: 'Version Control',
         skill: 'Github | SVN',
-        desc: '실무에서 SVN과 Git 모두 사용한 경험이 있습니다. 현재는 주로 Github를 사용하여 형상 관리를 하고 있습니다. ',
+        desc: '실무에서 SVN과 Git 모두 사용한 경험이 있습니다. 현재는 Github를 사용하여 형상 관리를 하고 있습니다. ',
     },
     {
         key: 6,
