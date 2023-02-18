@@ -400,6 +400,7 @@ b {
 #about .intro-text {
     color: #b3b3b3;
     font-size: 1rem;
+    font-weight: 200;
 }
 
 #about .info-container {
