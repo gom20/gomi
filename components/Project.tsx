@@ -9,17 +9,17 @@ export default function Project(props: Props) {
         {
             key: 1,
         },
+        // {
+        //     key: 2,
+        //     time: '2022. 01 - 2022.04',
+        //     duration: '4개월',
+        //     company: '한화 솔루션',
+        //     title: 'MES 시스템 운영',
+        //     desc: '한화 솔루션의 MES 시스템을 운영하였습니다.',
+        //     skill: 'Java | Spring Framework | Javacript | React | MySQL | Eclipse | Visual Studio',
+        // },
         {
             key: 2,
-            time: '2022. 01 - 2022.04',
-            duration: '4개월',
-            company: '한화 솔루션',
-            title: 'MES 시스템 운영',
-            desc: '한화 솔루션의 MES 시스템을 운영하였습니다.',
-            skill: 'Java | Spring Framework | Javacript | React | MySQL | Eclipse | Visual Studio',
-        },
-        {
-            key: 3,
             time: '2021. 04 - 2021.07',
             duration: '4개월',
             company: '삼성전자 반도체',
@@ -32,7 +32,7 @@ export default function Project(props: Props) {
             skill: 'Java | OracleSQL | PeakPerformance | Linux |  Eclipse',
         },
         {
-            key: 4,
+            key: 3,
             time: '2017.11 - 2020.07',
             duration: '2년 8개월',
             company: '삼성전자 반도체',
@@ -46,7 +46,7 @@ export default function Project(props: Props) {
                 '주로 사용한 기술은 Java와 Oracle SQL입니다. ',
         },
         {
-            key: 5,
+            key: 4,
             time: '2014.12 - 2017.10',
             company: '삼성 SDS',
             duration: '2년 10개월',
@@ -60,7 +60,7 @@ export default function Project(props: Props) {
                 '화면의 경우 HTML, Javascript, jQuery를 주로 사용하였고, jqGrid 라이브러리로 게시판을 개발하였습니다. ',
         },
         {
-            key: 6,
+            key: 5,
             time: '2013.05 - 2014.11',
             duration: '1년 6개월',
             company: '삼성전자',
@@ -89,12 +89,12 @@ export default function Project(props: Props) {
             desc: 'Freelancer',
             duration: '(2021.04-2021.07)',
         },
-        {
-            key: 3,
-            title: '한화시스템',
-            desc: 'Software Engineer',
-            duration: '(2022.01-2022.04)',
-        },
+        // {
+        //     key: 3,
+        //     title: '한화시스템',
+        //     desc: 'Software Engineer',
+        //     duration: '(2022.01-2022.04)',
+        // },
     ];
 
     const render = () => {
