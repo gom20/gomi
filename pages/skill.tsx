@@ -8,6 +8,7 @@ import DvrIcon from '@mui/icons-material/Dvr';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import TerminalIcon from '@mui/icons-material/Terminal';
+import Head from 'next/head';
 
 Skill.getLayout = function getLayout(page: ReactElement) {
     return <AppLayout>{page}</AppLayout>;
@@ -95,21 +96,27 @@ export default function Skill() {
     }, []);
 
     return (
-        <div id="skill" className="container">
-            <div className="bg"></div>
-            <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1, type: 'spring', delay: 0.5 }}
-                className="title">
-                Skill-Set
-            </motion.div>
-            <div className="item-container">
-                {items.map((item) => {
-                    return <SkillItem data={item} key={item.key}></SkillItem>;
-                })}
+        <>
+            <Head>
+                <title>Miyoung Ko | Web Developer</title>
+                <meta name="description" content="Miyoung Ko | Home" />
+            </Head>
+            <div id="skill" className="container">
+                <div className="bg"></div>
+                <motion.div
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1, type: 'spring', delay: 0.5 }}
+                    className="title">
+                    Skill-Set
+                </motion.div>
+                <div className="item-container">
+                    {items.map((item) => {
+                        return <SkillItem data={item} key={item.key}></SkillItem>;
+                    })}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

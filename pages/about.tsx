@@ -1,6 +1,7 @@
 import { AppContext } from '@/layouts/AppContext';
 import AppLayout from '@/layouts/AppLayout';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import Link from 'next/link';
 import { ReactElement, useContext, useEffect } from 'react';
 
@@ -46,132 +47,137 @@ export default function About() {
     }, []);
 
     return (
-        <div id="about" className="container">
-            <motion.div
-                key="about-circle-menu"
-                className="circle-menu"
-                initial={{
-                    rotate: 0,
-                    right: -800,
-                    opacity: 0,
-                }}
-                animate={{
-                    rotate: 360,
-                    right: -300,
-                    opacity: 1,
-                }}
-                transition={{
-                    duration: 2,
-                    ease: 'easeInOut',
-                    delay: 0.7,
-                }}>
-                <div className="link-container">
-                    <motion.div whileHover={{ scale: 1.02 }} style={{ marginLeft: '0.8rem' }}>
-                        <Link href={'https://github.com/gom20'} target="_blank" className="link">
-                            Github
-                        </Link>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02 }}>
-                        <Link href={'https://gom20.tistory.com'} target="_blank" className="link">
-                            Blog
-                        </Link>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02 }} style={{ marginLeft: '0.8rem' }}>
-                        <Link href={'https://open.kakao.com/o/swKFAh4e'} target="_blank" className="link">
-                            Kakao
-                        </Link>
-                    </motion.div>
-                </div>
-            </motion.div>
-            <motion.div
-                key="about-profile-bg-up"
-                className="profile-bg"
-                initial={{
-                    top: '-51vh',
-                    opacity: 0,
-                }}
-                animate={{
-                    top: 0,
-                    opacity: 1,
-                    display: 'block',
-                }}
-                transition={{
-                    duration: 1,
-                    ease: 'easeInOut',
-                    delay: 0.7,
-                }}
-            />
-            <motion.div
-                key="about-profile-bg-down"
-                className="profile-bg"
-                initial={{
-                    bottom: '-51vh',
-                    opacity: 0,
-                    zIndex: 2,
-                }}
-                animate={{
-                    bottom: 0,
-                    opacity: 1,
-                    zIndex: 2,
-                }}
-                transition={{
-                    duration: 1,
-                    ease: 'easeInOut',
-                    delay: 0.7,
-                }}
-            />
-            <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1, type: 'spring', delay: 0.7 }}
-                className="title">
-                <div>About&nbsp;</div>
-                <div style={{ color: '#FFF' }}>Me</div>
-            </motion.div>
-            <motion.div
-                initial={{
-                    opacity: 0,
-                    rotateY: 90,
-                }}
-                animate={{
-                    opacity: 1,
-                    rotateY: 0,
-                }}
-                transition={{
-                    duration: 1,
-                    ease: 'easeInOut',
-                    delay: 0.8,
-                }}
-                className="profile-img-container">
-                <img className="profile-img" src="/profile-image.jpg" alt="profile" />
-            </motion.div>
-            <div className="profile-container">
-                <div className="intro-text-container">
-                    <motion.div className="intro-title">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1, ease: 'easeInOut', delay: 0.9 }}
-                            className="flex-row">
-                            <b className="gradation-text">Miyoung Go</b>
+        <>
+            <Head>
+                <title>Miyoung Ko | Web Developer</title>
+                <meta name="description" content="Miyoung Ko | Home" />
+            </Head>
+            <div id="about" className="container">
+                <motion.div
+                    key="about-circle-menu"
+                    className="circle-menu"
+                    initial={{
+                        rotate: 0,
+                        right: -800,
+                        opacity: 0,
+                    }}
+                    animate={{
+                        rotate: 360,
+                        right: -300,
+                        opacity: 1,
+                    }}
+                    transition={{
+                        duration: 2,
+                        ease: 'easeInOut',
+                        delay: 0.7,
+                    }}>
+                    <div className="link-container">
+                        <motion.div whileHover={{ scale: 1.02 }} style={{ marginLeft: '0.8rem' }}>
+                            <Link href={'https://github.com/gom20'} target="_blank" className="link">
+                                Github
+                            </Link>
                         </motion.div>
-                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeInOut', delay: 1.1 }}>
-                            I'm a Web Developer.
-                        </motion.p>
-                    </motion.div>
-                    <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, ease: 'easeInOut', delay: 1.3 }}
-                        className="intro-text">
-                        Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web applications,
-                        web servers, and maintaining the semiconductor manufacturing system. My job on this last project was to run a system that
-                        analyzed the amount of material used in the semiconductor production process, where I mainly monitored the system and modified
-                        server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was a good opportunity to
-                        deal with a large amount of data based on the Oracle Exadata database.
-                    </motion.div>
-                </div>
-                {/* <div className="info-container">
+                        <motion.div whileHover={{ scale: 1.02 }}>
+                            <Link href={'https://gom20.tistory.com'} target="_blank" className="link">
+                                Blog
+                            </Link>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.02 }} style={{ marginLeft: '0.8rem' }}>
+                            <Link href={'https://open.kakao.com/o/swKFAh4e'} target="_blank" className="link">
+                                Kakao
+                            </Link>
+                        </motion.div>
+                    </div>
+                </motion.div>
+                <motion.div
+                    key="about-profile-bg-up"
+                    className="profile-bg"
+                    initial={{
+                        top: '-51vh',
+                        opacity: 0,
+                    }}
+                    animate={{
+                        top: 0,
+                        opacity: 1,
+                        display: 'block',
+                    }}
+                    transition={{
+                        duration: 1,
+                        ease: 'easeInOut',
+                        delay: 0.7,
+                    }}
+                />
+                <motion.div
+                    key="about-profile-bg-down"
+                    className="profile-bg"
+                    initial={{
+                        bottom: '-51vh',
+                        opacity: 0,
+                        zIndex: 2,
+                    }}
+                    animate={{
+                        bottom: 0,
+                        opacity: 1,
+                        zIndex: 2,
+                    }}
+                    transition={{
+                        duration: 1,
+                        ease: 'easeInOut',
+                        delay: 0.7,
+                    }}
+                />
+                <motion.div
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1, type: 'spring', delay: 0.7 }}
+                    className="title">
+                    <div>About&nbsp;</div>
+                    <div style={{ color: '#FFF' }}>Me</div>
+                </motion.div>
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        rotateY: 90,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        rotateY: 0,
+                    }}
+                    transition={{
+                        duration: 1,
+                        ease: 'easeInOut',
+                        delay: 0.8,
+                    }}
+                    className="profile-img-container">
+                    <img className="profile-img" src="/profile-image.jpg" alt="profile" />
+                </motion.div>
+                <div className="profile-container">
+                    <div className="intro-text-container">
+                        <motion.div className="intro-title">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1, ease: 'easeInOut', delay: 0.9 }}
+                                className="flex-row">
+                                <b className="gradation-text">Miyoung Go</b>
+                            </motion.div>
+                            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeInOut', delay: 1.1 }}>
+                                I'm a Web Developer.
+                            </motion.p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 1, ease: 'easeInOut', delay: 1.3 }}
+                            className="intro-text">
+                            Throughout my seven years as a software engineer, I worked on various projects such as developing Smart TV web
+                            applications, web servers, and maintaining the semiconductor manufacturing system. My job on this last project was to run
+                            a system that analyzed the amount of material used in the semiconductor production process, where I mainly monitored the
+                            system and modified server code. When there were user requests, I wrote SQL queries and extracted data accordingly. It was
+                            a good opportunity to deal with a large amount of data based on the Oracle Exadata database.
+                        </motion.div>
+                    </div>
+                    {/* <div className="info-container">
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
@@ -241,7 +247,8 @@ export default function About() {
                         </div>
                     </motion.div>
                 </div> */}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
