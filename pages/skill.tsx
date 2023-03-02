@@ -19,17 +19,13 @@ const items = [
         key: 1,
         title: 'Back-end',
         skill: 'Java | SpringBoot | OracleSQL',
-        desc:
-            'Retail 솔루션 개발 업무로 Spring 기반 웹서버를 개발한 경험이 있습니다. ' +
-            'MES 시스템 운영 업무로 Java 기반의 배치 프로그램을 유지보수 하였습니다.',
+        desc: 'Retail 솔루션 개발 업무로 Spring 기반 웹서버를 개발한 경험이 있습니다. ' + 'MES 시스템 운영 업무로 Java 기반의 배치 프로그램을 유지보수 하였습니다.',
     },
     {
         key: 2,
         title: 'Front-end',
         skill: 'Javascript | Typescript | React | Redux',
-        desc:
-            'Smart TV 웹앱 개발자로 경력을 시작했습니다. ' +
-            'Javascript, HTML, CSS와 같은 기본적인 프론트엔드 가술에 익숙하며 최신 프론트엔드 기술도 지속적으로 학습하고 있습니다.',
+        desc: 'Smart TV 웹앱 개발자로 경력을 시작했습니다. ' + 'Javascript, HTML, CSS와 같은 기본적인 프론트엔드 가술에 익숙하며 최신 프론트엔드 기술도 지속적으로 학습하고 있습니다.',
     },
     {
         key: 3,
@@ -40,8 +36,8 @@ const items = [
     {
         key: 4,
         title: 'IDE',
-        skill: 'Eclipse | VisualStudio | intelliJ ',
-        desc: 'Java 로 개발하는 업무는 주로 Eclipse IDE를 사용하였습니다. ' + '프론트엔드 개발은 주로 Visual Studio를 사용합니다. ',
+        skill: 'Eclipse | VisualStudioCode | intelliJ ',
+        desc: 'Java 로 개발하는 업무는 주로 Eclipse IDE를 사용하였습니다. ' + '프론트엔드 개발은 주로 Visual Studio Code를 사용합니다. ',
     },
     {
         key: 5,
@@ -103,11 +99,7 @@ export default function Skill() {
             </Head>
             <div id="skill" className="container">
                 <div className="bg"></div>
-                <motion.div
-                    initial={{ x: -100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 1, type: 'spring', delay: 0.5 }}
-                    className="title">
+                <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, type: 'spring', delay: 0.5 }} className="title">
                     Skill-Set
                 </motion.div>
                 <div className="item-container">

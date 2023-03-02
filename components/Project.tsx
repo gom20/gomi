@@ -9,15 +9,6 @@ export default function Project(props: Props) {
         {
             key: 1,
         },
-        // {
-        //     key: 2,
-        //     time: '2022. 01 - 2022.04',
-        //     duration: '4개월',
-        //     company: '한화 솔루션',
-        //     title: 'MES 시스템 운영',
-        //     desc: '한화 솔루션의 MES 시스템을 운영하였습니다.',
-        //     skill: 'Java | Spring Framework | Javacript | React | MySQL | Eclipse | Visual Studio',
-        // },
         {
             key: 2,
             time: '2021. 04 - 2021.07',
@@ -148,45 +139,20 @@ export default function Project(props: Props) {
                 <div className="project">
                     <div className="project-bg"></div>
                     <div className="work">
-                        <motion.div
-                            key={'work-company-' + work.key}
-                            initial={{ rotateX: 90, opacity: 0 }}
-                            animate={{ rotateX: 0, opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0 }}
-                            className="work-company">
+                        <motion.div key={'work-company-' + work.key} initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0 }} className="work-company">
                             {work.company}
                         </motion.div>
-                        <motion.div
-                            key={'work-title-' + work.key}
-                            initial={{ rotateX: 90, opacity: 0 }}
-                            animate={{ rotateX: 0, opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="work-title">
+                        <motion.div key={'work-title-' + work.key} initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }} className="work-title">
                             {work.title}
                         </motion.div>
-                        <motion.div
-                            key={'work-duration-' + work.key}
-                            initial={{ rotateX: 90, opacity: 0 }}
-                            animate={{ rotateX: 0, opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                            className="work-duration">
+                        <motion.div key={'work-duration-' + work.key} initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }} className="work-duration">
                             {work.time} ({work.duration})
                         </motion.div>
 
-                        <motion.div
-                            key={'work-skill-' + work.key}
-                            initial={{ rotateX: 90, opacity: 0 }}
-                            animate={{ rotateX: 0, opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                            className="work-skill">
+                        <motion.div key={'work-skill-' + work.key} initial={{ rotateX: 90, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="work-skill">
                             {work.skill}
                         </motion.div>
-                        <motion.div
-                            key={'work-desc-' + +work.key}
-                            initial={{ rotateX: 0, opacity: 0 }}
-                            animate={{ rotateX: 0, opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.9 }}
-                            className="work-desc">
+                        <motion.div key={'work-desc-' + +work.key} initial={{ rotateX: 0, opacity: 0 }} animate={{ rotateX: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.9 }} className="work-desc">
                             {work.desc}
                         </motion.div>
                     </div>
